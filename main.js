@@ -185,7 +185,7 @@ function renderHeader() {
     <header class="site-header">
       <div class="header-inner">
         <a href="${base}index.html" class="logo-link">
-          <img src="${base}images/logo/logo.png" alt="AudioPionner">
+          <img src="${base}logo.png" alt="AudioPionner">
         </a>
         <nav class="main-nav">
           <a href="${base}muebles.html">Muebles</a>
@@ -216,7 +216,7 @@ function renderFooter() {
     <footer>
       <div class="footer-inner">
         <div>
-          <div class="footer-logo"><img src="${base}images/logo/logo-white.png" alt="AudioPionner"></div>
+          <div class="footer-logo"><img src="${base}logo-white.png" alt="AudioPionner"></div>
           <p style="font-size:.82rem; color:#B7C0D2; max-width:280px;">Tecnología, hogar y electrodomésticos en Santa Marta y Ciénaga. Envíos a toda Colombia.</p>
         </div>
         <div>
