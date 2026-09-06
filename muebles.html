@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muebles — AudioPionner</title>
+<link rel="icon" href="images/logo/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<span data-relpath=""></span>
+<div id="siteHeader"></div>
+
+<div class="container">
+  <div class="breadcrumbs"><a href="index.html">Inicio</a> / <span id="bcLabel">Muebles</span></div>
+
+  <div class="section-head" style="margin-bottom:10px;">
+    <div>
+      <h1 id="pageTitle" style="font-size:clamp(1.8rem,3vw,2.6rem);">Muebles</h1>
+      <p id="pageSubtitle" style="color:var(--text-muted); margin-top:6px;">Salas, comedores, camas y piezas complementarias — diseño AudioPionner.</p>
+    </div>
+  </div>
+
+  <div class="filters-bar">
+    <div class="tabs" id="subTabs"></div>
+    <select class="sort-select" id="sortSelect">
+      <option value="relevance">Ordenar: Relevancia</option>
+      <option value="price-asc">Precio: menor a mayor</option>
+      <option value="price-desc">Precio: mayor a menor</option>
+      <option value="name">Nombre A-Z</option>
+    </select>
+  </div>
+
+  <p id="resultCount" style="font-size:.82rem; color:var(--text-muted); margin:-10px 0 18px;"></p>
+
+  <div class="product-grid" id="productGrid"></div>
+  <div id="emptyState" class="empty-cat" style="display:none;">
+    <h3>Próximamente</h3>
+    <p>Todavía no tenemos productos cargados en esta subcategoría. Escríbenos por WhatsApp y te ayudamos a encontrar lo que buscas.</p>
+  </div>
+</div>
+
+<div style="height:60px;"></div>
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+const SUBCATS = [
+  { key: "all", label: "Todos" },
+  { key: "sala", label: "Juegos de Sala" },
+  { key: "comedor", label: "Juegos de Comedor" },
+  { key: "camas", label: "Camas" },
+  { key: "consolas", label: "Consolas" },
+  { key: "centro-mesa", label: "Centro de Mesa" },
+  { key: "tocadores", label: "Tocadores y Mecedoras" },
+];
+
+function getParam(name){
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+let currentSub = getParam("sub") || "all";
+let currentSort = "relevance";
+let promoOnly = getParam("promo") === "1";
+
+function renderTabs(){
+  document.getElementById("subTabs").innerHTML = SUBCATS.map(s => `
+    <button class="tab ${s.key===currentSub?'active':''}" onclick="setSub('${s.key}')">${s.label}</button>
+  `).join("");
+}
+function setSub(key){
+  currentSub = key;
+  promoOnly = false;
+  const url = new URL(window.location);
+  if(key === 'all') url.searchParams.delete('sub'); else url.searchParams.set('sub', key);
+  url.searchParams.delete('promo');
+  window.history.replaceState({}, '', url);
+  renderTabs();
+  renderGrid();
+}
+
+function productCard(p){
+  const hasDiscount = p.compareAtPrice && p.compareAtPrice > p.price;
+  const pct = hasDiscount ? Math.round((1 - p.price/p.compareAtPrice)*100) : 0;
+  return `
+  <a href="producto.html?id=${p.id}" class="product-card">
+    <div class="img-wrap">
+      ${hasDiscount ? `<span class="badge">-${pct}%</span>` : ""}
+      <img src="${p.image}" alt="${p.name}" loading="lazy">
+    </div>
+    <div class="body">
+      <span class="cat">${p.subcategoryLabel}</span>
+      <span class="name">${p.name}</span>
+      <div class="price-row">
+        <span class="price">${formatCOP(p.price)}</span>
+        ${hasDiscount ? `<span class="price-old">${formatCOP(p.compareAtPrice)}</span>` : ""}
+      </div>
+    </div>
+  </a>`;
+}
+
+function renderGrid(){
+  let list = PRODUCTS.filter(p => currentSub === "all" || p.subcategory === currentSub);
+  if(promoOnly) list = list.filter(p => p.compareAtPrice);
+
+  if(currentSort === "price-asc") list.sort((a,b)=>a.price-b.price);
+  else if(currentSort === "price-desc") list.sort((a,b)=>b.price-a.price);
+  else if(currentSort === "name") list.sort((a,b)=>a.name.localeCompare(b.name));
+
+  const grid = document.getElementById("productGrid");
+  const empty = document.getElementById("emptyState");
+  document.getElementById("resultCount").textContent = `${list.length} producto${list.length!==1?'s':''}`;
+
+  if(list.length === 0){
+    grid.style.display = "none";
+    empty.style.display = "block";
+  } else {
+    grid.style.display = "grid";
+    empty.style.display = "none";
+    grid.innerHTML = list.map(productCard).join("");
+  }
+
+  const sub = SUBCATS.find(s=>s.key===currentSub);
+  document.getElementById("pageTitle").textContent = promoOnly ? "Promociones" : (sub ? sub.label : "Muebles");
+  document.getElementById("bcLabel").textContent = sub ? sub.label : "Muebles";
+}
+
+document.getElementById("sortSelect").addEventListener("change", (e)=>{
+  currentSort = e.target.value;
+  renderGrid();
+});
+
+renderTabs();
+renderGrid();
+</script>
+</body>
+</html>

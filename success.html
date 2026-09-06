@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Pago confirmado! — AudioPionner</title>
+<link rel="icon" href="images/logo/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<span data-relpath=""></span>
+<div id="siteHeader"></div>
+
+<div class="container" style="padding-top:20px; padding-bottom:60px;">
+  <div id="successWrap"></div>
+</div>
+
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+function generateCode(){
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code = "AP-";
+  for(let i=0;i<5;i++) code += chars[Math.floor(Math.random()*chars.length)];
+  return code;
+}
+
+const params = new URLSearchParams(window.location.search);
+const pending = JSON.parse(sessionStorage.getItem("ap_pending_order") || "null");
+
+const wrap = document.getElementById("successWrap");
+
+if(!pending){
+  wrap.innerHTML = `<div class="empty-state">
+    <h3>No encontramos datos de un pedido reciente</h3>
+    <p>Si acabas de pagar, revisa tu correo de confirmación de Stripe.</p>
+    <a href="index.html" class="btn btn-primary" style="margin-top:14px;">Volver al inicio</a>
+  </div>`;
+} else {
+  const code = generateCode();
+  const total = pending.items.reduce((sum,i)=>{
+    const p = PRODUCTS.find(p=>p.id===i.id);
+    return p ? sum + p.price*i.qty : sum;
+  }, 0);
+
+  wrap.innerHTML = `
+    <div class="confirm-code-box" style="background:#16825A;">
+      <p style="opacity:.9; font-size:.9rem;">✓ Pago aprobado por Stripe (modo prueba)</p>
+      <div class="code">${code}</div>
+      <p style="opacity:.9; font-size:.85rem;">
+        ${pending.fulfillment === 'pickup'
+          ? `Muestra este código en <strong>${pending.store.city} — ${pending.store.address}</strong> para recoger tu pedido.`
+          : `Guarda este código para hacer seguimiento a tu envío.`}
+      </p>
+      <p style="opacity:.75; font-size:.78rem; margin-top:14px;">Total pagado: ${formatCOP(total)}</p>
+    </div>
+    <div style="text-align:center; margin-top:24px;">
+      <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+      <a href="https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent('Hola, mi código de pedido es '+code)}" target="_blank" class="btn btn-outline" style="margin-left:10px;">Escribir por WhatsApp</a>
+    </div>
+  `;
+  localStorage.setItem("ap_cart", "[]");
+  sessionStorage.removeItem("ap_pending_order");
+  document.addEventListener("DOMContentLoaded", updateCartCount);
+  updateCartCount();
+}
+</script>
+</body>
+</html>

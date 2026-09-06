@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — AudioPionner</title>
+<link rel="icon" href="images/logo/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<span data-relpath=""></span>
+<div id="siteHeader"></div>
+
+<div class="container">
+  <div class="breadcrumbs"><a href="index.html">Inicio</a> / <a href="carrito.html">Carrito</a> / Checkout</div>
+  <h1 style="font-size:2rem; margin-bottom:6px;">Finalizar compra</h1>
+  <p style="color:var(--text-muted); margin-bottom:10px;">Sitio demo académico — no se procesan pagos reales.</p>
+
+  <div id="checkoutWrap"></div>
+</div>
+
+<div style="height:60px;"></div>
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Support "buy now" from PDP via ?id=
+const buyNowId = new URLSearchParams(window.location.search).get("id");
+let checkoutItems = getCart();
+if(buyNowId && checkoutItems.length === 0){
+  checkoutItems = [{ id: parseInt(buyNowId), qty: 1 }];
+}
+
+let fulfillment = "pickup"; // pickup | delivery
+let selectedStore = STORE_INFO.stores[0];
+let payMethod = "card";
+
+function subtotalOf(items){
+  return items.reduce((sum,i)=>{
+    const p = PRODUCTS.find(p=>p.id===i.id);
+    return p ? sum + p.price*i.qty : sum;
+  }, 0);
+}
+
+function renderCheckout(){
+  const wrap = document.getElementById("checkoutWrap");
+  if(checkoutItems.length === 0){
+    wrap.innerHTML = `<div class="empty-state"><p>No tienes productos para pagar.</p><a href="muebles.html" class="btn btn-primary" style="margin-top:12px;">Ver muebles</a></div>`;
+    return;
+  }
+  const subtotal = subtotalOf(checkoutItems);
+  const shipping = fulfillment === "delivery" ? 65000 : 0;
+  const total = subtotal + shipping;
+
+  wrap.innerHTML = `
+    <div class="checkout-grid">
+      <div>
+        <div class="co-card">
+          <h3>1. Método de entrega</h3>
+          <div class="radio-opt ${fulfillment==='pickup'?'selected':''}" onclick="setFulfillment('pickup')">
+            <input type="radio" name="ff" ${fulfillment==='pickup'?'checked':''}>
+            <div><strong>Recoger en tienda — Gratis</strong><p style="margin:4px 0 0; font-size:.8rem; color:var(--text-muted);">Te avisamos por WhatsApp cuando tu pedido esté listo. Muestra tu código de confirmación al recogerlo.</p></div>
+          </div>
+          <div class="radio-opt ${fulfillment==='delivery'?'selected':''}" onclick="setFulfillment('delivery')">
+            <input type="radio" name="ff" ${fulfillment==='delivery'?'checked':''}>
+            <div><strong>Envío a nivel nacional</strong><p style="margin:4px 0 0; font-size:.8rem; color:var(--text-muted);">Costo estimado ${formatCOP(65000)}. El valor final y el tiempo de entrega se confirman según tu ciudad. Instalación no incluida.</p></div>
+          </div>
+
+          <div id="pickupStoreSelect" style="${fulfillment==='pickup'?'':'display:none'}; margin-top:12px;">
+            <label style="font-size:.8rem; font-weight:600; display:block; margin-bottom:6px;">Elige la sede</label>
+            <select class="sort-select" style="width:100%;" onchange="selectedStore = STORE_INFO.stores[this.value]">
+              ${STORE_INFO.stores.map((s,i)=>`<option value="${i}">${s.city} — ${s.address}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+
+        <div class="co-card">
+          <h3>2. Tus datos</h3>
+          <div class="form-grid-2">
+            <div class="form-row"><label>Nombre completo</label><input type="text" placeholder="Nombre y apellido" required></div>
+            <div class="form-row"><label>Cédula</label><input type="text" placeholder="Documento de identidad" required></div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row"><label>Celular</label><input type="tel" placeholder="300 000 0000" required></div>
+            <div class="form-row"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com" required></div>
+          </div>
+          <div class="form-row" id="addressRow" style="${fulfillment==='delivery'?'':'display:none'}">
+            <label>Dirección de envío</label>
+            <input type="text" placeholder="Dirección, ciudad, departamento">
+          </div>
+        </div>
+
+        <div class="co-card">
+          <h3>3. Método de pago</h3>
+          <div class="pay-methods">
+            <label class="pay-opt ${payMethod==='card'?'selected':''}" onclick="setPay('card')">
+              <input type="radio" name="pay" ${payMethod==='card'?'checked':''}> Tarjeta débito / crédito <span style="margin-left:auto; font-size:.68rem; background:#5433FF; color:#fff; padding:2px 8px; border-radius:4px;">STRIPE — PAGO REAL DE PRUEBA</span>
+            </label>
+            <label class="pay-opt ${payMethod==='pse'?'selected':''}" onclick="setPay('pse')">
+              <input type="radio" name="pay" ${payMethod==='pse'?'checked':''}> PSE — débito desde tu banco
+            </label>
+            <label class="pay-opt ${payMethod==='addi'?'selected':''}" onclick="setPay('addi')">
+              <input type="radio" name="pay" ${payMethod==='addi'?'checked':''}> Addi — paga a cuotas
+            </label>
+            <label class="pay-opt ${payMethod==='alo'?'selected':''}" onclick="setPay('alo')">
+              <input type="radio" name="pay" ${payMethod==='alo'?'checked':''}> Alo Credit — paga a cuotas
+            </label>
+            <label class="pay-opt ${payMethod==='banco'?'selected':''}" onclick="setPay('banco')">
+              <input type="radio" name="pay" ${payMethod==='banco'?'checked':''}> Banco de Bogotá — financiación
+            </label>
+          </div>
+          ${payMethod === 'card'
+            ? `<p style="font-size:.74rem; color:var(--text-soft); margin-top:12px;">Te llevará a la pasarela real de Stripe (modo prueba). Usa la tarjeta de prueba <strong>4242 4242 4242 4242</strong>, cualquier fecha futura y cualquier CVC para simular un pago aprobado.</p>`
+            : `<p style="font-size:.74rem; color:var(--text-soft); margin-top:12px;">Este método queda simulado en esta demo — no conectado a una pasarela real todavía.</p>`
+          }
+        </div>
+      </div>
+
+      <div>
+        <div class="co-card">
+          <h3>Resumen del pedido</h3>
+          ${checkoutItems.map(i=>{
+            const p = PRODUCTS.find(p=>p.id===i.id);
+            if(!p) return "";
+            return `<div style="display:flex; justify-content:space-between; font-size:.85rem; padding:8px 0; border-bottom:1px solid var(--border);">
+              <span>${p.name} × ${i.qty}</span><strong>${formatCOP(p.price*i.qty)}</strong>
+            </div>`;
+          }).join("")}
+          <div style="display:flex; justify-content:space-between; font-size:.85rem; padding:10px 0;"><span>Subtotal</span><span>${formatCOP(subtotal)}</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:.85rem; padding:0 0 10px;"><span>Envío</span><span>${shipping ? formatCOP(shipping) : 'Gratis'}</span></div>
+          <div class="cart-subtotal" style="border-top:1px solid var(--border); padding-top:12px;"><span>Total</span><span>${formatCOP(total)}</span></div>
+          <button class="btn btn-accent btn-block" id="confirmBtn" onclick="handleConfirm()">
+            ${payMethod === 'card' ? 'Pagar con Stripe' : 'Confirmar pedido'}
+          </button>
+          ${payMethod === 'card' ? `<p style="text-align:center; font-size:.72rem; color:var(--text-soft); margin-top:8px;">Serás redirigido a Stripe (sandbox) — no se cobra dinero real.</p>` : ""}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function setFulfillment(v){
+  fulfillment = v;
+  renderCheckout();
+}
+function setPay(v){
+  payMethod = v;
+  renderCheckout();
+}
+
+async function handleConfirm(){
+  if(payMethod === 'card'){
+    await payWithStripe();
+  } else {
+    confirmOrder();
+  }
+}
+
+async function payWithStripe(){
+  const btn = document.getElementById("confirmBtn");
+  btn.disabled = true;
+  btn.textContent = "Conectando con Stripe...";
+
+  // Guardamos los datos del pedido para recuperarlos en la página de éxito
+  sessionStorage.setItem("ap_pending_order", JSON.stringify({
+    items: checkoutItems, fulfillment, store: selectedStore
+  }));
+
+  const origin = window.location.origin + window.location.pathname.replace("checkout.html","");
+  try{
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        items: checkoutItems.map(i=>{
+          const p = PRODUCTS.find(p=>p.id===i.id);
+          return { name: p.name, price: p.price, qty: i.qty, image: window.location.origin + "/" + p.image };
+        }),
+        successUrl: origin + "success.html",
+        cancelUrl: origin + "checkout.html",
+      }),
+    });
+    const data = await res.json();
+    if(data.url){
+      window.location.href = data.url;
+    } else {
+      alert("No se pudo iniciar el pago: " + (data.error || "Error desconocido. ¿Ya desplegaste el sitio con la función activa?"));
+      btn.disabled = false;
+      btn.textContent = "Pagar con Stripe";
+    }
+  } catch(err){
+    alert("No se pudo conectar con la función de pago. Esto solo funciona una vez el sitio esté publicado en Netlify con la función activa (no funciona abriendo el archivo local).");
+    btn.disabled = false;
+    btn.textContent = "Pagar con Stripe";
+  }
+}
+
+function generateCode(){
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code = "AP-";
+  for(let i=0;i<5;i++) code += chars[Math.floor(Math.random()*chars.length)];
+  return code;
+}
+
+function confirmOrder(){
+  const code = generateCode();
+  const subtotal = subtotalOf(checkoutItems);
+  const shipping = fulfillment === "delivery" ? 65000 : 0;
+  const total = subtotal + shipping;
+
+  document.getElementById("checkoutWrap").innerHTML = `
+    <div class="confirm-code-box">
+      <p style="opacity:.85; font-size:.9rem;">¡Pedido registrado con éxito!</p>
+      <div class="code">${code}</div>
+      <p style="opacity:.9; font-size:.85rem;">
+        ${fulfillment === 'pickup'
+          ? `Muestra este código en <strong>${selectedStore.city} — ${selectedStore.address}</strong> para recoger tu pedido.`
+          : `Guarda este código: te servirá para hacer seguimiento a tu envío.`}
+      </p>
+      <p style="opacity:.75; font-size:.78rem; margin-top:14px;">Total del pedido: ${formatCOP(total)}</p>
+    </div>
+    <div style="text-align:center; margin-top:24px;">
+      <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+      <a href="https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent('Hola, mi código de pedido es '+code)}" target="_blank" class="btn btn-outline" style="margin-left:10px;">Escribir por WhatsApp</a>
+    </div>
+  `;
+  localStorage.setItem("ap_cart", "[]");
+  updateCartCount();
+}
+
+renderCheckout();
+</script>
+</body>
+</html>

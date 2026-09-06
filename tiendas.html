@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestras Tiendas — AudioPionner</title>
+<link rel="icon" href="images/logo/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<span data-relpath=""></span>
+<div id="siteHeader"></div>
+
+<div class="container">
+  <div class="breadcrumbs"><a href="index.html">Inicio</a> / Tiendas</div>
+  <h1 style="font-size:2rem; margin-bottom:8px;">Nuestras tiendas</h1>
+  <p style="color:var(--text-muted); margin-bottom:32px; max-width:560px;">Visítanos en Santa Marta o Ciénaga, o recoge tu pedido online en cualquiera de nuestras 4 sedes.</p>
+
+  <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:50px;" id="storesGrid"></div>
+
+  <div class="co-card">
+    <h3>Contacto</h3>
+    <p style="font-size:.9rem; color:var(--text-muted);">Sr. Carlos Rodríguez — Gerente<br>WhatsApp / Teléfono: 316 384 5802</p>
+  </div>
+</div>
+
+<div style="height:40px;"></div>
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.getElementById("storesGrid").innerHTML = STORE_INFO.stores.map(s => `
+  <div class="co-card" style="margin-bottom:0;">
+    <h3 style="display:flex; align-items:center; gap:8px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      ${s.city}
+    </h3>
+    <p style="font-size:.88rem; color:var(--text-muted);">${s.address}</p>
+    <p style="font-size:.78rem; color:var(--text-soft); margin-top:8px;">Recogida en tienda disponible ✓</p>
+  </div>
+`).join("");
+</script>
+</body>
+</html>

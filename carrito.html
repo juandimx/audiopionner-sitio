@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito — AudioPionner</title>
+<link rel="icon" href="images/logo/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<span data-relpath=""></span>
+<div id="siteHeader"></div>
+
+<div class="container">
+  <div class="breadcrumbs"><a href="index.html">Inicio</a> / Carrito</div>
+  <h1 style="font-size:2rem; margin-bottom:24px;">Tu carrito</h1>
+  <div id="cartPageWrap"></div>
+</div>
+
+<div style="height:60px;"></div>
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+function renderCartPage(){
+  const cart = getCart();
+  const wrap = document.getElementById("cartPageWrap");
+  if(cart.length === 0){
+    wrap.innerHTML = `<div class="empty-state">
+      <p>Tu carrito está vacío.</p>
+      <a href="muebles.html" class="btn btn-primary" style="margin-top:14px;">Ver muebles</a>
+    </div>`;
+    return;
+  }
+  const rows = cart.map(item=>{
+    const p = PRODUCTS.find(p=>p.id===item.id);
+    if(!p) return "";
+    return `
+    <div class="cart-item" style="align-items:center;">
+      <img src="${p.image}" alt="${p.name}">
+      <div class="ci-info">
+        <div class="ci-name">${p.name}</div>
+        <div class="ci-price">${formatCOP(p.price)} c/u</div>
+        <div class="qty-control" style="margin-top:8px; width:fit-content;">
+          <button onclick="setQty(${p.id}, ${item.qty-1})">–</button>
+          <span>${item.qty}</span>
+          <button onclick="setQty(${p.id}, ${item.qty+1})">+</button>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-weight:700;">${formatCOP(p.price*item.qty)}</div>
+        <button class="ci-remove" onclick="removeFromCart(${p.id})">Eliminar</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  wrap.innerHTML = `
+    <div style="display:grid; grid-template-columns:1.6fr 1fr; gap:32px; align-items:flex-start;">
+      <div>${rows}</div>
+      <div class="co-card">
+        <h3>Resumen</h3>
+        <div class="cart-subtotal"><span>Subtotal</span><span>${formatCOP(cartSubtotal())}</span></div>
+        <p style="font-size:.78rem; color:var(--text-muted); margin-bottom:16px;">Envío e instalación (si aplica) se calculan en el checkout.</p>
+        <a href="checkout.html" class="btn btn-accent btn-block">Finalizar compra</a>
+        <a href="muebles.html" class="btn btn-ghost btn-block" style="margin-top:8px;">Seguir comprando</a>
+      </div>
+    </div>
+  `;
+}
+document.addEventListener("DOMContentLoaded", renderCartPage);
+</script>
+</body>
+</html>

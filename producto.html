@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitleTag">Producto — AudioPionner</title>
+<link rel="icon" href="images/logo/logo.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<span data-relpath=""></span>
+<div id="siteHeader"></div>
+
+<div class="container">
+  <div class="breadcrumbs" id="breadcrumbs"></div>
+  <div class="pdp" id="pdpRoot"></div>
+
+  <section class="section" style="padding-top:0;">
+    <div class="section-head">
+      <div><h2>También te puede interesar</h2></div>
+    </div>
+    <div class="product-grid" id="relatedGrid"></div>
+  </section>
+</div>
+
+<div id="siteFooter"></div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+const id = parseInt(new URLSearchParams(window.location.search).get("id"));
+const product = PRODUCTS.find(p => p.id === id);
+
+if(!product){
+  document.getElementById("pdpRoot").innerHTML = `<div class="empty-state"><h3>Producto no encontrado</h3><a href="muebles.html" class="btn btn-primary" style="margin-top:12px;">Volver a muebles</a></div>`;
+} else {
+  document.title = product.name + " — AudioPionner";
+  document.getElementById("breadcrumbs").innerHTML = `
+    <a href="index.html">Inicio</a> / <a href="muebles.html">Muebles</a> /
+    <a href="muebles.html?sub=${product.subcategory}">${product.subcategoryLabel}</a> / ${product.name}
+  `;
+
+  const hasDiscount = product.compareAtPrice && product.compareAtPrice > product.price;
+  const pct = hasDiscount ? Math.round((1 - product.price/product.compareAtPrice)*100) : 0;
+  const installment = Math.round(product.price / 12);
+
+  document.getElementById("pdpRoot").innerHTML = `
+    <div class="pdp-gallery">
+      <div class="main-img"><img src="${product.image}" alt="${product.name}" id="mainImg"></div>
+    </div>
+    <div class="pdp-info">
+      <span class="brand">${product.brand}</span>
+      <h1>${product.name}</h1>
+      <div class="pdp-price-row">
+        <span class="pdp-price">${formatCOP(product.price)}</span>
+        ${hasDiscount ? `<span class="price-old">${formatCOP(product.compareAtPrice)}</span><span class="discount-pct">-${pct}%</span>` : ""}
+      </div>
+      <p class="pdp-installments">o 12 cuotas de ${formatCOP(installment)} con Addi, Alo Credit o Banco de Bogotá</p>
+      <div class="stock-ok">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Disponible — listo para recoger o enviar
+      </div>
+
+      <div class="qty-row">
+        <span style="font-weight:600; font-size:.85rem;">Cantidad</span>
+        <div class="qty-control">
+          <button onclick="changeQty(-1)">–</button>
+          <span id="qtyVal">1</span>
+          <button onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+
+      <div class="pdp-actions">
+        <button class="btn btn-primary btn-block" onclick="addToCart(${product.id}, window.__qty||1)">Agregar al carrito</button>
+        <a href="checkout.html?id=${product.id}" class="btn btn-accent btn-block">Comprar ahora</a>
+      </div>
+
+      <div class="fulfillment-box">
+        <div class="opt">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <div><h4>Recoger en tienda — gratis</h4><p>Disponible en las 4 sedes AudioPionner (Santa Marta y Ciénaga). Te avisamos por WhatsApp cuando esté listo.</p></div>
+        </div>
+        <div class="opt">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/></svg>
+          <div><h4>Envío a nivel nacional</h4><p>Instalación no incluida. Tiempos y costo de envío se confirman al finalizar la compra.</p></div>
+        </div>
+      </div>
+
+      <div class="finance-row">
+        <span class="finance-chip">Addi</span>
+        <span class="finance-chip">Alo Credit</span>
+        <span class="finance-chip">Banco de Bogotá</span>
+        <span class="finance-chip">PSE</span>
+        <span class="finance-chip">Tarjeta débito/crédito</span>
+      </div>
+
+      <div class="pdp-tabs">
+        <div class="tab-head">
+          <button class="active" onclick="switchTab(event,'desc')">Descripción</button>
+          <button onclick="switchTab(event,'specs')">Especificaciones</button>
+          <button onclick="switchTab(event,'shipping')">Envío y garantía</button>
+        </div>
+        <div class="tab-panel active" id="tab-desc"><p>${product.description}</p></div>
+        <div class="tab-panel" id="tab-specs">
+          ${Object.entries(product.specs).map(([k,v])=>`<div class="spec-row"><span>${k}</span><strong>${v}</strong></div>`).join("")}
+        </div>
+        <div class="tab-panel" id="tab-shipping">
+          <p>Envíos a todo el territorio nacional colombiano. La instalación no está incluida en el precio. Todas las piezas AudioPionner cuentan con garantía directa de fábrica de 12 meses por defectos de manufactura.</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  window.__qty = 1;
+  window.changeQty = (delta) => {
+    window.__qty = Math.max(1, window.__qty + delta);
+    document.getElementById("qtyVal").textContent = window.__qty;
+  };
+  window.switchTab = (e, key) => {
+    document.querySelectorAll(".tab-head button").forEach(b=>b.classList.remove("active"));
+    e.target.classList.add("active");
+    document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));
+    document.getElementById("tab-"+key).classList.add("active");
+  };
+
+  // Related products: same subcategory, excluding current
+  const related = PRODUCTS.filter(p => p.subcategory === product.subcategory && p.id !== product.id).slice(0,4);
+  function card(p){
+    const hd = p.compareAtPrice && p.compareAtPrice > p.price;
+    const pc = hd ? Math.round((1-p.price/p.compareAtPrice)*100) : 0;
+    return `<a href="producto.html?id=${p.id}" class="product-card">
+      <div class="img-wrap">${hd?`<span class="badge">-${pc}%</span>`:""}<img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+      <div class="body"><span class="cat">${p.subcategoryLabel}</span><span class="name">${p.name}</span>
+      <div class="price-row"><span class="price">${formatCOP(p.price)}</span>${hd?`<span class="price-old">${formatCOP(p.compareAtPrice)}</span>`:""}</div></div>
+    </a>`;
+  }
+  document.getElementById("relatedGrid").innerHTML = related.map(card).join("");
+}
+</script>
+</body>
+</html>

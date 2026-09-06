@@ -1,0 +1,9 @@
+{
+  "name": "audiopionner-sitio-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio demo AudioPionner — checkout con Stripe (sandbox)",
+  "dependencies": {
+    "stripe": "^17.4.0"
+  }
+}
