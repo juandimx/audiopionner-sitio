@@ -5,6 +5,7 @@ PRODUCTS.forEach((p) => {
   p.compareAtPrice = null;
   p.image = "../" + p.image;
   if (p.cutout) p.cutout = "../" + p.cutout;
+  if (p.gallery) p.gallery = p.gallery.map((g) => "../" + g);
   (p.colors || []).forEach((c) => {
     c.image = "../" + c.image;
     if (c.cutout) c.cutout = "../" + c.cutout;

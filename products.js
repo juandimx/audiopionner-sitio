@@ -2234,7 +2234,7 @@ const PRODUCTS = [
   },
   {
     "id": 100,
-    "slug": "colchon-pillow-top",
+    "slug": "colchones-en-todas-las-medidas",
     "category": "muebles",
     "price": null,
     "compareAtPrice": null,
@@ -2249,108 +2249,24 @@ const PRODUCTS = [
       "King 200 × 200 cm",
       "Medida especial"
     ],
-    "name": "Colchón Pillow Top",
+    "name": "Colchones en todas las medidas",
     "subcategory": "colchones",
     "subcategoryLabel": "Colchones",
     "image": "colchon-pillow-top.jpg",
-    "description": "Colchón con capa de confort acolchada en la parte superior (pillow top) para un descanso suave sin perder soporte.",
+    "description": "Tenemos varios tipos de colchones y en todas las medidas: ortopédicos, pillow top, de resortes pocket, resortados tradicionales, de espuma alta densidad y memory foam. Escríbenos y un asesor te ayuda a elegir el ideal según tu forma de dormir, tu espalda y tu presupuesto.",
     "specs": {
-      "Tipo": "Pillow top",
-      "Firmeza": "Suave a intermedia",
+      "Tipos": "Ortopédico, pillow top, resortes pocket, resortado tradicional, espuma alta densidad, memory foam",
+      "Firmeza": "Suave, intermedia o firme",
       "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
-      "Garantía": "Según fabricante"
+      "Asesoría": "Un asesor te recomienda el colchón ideal por WhatsApp"
     },
-    "cutout": "cutouts/colchon-pillow-top.webp"
-  },
-  {
-    "id": 101,
-    "slug": "colchon-ortopedico",
-    "category": "muebles",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "pickup": true,
-    "stock": null,
-    "sizes": [
-      "Sencillo 100 × 190 cm",
-      "Semidoble 120 × 190 cm",
-      "Doble 140 × 190 cm",
-      "Queen 160 × 190 cm",
-      "King 200 × 200 cm",
-      "Medida especial"
-    ],
-    "name": "Colchón Ortopédico",
-    "subcategory": "colchones",
-    "subcategoryLabel": "Colchones",
-    "image": "colchon-ortopedico.jpg",
-    "description": "Colchón firme que mantiene la columna alineada. Ideal si buscas un soporte más duro o tienes molestias de espalda.",
-    "specs": {
-      "Tipo": "Ortopédico",
-      "Firmeza": "Firme",
-      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
-      "Garantía": "Según fabricante"
-    },
-    "cutout": "cutouts/colchon-ortopedico.webp"
-  },
-  {
-    "id": 102,
-    "slug": "colchon-resortes-pocket",
-    "category": "muebles",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "pickup": true,
-    "stock": null,
-    "sizes": [
-      "Sencillo 100 × 190 cm",
-      "Semidoble 120 × 190 cm",
-      "Doble 140 × 190 cm",
-      "Queen 160 × 190 cm",
-      "King 200 × 200 cm",
-      "Medida especial"
-    ],
-    "name": "Colchón Resortes Pocket",
-    "subcategory": "colchones",
-    "subcategoryLabel": "Colchones",
-    "image": "colchon-resortes-pocket.jpg",
-    "description": "Resortes independientes que se adaptan al cuerpo y reducen el movimiento cuando duermen dos personas.",
-    "specs": {
-      "Tipo": "Resortes independientes (pocket)",
-      "Firmeza": "Intermedia",
-      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
-      "Garantía": "Según fabricante"
-    },
-    "cutout": "cutouts/colchon-resortes-pocket.webp"
-  },
-  {
-    "id": 103,
-    "slug": "colchon-espuma-alta-densidad",
-    "category": "muebles",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "pickup": true,
-    "stock": null,
-    "sizes": [
-      "Sencillo 100 × 190 cm",
-      "Semidoble 120 × 190 cm",
-      "Doble 140 × 190 cm",
-      "Queen 160 × 190 cm",
-      "King 200 × 200 cm",
-      "Medida especial"
-    ],
-    "name": "Colchón Espuma Alta Densidad",
-    "subcategory": "colchones",
-    "subcategoryLabel": "Colchones",
-    "image": "colchon-espuma-alta-densidad.jpg",
-    "description": "Colchón de espuma (foam) de alta densidad: liviano, sin resortes y con buen soporte. Opción práctica y económica.",
-    "specs": {
-      "Tipo": "Espuma alta densidad (foam)",
-      "Firmeza": "Semifirme",
-      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
-      "Garantía": "Según fabricante"
-    },
-    "cutout": "cutouts/colchon-espuma-alta-densidad.webp"
+    "cutout": "cutouts/colchon-pillow-top.webp",
+    "gallery": [
+      "colchon-pillow-top.jpg",
+      "colchon-ortopedico.jpg",
+      "colchon-resortes-pocket.jpg",
+      "colchon-espuma-alta-densidad.jpg"
+    ]
   },
   {
     "id": 104,

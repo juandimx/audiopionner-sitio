@@ -530,6 +530,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .confirm-code-box .code{ font-weight:700; letter-spacing:.08em; }
 
+/* Galería de fotos en la ficha */
+.pdp-thumbs{ display:flex; gap:8px; margin-top:10px; overflow-x:auto; }
+.pdp-thumb{ flex:0 0 72px; height:72px; padding:0; border:2px solid transparent; border-radius:10px; overflow:hidden; background:var(--surface-2); }
+.pdp-thumb img{ width:100%; height:100%; object-fit:cover; }
+.pdp-thumb.on{ border-color:var(--navy); }
+
 /* Medidas (colchones y bases) */
 .size-pick{ margin:4px 0 14px; }
 .size-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }

@@ -70,6 +70,7 @@ if(!product){
   document.getElementById("pdpRoot").innerHTML = `
     <div class="pdp-gallery">
       <div class="main-img" style="--img:url('${color ? color.image : product.image}')"><img src="${color ? color.image : product.image}" alt="${product.name}" id="mainImg" width="900" height="900"></div>
+      ${(product.gallery || []).length > 1 ? `<div class="pdp-thumbs">${product.gallery.map((g,i)=>`<button type="button" class="pdp-thumb${i===0?' on':''}" onclick="showImg(${i})" aria-label="Foto ${i+1}"><img src="${g}" alt=""></button>`).join("")}</div>` : ""}
     </div>
     <div class="pdp-info">
       <span class="brand">${product.brand}</span>
@@ -156,6 +157,11 @@ if(!product){
     </div>
   `;
 
+  window.showImg = (i) => {
+    const src = product.gallery[i], img = document.getElementById("mainImg");
+    img.src = src; img.parentElement.style.setProperty("--img", `url('${src}')`);
+    document.querySelectorAll(".pdp-thumb").forEach((b,k) => b.classList.toggle("on", k===i));
+  };
   window.pickSize = (i) => {
     size = sizes[i];
     document.getElementById("sizeName").textContent = size;
