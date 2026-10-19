@@ -54,9 +54,15 @@ if(!product){
   const hasDiscount = product.compareAtPrice && product.compareAtPrice > product.price;
   const pct = hasDiscount ? Math.round((1 - product.price/product.compareAtPrice)*100) : 0;
   const installment = product.price != null ? Math.round(product.price / 12) : 0;
-  const waLink = `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent(product.price != null
-    ? 'Hola AudioPionner, quiero información sobre ' + product.name + ' (' + formatCOP(product.price) + ').'
-    : 'Hola AudioPionner, quiero cotizar ' + product.name + '.')}`;
+  const colors = product.colors || [];
+  let color = colors[0] || null;
+  const waFor = (c) => {
+    const item = product.name + (c ? ' color ' + c.name.toLowerCase() : '');
+    return `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent(product.price != null
+      ? 'Hola AudioPionner, quiero información sobre ' + item + ' (' + formatCOP(product.price) + ').'
+      : 'Hola AudioPionner, quiero cotizar ' + item + '.')}`;
+  };
+  const waLink = waFor(color);
 
   document.getElementById("pdpRoot").innerHTML = `
     <div class="pdp-gallery">
@@ -65,12 +71,19 @@ if(!product){
     <div class="pdp-info">
       <span class="brand">${product.brand}</span>
       <h1>${product.name}</h1>
+      ${colors.length ? `
+      <div class="color-pick">
+        <span class="color-label">Color: <b id="colorName">${color.name}</b></span>
+        <div class="swatches" role="radiogroup" aria-label="Elegir color">
+          ${colors.map((c,i)=>`<button type="button" class="swatch${i===0?' on':''}" role="radio" aria-checked="${i===0}" aria-label="${c.name}" title="${c.name}" style="--c:${c.hex}" onclick="pickColor(${i})"></button>`).join("")}
+        </div>
+      </div>` : ""}
       ${product.price != null ? `
       <div class="pdp-price-row">
         <span class="pdp-price">${formatCOP(product.price)}</span>
         ${hasDiscount ? `<span class="price-old">${formatCOP(product.compareAtPrice)}</span><span class="discount-pct">-${pct}%</span>` : ""}
       </div>
-      <p class="pdp-installments">o 12 cuotas de ${formatCOP(installment)} con Addi, Alo Credit o Banco de Bogotá</p>
+      <p class="pdp-installments">o 12 cuotas de ${formatCOP(installment)} con Addi, Alo Credit, Sistecrédito o Banco de Bogotá</p>
       <div class="stock-ok">
         <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         Disponible — listo para recoger o enviar
@@ -88,12 +101,12 @@ if(!product){
       <div class="pdp-actions">
         <button class="btn btn-primary btn-block" onclick="addToCart(${product.id}, window.__qty||1)">Agregar al carrito</button>
         <a href="checkout.html?id=${product.id}" class="btn btn-accent btn-block" onclick="this.href='checkout.html?id=${product.id}&qty='+(window.__qty||1)">Comprar ahora</a>
-        <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-outline btn-block">Preguntar por WhatsApp</a>
+        <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-outline btn-block wa-link">Preguntar por WhatsApp</a>
       </div>` : `
       <div class="pdp-price-row"><span class="pdp-price price-quote">Precio por cotizar</span></div>
-      <p class="pdp-installments">Escríbenos y te enviamos precio, medidas y colores disponibles. Financiación con Addi, Alo Credit o Banco de Bogotá.</p>
+      <p class="pdp-installments">Escríbenos y te enviamos precio, medidas y colores disponibles. Financiación con Addi, Alo Credit, Sistecrédito o Banco de Bogotá.</p>
       <div class="pdp-actions">
-        <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-accent btn-block">Cotizar por WhatsApp</a>
+        <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-accent btn-block wa-link">Cotizar por WhatsApp</a>
       </div>`}
 
       <div class="fulfillment-box">
@@ -110,6 +123,7 @@ if(!product){
       <div class="finance-row">
         <span class="finance-chip">Addi</span>
         <span class="finance-chip">Alo Credit</span>
+        <span class="finance-chip">Sistecrédito</span>
         <span class="finance-chip">Banco de Bogotá</span>
         <span class="finance-chip">PSE</span>
         <span class="finance-chip">Tarjeta débito/crédito</span>
@@ -131,6 +145,18 @@ if(!product){
       </div>
     </div>
   `;
+
+  window.pickColor = (i) => {
+    color = colors[i];
+    document.getElementById("colorName").textContent = color.name;
+    document.querySelectorAll(".swatch").forEach((b,k) => { b.classList.toggle("on", k===i); b.setAttribute("aria-checked", k===i); });
+    const img = document.getElementById("mainImg");
+    img.src = color.image; img.alt = product.name + " color " + color.name.toLowerCase();
+    img.parentElement.style.setProperty("--img", `url('${color.image}')`);
+    document.querySelectorAll(".wa-link").forEach(a => a.href = waFor(color));
+  };
+  // Precarga las fotos de los otros colores
+  colors.slice(1).forEach(c => { const im = new Image(); im.src = c.image; });
 
   window.__qty = 1;
   window.changeQty = (delta) => {

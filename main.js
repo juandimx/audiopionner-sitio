@@ -39,6 +39,7 @@ function productCard(p) {
     <div class="body">
       <span class="cat">${p.subcategoryLabel}</span>
       <span class="name">${p.name}</span>
+      ${p.colors && p.colors.length ? `<span class="dots" aria-label="${p.colors.length} colores">${p.colors.map(c=>`<i style="--c:${c.hex}" title="${c.name}"></i>`).join("")}</span>` : ""}
       <div class="price-row">
         ${p.price != null
           ? `<span class="price">${formatCOP(p.price)}</span>`
@@ -229,7 +230,7 @@ function renderHeader() {
   ];
   const navLinks = links.map(([href, label]) => `<a href="${base}${href}">${label}</a>`).join("");
   mount.innerHTML = `
-    <div class="announce">Envíos a todo Colombia · Compra online y recoge en tienda · Financiación con Addi, Alo Credit y Banco de Bogotá</div>
+    <div class="announce">Envíos a todo Colombia · Compra online y recoge en tienda · Financiación con Addi, Alo Credit, Sistecrédito y Banco de Bogotá</div>
     <header class="site-header">
       <div class="header-inner">
         <button class="icon-btn mobile-nav-toggle" id="mobileNavToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav()">
@@ -295,6 +296,7 @@ function renderFooter() {
           <a href="${base}muebles.html?sub=comedor">Juegos de comedor</a>
           <a href="${base}muebles.html?sub=camas">Camas</a>
           <a href="${base}muebles.html?sub=closets">Closets</a>
+          <a href="${base}muebles.html?sub=tocadores">Tocadores</a>
           <a href="${base}muebles.html?sub=organizadores">Organizadores y gaveteros</a>
           <a href="${base}muebles.html?sub=consolas">Consolas</a>
         </div>
@@ -302,6 +304,7 @@ function renderFooter() {
           <h5>Financiación</h5>
           <span>Addi</span>
           <span>Alo Credit</span>
+          <span>Sistecrédito</span>
           <span>Banco de Bogotá</span>
         </div>
       </div>

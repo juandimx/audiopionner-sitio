@@ -524,6 +524,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .confirm-code-box .code{ font-weight:700; letter-spacing:.08em; }
 
+/* Colores del producto */
+.color-pick{ margin:4px 0 14px; }
+.color-label{ font-size:.85rem; color:var(--text-muted); }
+.color-label b{ color:var(--text); }
+.swatches{ display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; }
+.swatch{ width:32px; height:32px; border-radius:50%; background:var(--c); border:1px solid rgba(0,0,0,.15); box-shadow:0 0 0 3px var(--bg); padding:0; }
+.swatch.on{ box-shadow:0 0 0 3px var(--bg), 0 0 0 5px var(--navy); }
+.product-card .dots{ display:flex; gap:5px; margin-top:6px; }
+.product-card .dots i{ width:12px; height:12px; border-radius:50%; background:var(--c); border:1px solid rgba(0,0,0,.18); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px){
   .cat-grid{ grid-template-columns: repeat(2,1fr); }

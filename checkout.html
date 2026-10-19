@@ -116,6 +116,9 @@ function renderCheckout(){
             <label class="pay-opt ${payMethod==='alo'?'selected':''}" onclick="setPay('alo')">
               <input type="radio" name="pay" ${payMethod==='alo'?'checked':''}> Alo Credit — paga a cuotas
             </label>
+            <label class="pay-opt ${payMethod==='siste'?'selected':''}" onclick="setPay('siste')">
+              <input type="radio" name="pay" ${payMethod==='siste'?'checked':''}> Sistecrédito — paga a cuotas
+            </label>
             <label class="pay-opt ${payMethod==='banco'?'selected':''}" onclick="setPay('banco')">
               <input type="radio" name="pay" ${payMethod==='banco'?'checked':''}> Banco de Bogotá — financiación
             </label>

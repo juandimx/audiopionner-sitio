@@ -1874,6 +1874,244 @@ const PRODUCTS = [
     },
     "pickup": true,
     "stock": null
+  },
+  {
+    "id": 94,
+    "slug": "villini-con-luces",
+    "name": "Villini con Luces",
+    "category": "muebles",
+    "subcategory": "tocadores",
+    "subcategoryLabel": "Tocadores",
+    "image": "tocador-villini-luces-blanco.jpg",
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#F7F5F0",
+        "image": "tocador-villini-luces-blanco.jpg"
+      },
+      {
+        "name": "Rosado",
+        "hex": "#F2BFC6",
+        "image": "tocador-villini-luces-rosado.jpg"
+      },
+      {
+        "name": "Champaña",
+        "hex": "#D9C08F",
+        "image": "tocador-villini-luces-champana.jpg"
+      },
+      {
+        "name": "Gris",
+        "hex": "#A9ABAE",
+        "image": "tocador-villini-luces-gris.jpg"
+      }
+    ],
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Espejo de cuerpo entero con luces estilo Hollywood, repisas y gavetas amplias.",
+    "specs": {
+      "Características": "Luces en el marco, repisas, 3 gavetas amplias",
+      "Colores": "Blanco, Rosado, Champaña, Gris",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 95,
+    "slug": "villini-corrediza",
+    "name": "Villini Corrediza",
+    "category": "muebles",
+    "subcategory": "tocadores",
+    "subcategoryLabel": "Tocadores",
+    "image": "tocador-villini-corrediza-blanco.jpg",
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#F7F5F0",
+        "image": "tocador-villini-corrediza-blanco.jpg"
+      },
+      {
+        "name": "Rosado",
+        "hex": "#F2BFC6",
+        "image": "tocador-villini-corrediza-rosado.jpg"
+      },
+      {
+        "name": "Champaña",
+        "hex": "#D9C08F",
+        "image": "tocador-villini-corrediza-champana.jpg"
+      },
+      {
+        "name": "Gris",
+        "hex": "#A9ABAE",
+        "image": "tocador-villini-corrediza-gris.jpg"
+      }
+    ],
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Espejo de cuerpo entero con luces estilo Hollywood, puerta corrediza, repisas y gavetas.",
+    "specs": {
+      "Características": "Enchufe frontal, luces estilo Hollywood, puerta corrediza, repisas, 3 gavetas",
+      "Colores": "Blanco, Rosado, Champaña, Gris",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 96,
+    "slug": "villini-sencillo",
+    "name": "Villini Sencillo",
+    "category": "muebles",
+    "subcategory": "tocadores",
+    "subcategoryLabel": "Tocadores",
+    "image": "tocador-villini-sencillo-blanco.jpg",
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#F7F5F0",
+        "image": "tocador-villini-sencillo-blanco.jpg"
+      },
+      {
+        "name": "Rosado",
+        "hex": "#F2BFC6",
+        "image": "tocador-villini-sencillo-rosado.jpg"
+      },
+      {
+        "name": "Arena",
+        "hex": "#B8A994",
+        "image": "tocador-villini-sencillo-arena.jpg"
+      },
+      {
+        "name": "Gris",
+        "hex": "#A9ABAE",
+        "image": "tocador-villini-sencillo-gris.jpg"
+      }
+    ],
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Espejo de cuerpo entero en versión sencilla, con repisas y gavetas amplias.",
+    "specs": {
+      "Características": "Versión sencilla sin luces, repisas, 3 gavetas amplias",
+      "Colores": "Blanco, Rosado, Arena, Gris",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 97,
+    "slug": "tocador-hollywood",
+    "name": "Tocador Hollywood",
+    "category": "muebles",
+    "subcategory": "tocadores",
+    "subcategoryLabel": "Tocadores",
+    "image": "tocador-tocador-hollywood-blanco.jpg",
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#F7F5F0",
+        "image": "tocador-tocador-hollywood-blanco.jpg"
+      },
+      {
+        "name": "Rosado",
+        "hex": "#F2BFC6",
+        "image": "tocador-tocador-hollywood-rosado.jpg"
+      },
+      {
+        "name": "Champaña",
+        "hex": "#D9C08F",
+        "image": "tocador-tocador-hollywood-champana.jpg"
+      }
+    ],
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Tocador con espejo grande, luces frontales y 9 gavetas amplias.",
+    "specs": {
+      "Características": "Luces frontales, 9 gavetas amplias",
+      "Colores": "Blanco, Rosado, Champaña",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 98,
+    "slug": "tocador-hollywood-9-gavetas-con-repisas",
+    "name": "Tocador Hollywood 9 Gavetas con Repisas",
+    "category": "muebles",
+    "subcategory": "tocadores",
+    "subcategoryLabel": "Tocadores",
+    "image": "tocador-hollywood-9-arena.jpg",
+    "colors": [
+      {
+        "name": "Arena",
+        "hex": "#B8A994",
+        "image": "tocador-hollywood-9-arena.jpg"
+      },
+      {
+        "name": "Gris",
+        "hex": "#A9ABAE",
+        "image": "tocador-hollywood-9-gris.jpg"
+      }
+    ],
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Tocador con espejo y luces estilo Hollywood, repisas laterales, puerta y 9 gavetas.",
+    "specs": {
+      "Características": "Enchufe frontal, luces estilo Hollywood, repisas, 9 gavetas",
+      "Colores": "Arena, Gris",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 99,
+    "slug": "tocador-hollywood-5-gavetas",
+    "name": "Tocador Hollywood 5 Gavetas",
+    "category": "muebles",
+    "subcategory": "tocadores",
+    "subcategoryLabel": "Tocadores",
+    "image": "tocador-hollywood-5-blanco.jpg",
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#F7F5F0",
+        "image": "tocador-hollywood-5-blanco.jpg"
+      },
+      {
+        "name": "Arena",
+        "hex": "#B8A994",
+        "image": "tocador-hollywood-5-arena.jpg"
+      },
+      {
+        "name": "Gris",
+        "hex": "#A9ABAE",
+        "image": "tocador-hollywood-5-gris.jpg"
+      }
+    ],
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Tocador con espejo y luces estilo Hollywood, luz superior, repisas laterales y 5 gavetas.",
+    "specs": {
+      "Características": "Enchufe frontal, luces estilo Hollywood, repisas, 5 gavetas",
+      "Colores": "Blanco, Arena, Gris",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
   }
 ];
 
