@@ -55,7 +55,7 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--navy); outline-of
 .hero-bg{ position:absolute; inset:-20px; z-index:-2; background:url('landing/hero-bg.webp') center 40%/cover no-repeat; transform:scale(1.02); }
 .hero::before{ content:""; position:absolute; inset:0; z-index:-1;
   background:linear-gradient(180deg, rgba(38,28,18,.42) 0%, rgba(38,28,18,.08) 42%, rgba(38,28,18,0) 60%, rgba(38,28,18,.28) 100%); }
-.word{ position:absolute; z-index:0; left:0; right:0; top:96px; text-align:center; font-weight:500;
+.word{ position:absolute; z-index:0; left:0; right:0; top:150px; text-align:center; font-weight:500;
   line-height:.9; letter-spacing:-.02em; white-space:nowrap; text-transform:uppercase;
   transition:opacity .45s ease, transform .6s cubic-bezier(.22,1,.36,1); }
 .word.out{ opacity:0; transform:translateY(14px); }
@@ -125,7 +125,13 @@ footer .wrap{ display:grid; grid-template-columns: 1.2fr 2fr 1fr; gap:30px; }
 footer b{ color:var(--text); display:block; text-transform:uppercase; font-size:.76rem; letter-spacing:.05em; margin-bottom:6px; }
 footer img{ height:36px; width:auto; }
 
-.wa{ position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom, 0px)); width:54px; height:54px; border-radius:50%; background:#25D366; display:grid; place-items:center; z-index:30; box-shadow:0 8px 24px rgba(0,0,0,.18); }
+.wa{ position:fixed; right:14px; top:calc(env(safe-area-inset-top, 0px) + 92px); z-index:30; display:flex; align-items:center; gap:8px; text-decoration:none; }
+.wa .dot{ width:52px; height:52px; border-radius:50%; background:#25D366; display:grid; place-items:center; box-shadow:0 8px 24px rgba(0,0,0,.18); flex:none; }
+.wa .bub{ position:relative; background:#fff; color:#2A2118; font-size:.78rem; line-height:1.25; padding:9px 12px; border-radius:14px; box-shadow:0 8px 22px rgba(0,0,0,.14); white-space:nowrap; transition:opacity .25s, transform .25s; }
+.wa .bub b{ color:#128C4B; }
+.wa .bub::after{ content:""; position:absolute; right:-6px; top:50%; width:12px; height:12px; background:#fff; transform:translateY(-50%) rotate(45deg); border-radius:2px; }
+.wa.mini .bub{ opacity:0; transform:translateX(10px); pointer-events:none; }
+.wa:hover .bub{ opacity:1; transform:none; }
 
 
 /* ---------- Ver en tu espacio (cámara / 3D) ---------- */
@@ -134,6 +140,44 @@ footer img{ height:36px; width:auto; }
 .cam-btn{ display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.75); background:rgba(255,255,255,.14); color:#fff;
   backdrop-filter:blur(6px); padding:9px 14px; border-radius:999px; font-size:.8rem; font-weight:600; }
 .cam-btn:hover{ background:rgba(255,255,255,.26); }
+
+/* ---------- Colchones ---------- */
+.mat{ background:var(--bg-soft); }
+.mat .wrap{ display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center; padding-top:70px; padding-bottom:70px; }
+.mat .ph{ overflow:hidden; }
+.mat .ph img{ width:100%; aspect-ratio:16/10; object-fit:cover; }
+.kick{ font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--red); }
+.mat h2{ font-weight:300; font-size:clamp(2rem,3.6vw,3rem); line-height:1.05; letter-spacing:-.02em; text-transform:uppercase; margin:10px 0 16px; color:var(--navy); }
+.mat h2 b{ font-weight:700; }
+.mat p{ color:var(--muted); line-height:1.7; font-size:.92rem; margin:0 0 16px; }
+.tags{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px; }
+.tags span{ border:1px solid var(--line); background:var(--bg); padding:6px 12px; font-size:.76rem; font-weight:600; }
+.mat .links{ display:flex; gap:24px; flex-wrap:wrap; align-items:center; }
+
+/* ---------- Crea tu combo ---------- */
+.combo{ padding:100px 0 90px; }
+.combo .lead{ max-width:560px; color:var(--muted); line-height:1.7; font-size:.92rem; margin:12px 0 34px; }
+.combo-grid{ display:grid; grid-template-columns:1fr 340px; gap:40px; align-items:start; }
+.step{ margin-bottom:28px; }
+.step h3{ margin:0 0 12px; font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.step h3 i{ font-style:normal; display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--navy); color:#fff; font-size:.7rem; margin-right:8px; }
+.opts{ display:flex; flex-wrap:wrap; gap:10px; }
+.opt{ border:1px solid var(--line); background:var(--bg); color:var(--text); padding:10px 14px; font-size:.8rem; font-weight:600; font-family:inherit; text-align:center; }
+.opt small{ display:block; font-weight:400; color:var(--muted); font-size:.7rem; margin-top:2px; }
+.opt.card{ width:150px; padding:10px 8px 12px; }
+.opt.card img{ height:84px; width:100%; object-fit:contain; margin-bottom:8px; }
+.opt[aria-pressed="true"]{ border-color:var(--navy); box-shadow:inset 0 0 0 1px var(--navy); background:color-mix(in srgb, var(--navy) 6%, var(--bg)); }
+.sum{ position:sticky; top:20px; background:var(--bg-soft); padding:24px 22px; }
+.sum h3{ margin:0 0 14px; font-size:.95rem; font-weight:800; text-transform:uppercase; }
+.sum ul{ list-style:none; margin:0 0 16px; padding:0; font-size:.86rem; }
+.sum li{ display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--line); }
+.sum li span{ color:var(--muted); }
+.sum li b{ text-align:right; font-weight:600; }
+.badge{ display:inline-block; background:var(--red); color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:5px 10px; margin-bottom:10px; }
+.sum p{ font-size:.8rem; color:var(--muted); line-height:1.6; margin:0 0 16px; }
+.wa-btn{ display:flex; justify-content:center; align-items:center; gap:8px; width:100%; background:#25D366; color:#fff; font-weight:700; font-size:.88rem; padding:14px 16px; border:0; font-family:inherit; }
+.wa-btn[aria-disabled="true"]{ opacity:.45; pointer-events:none; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px){
   .wrap{ padding:0 20px; }
@@ -144,7 +188,7 @@ footer img{ height:36px; width:auto; }
   .top nav.r .show-m{ display:inline; }
   .top .logo img{ height:32px; }
   .hero{ height:auto; padding-top:690px; }
-  .word{ top:88px; }
+  .word{ top:136px; }
   .stage{ width:88vw; height:330px; top:180px; bottom:auto; }
   .info{ left:20px; right:20px; top:566px; bottom:auto; max-width:none; text-align:center; }
   .info .acts{ justify-content:center; }
@@ -160,6 +204,14 @@ footer img{ height:36px; width:auto; }
   .cats{ grid-template-columns:1fr 1fr; gap:14px; }
   .cats-sec{ padding-bottom:70px; }
   .perks .wrap{ grid-template-columns:1fr 1fr; }
+  .mat .wrap{ grid-template-columns:1fr; gap:24px; padding-top:50px; padding-bottom:50px; }
+  .combo{ padding:70px 0 60px; }
+  .combo-grid{ grid-template-columns:1fr; }
+  .opts.scroll{ flex-wrap:nowrap; overflow-x:auto; margin:0 -20px; padding:0 20px 6px; scrollbar-width:none; }
+  .opt.card{ flex:0 0 132px; width:132px; }
+  .sum{ position:static; }
+  .wa{ top:calc(env(safe-area-inset-top, 0px) + 76px); right:10px; }
+  .wa .dot{ width:48px; height:48px; }
   footer .wrap{ grid-template-columns:1fr; }
 }
 @media (prefers-reduced-motion: reduce){ *{ transition-duration:.01ms !important; } }
@@ -206,6 +258,74 @@ footer img{ height:36px; width:auto; }
   <div class="panel">
     <div class="head"><span id="count">(6)</span><a href="muebles.html">ver catálogo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
     <div class="grid" id="thumbs" role="tablist" aria-label="Elegir mueble"></div>
+  </div>
+</section>
+
+
+<section class="mat" id="colchones">
+  <div class="wrap">
+    <div class="ph"><img src="landing/colchones-banner.webp" alt="Colchón sobre base cama en una alcoba" loading="lazy"></div>
+    <div>
+      <div class="kick">También tenemos colchones</div>
+      <h2>Colchones en<br><b>todas las medidas</b></h2>
+      <p>Sencillo, semidoble, doble, queen, king y medidas especiales. Te ayudamos a elegir según tu forma de dormir y tu espalda. También tenemos <b>bases cama</b> sencillas en blanco, negro y gris.</p>
+      <div class="tags">
+        <span>Ortopédico</span><span>Pillow top</span><span>Resortes pocket</span><span>Resortado tradicional</span><span>Espuma alta densidad</span><span>Memory foam</span>
+      </div>
+      <div class="links">
+        <a class="ulink" href="muebles.html?sub=colchones">Ver colchones</a>
+        <a class="ulink" href="muebles.html?sub=bases">Ver bases cama</a>
+        <a class="ulink" href="https://wa.me/573163845802?text=Hola%20AudioPionner%2C%20quiero%20preguntar%20por%20colchones." target="_blank" rel="noopener">Preguntar por colchones</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="combo" id="combo">
+  <div class="wrap">
+    <h2 class="h-sec">Crea tu combo</h2>
+    <p class="lead">Arma tu cama completa: elige la medida, el colchón y la base. <b>Comprando todo junto te sale a mejor precio</b> que por separado.</p>
+    <div class="combo-grid">
+      <div>
+        <div class="step"><h3><i>1</i>Medida</h3>
+          <div class="opts" data-step="medida">
+            <button type="button" class="opt" data-v="Sencillo 100 × 190">Sencillo<small>100 × 190</small></button>
+            <button type="button" class="opt" data-v="Semidoble 120 × 190">Semidoble<small>120 × 190</small></button>
+            <button type="button" class="opt" data-v="Doble 140 × 190">Doble<small>140 × 190</small></button>
+            <button type="button" class="opt" data-v="Queen 160 × 190">Queen<small>160 × 190</small></button>
+            <button type="button" class="opt" data-v="King 200 × 200">King<small>200 × 200</small></button>
+            <button type="button" class="opt" data-v="Medida especial">Especial<small>a tu medida</small></button>
+          </div>
+        </div>
+        <div class="step"><h3><i>2</i>Colchón</h3>
+          <div class="opts scroll" data-step="colchon">
+            <button type="button" class="opt card" data-v="Colchón ortopédico"><img src="landing/cb-colchon-ortopedico.webp" alt="">Ortopédico<small>Firme</small></button>
+            <button type="button" class="opt card" data-v="Colchón pillow top"><img src="landing/cb-colchon-pillow-top.webp" alt="">Pillow top<small>Suave</small></button>
+            <button type="button" class="opt card" data-v="Colchón resortes pocket"><img src="landing/cb-colchon-resortes-pocket.webp" alt="">Resortes pocket<small>Intermedio</small></button>
+            <button type="button" class="opt card" data-v="Colchón espuma alta densidad"><img src="landing/cb-colchon-espuma-alta-densidad.webp" alt="">Espuma<small>Alta densidad</small></button>
+          </div>
+        </div>
+        <div class="step"><h3><i>3</i>Base o cama</h3>
+          <div class="opts scroll" data-step="base">
+            <button type="button" class="opt card" data-v="Base cama blanca"><img src="landing/cb-base-cama-blanco.webp" alt="">Base cama<small>Blanca</small></button>
+            <button type="button" class="opt card" data-v="Base cama negra"><img src="landing/cb-base-cama-negro.webp" alt="">Base cama<small>Negra</small></button>
+            <button type="button" class="opt card" data-v="Base cama gris"><img src="landing/cb-base-cama-gris.webp" alt="">Base cama<small>Gris</small></button>
+            <button type="button" class="opt card" data-v="Cama del catálogo (quiero recomendaciones)"><img src="landing/cb-cama-habana.webp" alt="">Cama tapizada<small>Del catálogo</small></button>
+          </div>
+        </div>
+      </div>
+      <aside class="sum" aria-live="polite">
+        <span class="badge">Precio especial por combo</span>
+        <h3>Tu combo</h3>
+        <ul>
+          <li><span>Medida</span><b id="cMedida">Elige una</b></li>
+          <li><span>Colchón</span><b id="cColchon">Elige uno</b></li>
+          <li><span>Base o cama</span><b id="cBase">Elige una</b></li>
+        </ul>
+        <p>Envíanos tu combo y te respondemos con el precio especial, disponibilidad y envío.</p>
+        <a class="wa-btn" id="comboBtn" href="#" target="_blank" rel="noopener" aria-disabled="true">Pedir mi combo por WhatsApp</a>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -265,8 +385,9 @@ footer img{ height:36px; width:auto; }
 </footer>
 
 
-<a class="wa" href="https://wa.me/573163845802?text=Hola%20AudioPionner%2C%20quiero%20cotizar%20un%20mueble." target="_blank" rel="noopener" aria-label="Escribir a AudioPionner por WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.65-.17 1.33z"/></svg>
+<a class="wa" id="waFab" href="https://wa.me/573163845802?text=Hola%20AudioPionner%2C%20quiero%20cotizar%20un%20mueble." target="_blank" rel="noopener" aria-label="¿Tienes una pregunta? Escríbenos por WhatsApp">
+  <span class="bub">¿Tienes una pregunta? <b>Escríbenos</b></span>
+  <span class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.65-.17 1.33z"/></svg></span>
 </a>
 
 <script src="espacio.js"></script>
@@ -347,6 +468,27 @@ document.getElementById("camBtn").addEventListener("click", () => {
   const p = PIECES[cur < 0 ? 0 : cur];
   VerEnTuEspacio.open({ name: p.name, img: p.img, logo: "landing/logo.png", onOpen: () => setPaused(true), onClose: () => setPaused(false) });
 });
+
+// ---------- Crea tu combo ----------
+const combo = { medida:null, colchon:null, base:null };
+const labels = { medida:"cMedida", colchon:"cColchon", base:"cBase" };
+document.querySelectorAll(".combo .opts").forEach(g => g.addEventListener("click", e => {
+  const b = e.target.closest(".opt"); if (!b) return;
+  g.querySelectorAll(".opt").forEach(x => x.setAttribute("aria-pressed", x === b));
+  combo[g.dataset.step] = b.dataset.v;
+  document.getElementById(labels[g.dataset.step]).textContent = b.dataset.v;
+  const ok = combo.medida && combo.colchon;
+  const btn = document.getElementById("comboBtn");
+  btn.setAttribute("aria-disabled", ok ? "false" : "true");
+  const txt = `Hola AudioPionner 👋 Quiero armar este combo:\n• Medida: ${combo.medida || "-"}\n• ${combo.colchon || "Colchón: -"}\n• ${combo.base || "Sin base"}\n¿Me dan el precio especial por combo?`;
+  btn.href = "https://wa.me/573163845802?text=" + encodeURIComponent(txt);
+}));
+document.querySelectorAll(".combo .opt").forEach(b => b.setAttribute("aria-pressed", "false"));
+// Burbuja de WhatsApp: se reduce al ícono al bajar
+const waFab = document.getElementById("waFab");
+const mini = () => waFab.classList.toggle("mini", scrollY > 320);
+addEventListener("scroll", mini, { passive:true }); mini();
+
 fitWord();
 Promise.all(els.map(e => e.firstChild.decode ? e.firstChild.decode().catch(()=>{}) : 0)).then(() => go(0));
 </script>

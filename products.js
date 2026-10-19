@@ -2231,6 +2231,176 @@ const PRODUCTS = [
     "pickup": true,
     "stock": null,
     "cutout": "cutouts/tocador-hollywood-5-blanco.webp"
+  },
+  {
+    "id": 100,
+    "slug": "colchon-pillow-top",
+    "category": "muebles",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "pickup": true,
+    "stock": null,
+    "sizes": [
+      "Sencillo 100 × 190 cm",
+      "Semidoble 120 × 190 cm",
+      "Doble 140 × 190 cm",
+      "Queen 160 × 190 cm",
+      "King 200 × 200 cm",
+      "Medida especial"
+    ],
+    "name": "Colchón Pillow Top",
+    "subcategory": "colchones",
+    "subcategoryLabel": "Colchones",
+    "image": "colchon-pillow-top.jpg",
+    "description": "Colchón con capa de confort acolchada en la parte superior (pillow top) para un descanso suave sin perder soporte.",
+    "specs": {
+      "Tipo": "Pillow top",
+      "Firmeza": "Suave a intermedia",
+      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
+      "Garantía": "Según fabricante"
+    },
+    "cutout": "cutouts/colchon-pillow-top.webp"
+  },
+  {
+    "id": 101,
+    "slug": "colchon-ortopedico",
+    "category": "muebles",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "pickup": true,
+    "stock": null,
+    "sizes": [
+      "Sencillo 100 × 190 cm",
+      "Semidoble 120 × 190 cm",
+      "Doble 140 × 190 cm",
+      "Queen 160 × 190 cm",
+      "King 200 × 200 cm",
+      "Medida especial"
+    ],
+    "name": "Colchón Ortopédico",
+    "subcategory": "colchones",
+    "subcategoryLabel": "Colchones",
+    "image": "colchon-ortopedico.jpg",
+    "description": "Colchón firme que mantiene la columna alineada. Ideal si buscas un soporte más duro o tienes molestias de espalda.",
+    "specs": {
+      "Tipo": "Ortopédico",
+      "Firmeza": "Firme",
+      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
+      "Garantía": "Según fabricante"
+    },
+    "cutout": "cutouts/colchon-ortopedico.webp"
+  },
+  {
+    "id": 102,
+    "slug": "colchon-resortes-pocket",
+    "category": "muebles",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "pickup": true,
+    "stock": null,
+    "sizes": [
+      "Sencillo 100 × 190 cm",
+      "Semidoble 120 × 190 cm",
+      "Doble 140 × 190 cm",
+      "Queen 160 × 190 cm",
+      "King 200 × 200 cm",
+      "Medida especial"
+    ],
+    "name": "Colchón Resortes Pocket",
+    "subcategory": "colchones",
+    "subcategoryLabel": "Colchones",
+    "image": "colchon-resortes-pocket.jpg",
+    "description": "Resortes independientes que se adaptan al cuerpo y reducen el movimiento cuando duermen dos personas.",
+    "specs": {
+      "Tipo": "Resortes independientes (pocket)",
+      "Firmeza": "Intermedia",
+      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
+      "Garantía": "Según fabricante"
+    },
+    "cutout": "cutouts/colchon-resortes-pocket.webp"
+  },
+  {
+    "id": 103,
+    "slug": "colchon-espuma-alta-densidad",
+    "category": "muebles",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "pickup": true,
+    "stock": null,
+    "sizes": [
+      "Sencillo 100 × 190 cm",
+      "Semidoble 120 × 190 cm",
+      "Doble 140 × 190 cm",
+      "Queen 160 × 190 cm",
+      "King 200 × 200 cm",
+      "Medida especial"
+    ],
+    "name": "Colchón Espuma Alta Densidad",
+    "subcategory": "colchones",
+    "subcategoryLabel": "Colchones",
+    "image": "colchon-espuma-alta-densidad.jpg",
+    "description": "Colchón de espuma (foam) de alta densidad: liviano, sin resortes y con buen soporte. Opción práctica y económica.",
+    "specs": {
+      "Tipo": "Espuma alta densidad (foam)",
+      "Firmeza": "Semifirme",
+      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
+      "Garantía": "Según fabricante"
+    },
+    "cutout": "cutouts/colchon-espuma-alta-densidad.webp"
+  },
+  {
+    "id": 104,
+    "slug": "base-cama",
+    "category": "muebles",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "pickup": true,
+    "stock": null,
+    "sizes": [
+      "Sencillo 100 × 190 cm",
+      "Semidoble 120 × 190 cm",
+      "Doble 140 × 190 cm",
+      "Queen 160 × 190 cm",
+      "King 200 × 200 cm",
+      "Medida especial"
+    ],
+    "name": "Base Cama",
+    "subcategory": "bases",
+    "subcategoryLabel": "Bases cama",
+    "image": "base-cama-blanco.jpg",
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#F7F5F0",
+        "image": "base-cama-blanco.jpg",
+        "cutout": "cutouts/base-cama-blanco.webp"
+      },
+      {
+        "name": "Negro",
+        "hex": "#222222",
+        "image": "base-cama-negro.jpg",
+        "cutout": "cutouts/base-cama-negro.webp"
+      },
+      {
+        "name": "Gris",
+        "hex": "#A9ABAE",
+        "image": "base-cama-gris.jpg",
+        "cutout": "cutouts/base-cama-gris.webp"
+      }
+    ],
+    "description": "Base cama sencilla y resistente, tapizada, con patas. Combínala con tu colchón en la misma medida.",
+    "specs": {
+      "Tipo": "Base cama tapizada",
+      "Colores": "Blanco, Negro, Gris",
+      "Medidas": "Sencillo, semidoble, doble, queen, king y especiales",
+      "Garantía": "12 meses"
+    },
+    "cutout": "cutouts/base-cama-blanco.webp"
   }
 ];
 

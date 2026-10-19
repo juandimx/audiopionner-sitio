@@ -225,6 +225,7 @@ function renderHeader() {
     ["muebles.html?sub=comedor", "Comedores"],
     ["muebles.html?sub=camas", "Camas"],
     ["muebles.html?sub=closets", "Closets"],
+    ["muebles.html?sub=colchones", "Colchones"],
     ["muebles.html?promo=1", "Promociones"],
     ["tiendas.html", "Tiendas"],
   ];
@@ -297,6 +298,8 @@ function renderFooter() {
           <a href="${base}muebles.html?sub=camas">Camas</a>
           <a href="${base}muebles.html?sub=closets">Closets</a>
           <a href="${base}muebles.html?sub=tocadores">Tocadores</a>
+          <a href="${base}muebles.html?sub=colchones">Colchones</a>
+          <a href="${base}muebles.html?sub=bases">Bases cama</a>
           <a href="${base}muebles.html?sub=organizadores">Organizadores y gaveteros</a>
           <a href="${base}muebles.html?sub=consolas">Consolas</a>
         </div>
@@ -322,8 +325,8 @@ function renderWhatsappFab() {
   a.href = `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent("Hola AudioPionner, quiero más información sobre un producto.")}`;
   a.target = "_blank";
   a.rel = "noopener";
-  a.setAttribute("aria-label", "Escribir a AudioPionner por WhatsApp");
-  a.innerHTML = `<svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.65-.17 1.33z"/></svg>`;
+  a.setAttribute("aria-label", "¿Tienes una pregunta? Escríbenos por WhatsApp");
+  a.innerHTML = `<span class="wa-bubble">¿Tienes una pregunta? <b>Escríbenos</b></span><span class="wa-dot"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.65-.17 1.33z"/></svg>`;
   document.body.appendChild(a);
 }
 

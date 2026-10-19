@@ -64,11 +64,13 @@ if(!product){
   const colors = product.colors || [];
   const startColor = Math.min(Math.max(parseInt(new URLSearchParams(location.search).get("color")) || 0, 0), Math.max(colors.length - 1, 0));
   let color = colors[startColor] || null;
+  const sizes = product.sizes || [];
+  let size = null;
   const slug = (c) => (product.name + (c ? " " + c.name : "")).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   // Mensaje de WhatsApp con el enlace del producto: WhatsApp muestra la foto del mueble en la vista previa
   const waFor = (c) => {
     const photo = `https://audiopionnerdemo.netlify.app/catalogo/p/${slug(c)}.html`;
-    const text = `Hola AudioPionner 👋 Quiero comprar este producto: *${product.name}*${c ? " (color " + c.name.toLowerCase() + ")" : ""}.\n${photo}`;
+    const text = `Hola AudioPionner 👋 Quiero comprar este producto: *${product.name}*${c ? " (color " + c.name.toLowerCase() + ")" : ""}${size ? ", medida " + size : ""}.\n${photo}`;
     return `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
   };
   const waLink = waFor(color);
@@ -85,6 +87,13 @@ if(!product){
         <span class="color-label">Color: <b id="colorName">${color.name}</b></span>
         <div class="swatches" role="radiogroup" aria-label="Elegir color">
           ${colors.map((c,i)=>`<button type="button" class="swatch${i===startColor?' on':''}" role="radio" aria-checked="${i===startColor}" aria-label="${c.name}" title="${c.name}" style="--c:${c.hex}" onclick="pickColor(${i})"></button>`).join("")}
+        </div>
+      </div>` : ""}
+      ${sizes.length ? `
+      <div class="size-pick">
+        <span class="color-label">Medida: <b id="sizeName">elige una</b></span>
+        <div class="size-chips" role="radiogroup" aria-label="Elegir medida">
+          ${sizes.map((z,i)=>`<button type="button" class="size-chip" role="radio" aria-checked="false" onclick="pickSize(${i})">${z}</button>`).join("")}
         </div>
       </div>` : ""}
       <p class="pdp-installments">Pídelo por WhatsApp y te confirmamos disponibilidad, medidas y envío.</p>
@@ -134,6 +143,12 @@ if(!product){
     </div>
   `;
 
+  window.pickSize = (i) => {
+    size = sizes[i];
+    document.getElementById("sizeName").textContent = size;
+    document.querySelectorAll(".size-chip").forEach((b,k) => { b.classList.toggle("on", k===i); b.setAttribute("aria-checked", k===i); });
+    document.querySelectorAll(".wa-link").forEach(a => a.href = waFor(color));
+  };
   window.pickColor = (i) => {
     color = colors[i];
     document.getElementById("colorName").textContent = color.name;

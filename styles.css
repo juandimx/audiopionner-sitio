@@ -487,11 +487,17 @@ footer a:hover{ color:#fff; }
 .section-divider{ height:1px; background:var(--border); margin:0 0 40px; }
 .center-cta{ text-align:center; margin-top:36px; }
 .whatsapp-fab{
-  position:fixed; bottom:22px; right:22px; z-index:90;
-  width:56px; height:56px; border-radius:50%;
-  background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center;
-  box-shadow: var(--shadow); border:none;
+  position:fixed; right:14px; top:calc(env(safe-area-inset-top, 0px) + 100px); z-index:90;
+  display:flex; align-items:center; gap:8px; color:#fff; text-decoration:none;
 }
+.whatsapp-fab .wa-dot{ width:52px; height:52px; border-radius:50%; background:#25D366; display:grid; place-items:center; box-shadow:0 8px 22px rgba(0,0,0,.18); flex:none; }
+.whatsapp-fab .wa-bubble{ position:relative; background:#fff; color:#1F1A14; font-size:.78rem; line-height:1.25; padding:9px 12px; border-radius:14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.14); white-space:nowrap; transition:opacity .25s, transform .25s; }
+.whatsapp-fab .wa-bubble b{ color:#128C4B; }
+.whatsapp-fab .wa-bubble::after{ content:""; position:absolute; right:-6px; top:50%; width:12px; height:12px; background:#fff; transform:translateY(-50%) rotate(45deg); border-radius:2px; }
+.whatsapp-fab.mini .wa-bubble{ opacity:0; transform:translateX(10px); pointer-events:none; }
+.whatsapp-fab:hover .wa-bubble{ opacity:1; transform:none; }
+@media (max-width:680px){ .whatsapp-fab{ top:calc(env(safe-area-inset-top, 0px) + 96px); right:10px; } .whatsapp-fab .wa-dot{ width:48px; height:48px; } }
 .empty-cat{ text-align:center; padding:60px 20px; color:var(--text-muted); border:1px dashed var(--border); border-radius:var(--radius-lg); }
 
 /* ---------- Utilidades nuevas ---------- */
@@ -523,6 +529,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight:800; text-transform:uppercase; letter-spacing:.01em; font-size:clamp(1.5rem, 2.6vw, 2.1rem); line-height:1.1;
 }
 .confirm-code-box .code{ font-weight:700; letter-spacing:.08em; }
+
+/* Medidas (colchones y bases) */
+.size-pick{ margin:4px 0 14px; }
+.size-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.size-chip{ border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:999px; padding:7px 12px; font-size:.78rem; font-weight:600; }
+.size-chip.on{ border-color:var(--navy); background:var(--navy); color:#fff; }
 
 /* Colores del producto */
 .color-pick{ margin:4px 0 14px; }
