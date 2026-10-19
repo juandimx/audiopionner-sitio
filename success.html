@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09447E">
 <title>¡Pago confirmado! — AudioPionner</title>
+<meta name="robots" content="noindex">
 <link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -43,7 +46,7 @@ if(!pending){
   const total = pending.items.reduce((sum,i)=>{
     const p = PRODUCTS.find(p=>p.id===i.id);
     return p ? sum + p.price*i.qty : sum;
-  }, 0);
+  }, 0) + (pending.fulfillment === "delivery" ? 65000 : 0);
 
   wrap.innerHTML = `
     <div class="confirm-code-box" style="background:#16825A;">
@@ -61,7 +64,7 @@ if(!pending){
       <a href="https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent('Hola, mi código de pedido es '+code)}" target="_blank" class="btn btn-outline" style="margin-left:10px;">Escribir por WhatsApp</a>
     </div>
   `;
-  localStorage.setItem("ap_cart", "[]");
+  if(!pending.isBuyNow){ localStorage.setItem("ap_cart", "[]"); }
   sessionStorage.removeItem("ap_pending_order");
   document.addEventListener("DOMContentLoaded", updateCartCount);
   updateCartCount();

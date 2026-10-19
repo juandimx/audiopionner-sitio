@@ -11,8 +11,13 @@ const STORE_INFO = {
     { city: "Santa Marta", address: "Cra 5ta con Calle 13" },
     { city: "Santa Marta", address: "Cra 5ta con Calle 11 y 12" },
     { city: "Santa Marta", address: "San Andresito, Local 160" },
+    { city: "Santa Marta", address: "Calle 22 No. 5-21, Local 2" },
     { city: "Ciénaga", address: "Calle 17 #18-05" },
-  ],
+  ].map((s) => ({
+    ...s,
+    maps: "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent(`AudioPionner ${s.address}, ${s.city}, Magdalena`),
+  })),
 };
 
 /* ---------- Formato de moneda ---------- */
@@ -20,23 +25,50 @@ function formatCOP(value) {
   return "$" + Math.round(value).toLocaleString("es-CO");
 }
 
+/* ---------- Tarjeta de producto (compartida por todas las páginas) ---------- */
+function productCard(p) {
+  const base = relPath();
+  const hasDiscount = p.price != null && p.compareAtPrice && p.compareAtPrice > p.price;
+  const pct = hasDiscount ? Math.round((1 - p.price / p.compareAtPrice) * 100) : 0;
+  return `
+  <a href="${base}producto.html?id=${p.id}" class="product-card">
+    <div class="img-wrap" style="--img:url('${base}${p.image}')">
+      ${hasDiscount ? `<span class="badge">-${pct}%</span>` : ""}
+      <img src="${base}${p.image}" alt="${p.name}" loading="lazy" width="600" height="600">
+    </div>
+    <div class="body">
+      <span class="cat">${p.subcategoryLabel}</span>
+      <span class="name">${p.name}</span>
+      <div class="price-row">
+        ${p.price != null
+          ? `<span class="price">${formatCOP(p.price)}</span>`
+          : `<span class="price price-quote">Precio por WhatsApp</span>`}
+        ${hasDiscount ? `<span class="price-old">${formatCOP(p.compareAtPrice)}</span>` : ""}
+      </div>
+    </div>
+  </a>`;
+}
+
 /* ---------- Tema claro/oscuro ---------- */
 function initTheme() {
-  const saved = localStorage.getItem("ap_theme");
-  const theme = saved || "light";
+  let saved = null;
+  try { saved = localStorage.getItem("ap_theme"); } catch (e) {}
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const theme = saved || (prefersDark ? "dark" : "light");
   document.documentElement.setAttribute("data-theme", theme);
 }
 function toggleTheme() {
   const current = document.documentElement.getAttribute("data-theme");
   const next = current === "dark" ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("ap_theme", next);
+  try { localStorage.setItem("ap_theme", next); } catch (e) {}
   updateThemeIcon();
 }
 function updateThemeIcon() {
   const btn = document.getElementById("themeToggle");
   if (!btn) return;
   const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  btn.setAttribute("aria-label", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
   btn.innerHTML = isDark
     ? '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>'
     : '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
@@ -45,16 +77,22 @@ function updateThemeIcon() {
 /* ---------- Carrito (localStorage) ---------- */
 function getCart() {
   try {
-    return JSON.parse(localStorage.getItem("ap_cart") || "[]");
+    const cart = JSON.parse(localStorage.getItem("ap_cart") || "[]");
+    return typeof PRODUCTS === "undefined" ? cart : cart.filter((i) => hasPrice(i.id));
   } catch (e) {
     return [];
   }
 }
 function saveCart(cart) {
-  localStorage.setItem("ap_cart", JSON.stringify(cart));
+  try { localStorage.setItem("ap_cart", JSON.stringify(cart)); } catch (e) {}
   updateCartCount();
 }
+function hasPrice(productId) {
+  const p = PRODUCTS.find((p) => p.id === productId);
+  return !!(p && p.price != null);
+}
 function addToCart(productId, qty = 1) {
+  if (!hasPrice(productId)) return;
   const cart = getCart();
   const existing = cart.find((i) => i.id === productId);
   if (existing) {
@@ -108,7 +146,7 @@ function injectCartDrawer() {
     <aside class="cart-drawer" id="cartDrawer">
       <div class="cart-head">
         <h3>Tu carrito</h3>
-        <button class="icon-btn" onclick="closeCartDrawer()">
+        <button class="icon-btn" onclick="closeCartDrawer()" aria-label="Cerrar carrito">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
       </div>
@@ -152,9 +190,9 @@ function renderCartDrawer() {
         <div class="ci-info">
           <div class="ci-name">${p.name}</div>
           <div class="ci-price">${formatCOP(p.price)} × 
-            <span style="cursor:pointer" onclick="setQty(${p.id}, ${item.qty - 1})">–</span>
-            &nbsp;${item.qty}&nbsp;
-            <span style="cursor:pointer" onclick="setQty(${p.id}, ${item.qty + 1})">+</span>
+            <button class="qty-mini" onclick="setQty(${p.id}, ${item.qty - 1})" aria-label="Quitar uno">–</button>
+            ${item.qty}
+            <button class="qty-mini" onclick="setQty(${p.id}, ${item.qty + 1})" aria-label="Agregar uno">+</button>
           </div>
           <button class="ci-remove" onclick="removeFromCart(${p.id})">Eliminar</button>
         </div>
@@ -180,32 +218,58 @@ function renderHeader() {
   const mount = document.getElementById("siteHeader");
   if (!mount) return;
   const base = relPath();
+  const links = [
+    ["muebles.html", "Muebles"],
+    ["muebles.html?sub=sala", "Salas"],
+    ["muebles.html?sub=comedor", "Comedores"],
+    ["muebles.html?sub=camas", "Camas"],
+    ["muebles.html?sub=closets", "Closets"],
+    ["muebles.html?promo=1", "Promociones"],
+    ["tiendas.html", "Tiendas"],
+  ];
+  const navLinks = links.map(([href, label]) => `<a href="${base}${href}">${label}</a>`).join("");
   mount.innerHTML = `
     <div class="announce">Envíos a todo Colombia · Compra online y recoge en tienda · Financiación con Addi, Alo Credit y Banco de Bogotá</div>
     <header class="site-header">
       <div class="header-inner">
-        <a href="${base}index.html" class="logo-link">
+        <button class="icon-btn mobile-nav-toggle" id="mobileNavToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav" onclick="toggleMobileNav()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <a href="${base}index.html" class="logo-link" aria-label="AudioPionner, ir al inicio">
           <img src="${base}logo.png" alt="AudioPionner">
         </a>
-        <nav class="main-nav">
-          <a href="${base}muebles.html">Muebles</a>
-          <a href="${base}muebles.html?sub=sala">Salas</a>
-          <a href="${base}muebles.html?sub=comedor">Comedores</a>
-          <a href="${base}muebles.html?sub=camas">Camas</a>
-          <a href="${base}tiendas.html">Tiendas</a>
-        </nav>
+        <nav class="main-nav" aria-label="Principal">${navLinks}</nav>
         <div class="header-actions">
-          <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" title="Cambiar tema"></button>
-          <button class="icon-btn" onclick="openCartDrawer()" title="Carrito">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <button class="icon-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Cambiar tema"></button>
+          <button class="icon-btn" onclick="openCartDrawer()" aria-label="Abrir carrito">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             <span class="cart-count" style="display:none;">0</span>
           </button>
         </div>
       </div>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil" hidden>
+        ${navLinks}
+        <a href="https://wa.me/${STORE_INFO.whatsapp}" target="_blank" rel="noopener" class="mobile-nav-wa">Escríbenos por WhatsApp</a>
+      </nav>
     </header>
   `;
   updateThemeIcon();
 }
+function toggleMobileNav(force) {
+  const nav = document.getElementById("mobileNav");
+  const btn = document.getElementById("mobileNavToggle");
+  if (!nav || !btn) return;
+  const open = typeof force === "boolean" ? force : nav.hidden;
+  nav.hidden = !open;
+  btn.setAttribute("aria-expanded", String(open));
+  btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    toggleMobileNav(false);
+    if (document.getElementById("cartDrawer")?.classList.contains("open")) closeCartDrawer();
+  }
+});
 
 /* ---------- Footer compartido ---------- */
 function renderFooter() {
@@ -221,7 +285,7 @@ function renderFooter() {
         </div>
         <div>
           <h5>Atención al cliente</h5>
-          <a href="https://wa.me/${STORE_INFO.whatsapp}" target="_blank">WhatsApp: ${STORE_INFO.phone}</a>
+          <a href="https://wa.me/${STORE_INFO.whatsapp}" target="_blank" rel="noopener">WhatsApp: ${STORE_INFO.phone}</a>
           <a href="${base}tiendas.html">Nuestras tiendas</a>
           <a href="${base}checkout.html">Recogida en tienda</a>
         </div>
@@ -230,6 +294,8 @@ function renderFooter() {
           <a href="${base}muebles.html?sub=sala">Juegos de sala</a>
           <a href="${base}muebles.html?sub=comedor">Juegos de comedor</a>
           <a href="${base}muebles.html?sub=camas">Camas</a>
+          <a href="${base}muebles.html?sub=closets">Closets</a>
+          <a href="${base}muebles.html?sub=organizadores">Organizadores y gaveteros</a>
           <a href="${base}muebles.html?sub=consolas">Consolas</a>
         </div>
         <div>
@@ -252,7 +318,9 @@ function renderWhatsappFab() {
   a.className = "whatsapp-fab";
   a.href = `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent("Hola AudioPionner, quiero más información sobre un producto.")}`;
   a.target = "_blank";
-  a.innerHTML = `<svg width="27" height="27" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.65-.17 1.33z"/></svg>`;
+  a.rel = "noopener";
+  a.setAttribute("aria-label", "Escribir a AudioPionner por WhatsApp");
+  a.innerHTML = `<svg aria-hidden="true" width="27" height="27" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.65-.17 1.33z"/></svg>`;
   document.body.appendChild(a);
 }
 

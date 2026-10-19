@@ -1,4 +1,5 @@
 // Auto-generado — edita este archivo para actualizar productos
+// price: null = precio por cotizar (se muestra "Cotizar por WhatsApp" en vez del carrito)
 const PRODUCTS = [
   {
     "id": 1,
@@ -1356,5 +1357,527 @@ const PRODUCTS = [
     },
     "pickup": true,
     "stock": 6
+  },
+  {
+    "id": 69,
+    "slug": "closet-moka",
+    "name": "Closet Moka",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-moka-2p3g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "2 puertas + 3 gavetas + espejo",
+      "Color": "Moka",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 70,
+    "slug": "closet-blanco-y-negro",
+    "name": "Closet Blanco y Negro",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-blanco-negro-2p2g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "2 puertas + 2 gavetas + espejo",
+      "Color": "Blanco con marco negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 71,
+    "slug": "closet-crema-clasico",
+    "name": "Closet Crema Clásico",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-crema-2p3g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "2 puertas + 3 gavetas + espejo",
+      "Color": "Crema con marco negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 72,
+    "slug": "closet-roble-2-puertas",
+    "name": "Closet Roble 2 Puertas",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-roble-2p3g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "2 puertas + 3 gavetas + espejo",
+      "Color": "Roble claro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 73,
+    "slug": "closet-roble-3-puertas",
+    "name": "Closet Roble 3 Puertas",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-roble-3p.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "3 puertas",
+      "Color": "Roble claro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 74,
+    "slug": "closet-negro-6-puertas",
+    "name": "Closet Negro 6 Puertas",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-negro-6p3g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "6 puertas + 3 gavetas + espejo",
+      "Color": "Negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 75,
+    "slug": "closet-negro-4-puertas",
+    "name": "Closet Negro 4 Puertas",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-negro-4p4g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "4 puertas + 4 gavetas + espejo",
+      "Color": "Negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 76,
+    "slug": "closet-roble-4-puertas",
+    "name": "Closet Roble 4 Puertas",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-roble-4p4g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "4 puertas + 4 gavetas + espejo",
+      "Color": "Roble claro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 77,
+    "slug": "closet-grafito-5-puertas",
+    "name": "Closet Grafito 5 Puertas",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-grafito-5p6g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "5 puertas + 6 gavetas + espejo",
+      "Color": "Grafito con marco negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 78,
+    "slug": "closet-roble-y-negro-5-puertas",
+    "name": "Closet Roble y Negro 5 Puertas",
+    "category": "muebles",
+    "subcategory": "closets",
+    "subcategoryLabel": "Closets",
+    "image": "closet-roble-negro-5p6g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Closet con chapas de seguridad y herrajes metálicos. Amplio espacio para colgar y gavetas para organizar tu ropa.",
+    "specs": {
+      "Configuración": "5 puertas + 6 gavetas + espejo",
+      "Color": "Roble claro con marco negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 79,
+    "slug": "organizador-nogal-4-puertas",
+    "name": "Organizador Nogal 4 Puertas",
+    "category": "muebles",
+    "subcategory": "organizadores",
+    "subcategoryLabel": "Organizadores y Gaveteros",
+    "image": "organizador-nogal-4p.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Mueble auxiliar con chapas de seguridad, ideal para alcoba, estudio o sala.",
+    "specs": {
+      "Configuración": "4 puertas",
+      "Color": "Nogal con marco negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 80,
+    "slug": "organizador-plata-4-puertas",
+    "name": "Organizador Plata 4 Puertas",
+    "category": "muebles",
+    "subcategory": "organizadores",
+    "subcategoryLabel": "Organizadores y Gaveteros",
+    "image": "organizador-plata-4p.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Mueble auxiliar con chapas de seguridad, ideal para alcoba, estudio o sala.",
+    "specs": {
+      "Configuración": "4 puertas",
+      "Color": "Plata con marco negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 81,
+    "slug": "gavetero-azul-6-gavetas",
+    "name": "Gavetero Azul 6 Gavetas",
+    "category": "muebles",
+    "subcategory": "organizadores",
+    "subcategoryLabel": "Organizadores y Gaveteros",
+    "image": "gavetero-azul-6g.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Mueble auxiliar con chapas de seguridad, ideal para alcoba, estudio o sala.",
+    "specs": {
+      "Configuración": "6 gavetas",
+      "Color": "Azul y blanco",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 82,
+    "slug": "gavetero-nogal-4-gavetas-2-puertas",
+    "name": "Gavetero Nogal 4 Gavetas + 2 Puertas",
+    "category": "muebles",
+    "subcategory": "organizadores",
+    "subcategoryLabel": "Organizadores y Gaveteros",
+    "image": "gavetero-nogal-4g2p.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Mueble auxiliar con chapas de seguridad, ideal para alcoba, estudio o sala.",
+    "specs": {
+      "Configuración": "4 gavetas + 2 puertas",
+      "Color": "Nogal con marco negro",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 83,
+    "slug": "cama-perla",
+    "name": "Cama Perla",
+    "category": "muebles",
+    "subcategory": "camas",
+    "subcategoryLabel": "Camas",
+    "image": "cama-perla.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Cama tapizada con cabecero amplio de paneles verticales. Elegancia para tu alcoba.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 84,
+    "slug": "bife-solari-con-espejo",
+    "name": "Bifé Solari con Espejo",
+    "category": "muebles",
+    "subcategory": "consolas",
+    "subcategoryLabel": "Consolas",
+    "image": "bife-solari.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Bifé de cuatro puertas con herrajes circulares dorados y espejo de marco dorado.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 85,
+    "slug": "mesa-de-centro-blanca-y-dorada",
+    "name": "Mesa de Centro Blanca y Dorada",
+    "category": "muebles",
+    "subcategory": "centro-mesa",
+    "subcategoryLabel": "Centro de Mesa",
+    "image": "mesa-centro-blanca-dorada.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Mesa de centro con cubierta blanca y base metálica dorada.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 86,
+    "slug": "mesa-de-centro-roble-y-blanco",
+    "name": "Mesa de Centro Roble y Blanco",
+    "category": "muebles",
+    "subcategory": "centro-mesa",
+    "subcategoryLabel": "Centro de Mesa",
+    "image": "mesa-centro-roble-blanco.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Mesa de centro con cubierta en tono roble y base acanalada.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 87,
+    "slug": "comedor-gabanna-6-puestos",
+    "name": "Comedor Gabanna 6 Puestos",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-gabanna-6p.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Juego de comedor de 6 puestos, elegante y pensado para espacios amplios. Mesa cuadrada.",
+    "specs": {
+      "Puestos": "6",
+      "Mesa": "cuadrada",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 88,
+    "slug": "comedor-tiffany",
+    "name": "Comedor Tiffany",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-tiffany.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa cuadrada.",
+    "specs": {
+      "Puestos": "4",
+      "Mesa": "cuadrada",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 89,
+    "slug": "comedor-luciana-mesa-redonda",
+    "name": "Comedor Luciana Mesa Redonda",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-luciana.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa redonda.",
+    "specs": {
+      "Puestos": "4",
+      "Mesa": "redonda",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 90,
+    "slug": "comedor-brawn",
+    "name": "Comedor Brawn",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-brawn.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa cuadrada.",
+    "specs": {
+      "Puestos": "4",
+      "Mesa": "cuadrada",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 91,
+    "slug": "comedor-eco-natural",
+    "name": "Comedor Eco Natural",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-eco-natural.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa cuadrada.",
+    "specs": {
+      "Puestos": "4",
+      "Mesa": "cuadrada",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 92,
+    "slug": "comedor-natural-mesa-ovalada",
+    "name": "Comedor Natural Mesa Ovalada",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-natural.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa ovalada.",
+    "specs": {
+      "Puestos": "4",
+      "Mesa": "ovalada",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 93,
+    "slug": "comedor-estrella-mesa-redonda",
+    "name": "Comedor Estrella Mesa Redonda",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-estrella.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa redonda.",
+    "specs": {
+      "Puestos": "4",
+      "Mesa": "redonda",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null
   }
 ];
+
+// Permite que la función de pago (Netlify) lea los mismos precios del servidor
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = PRODUCTS;
+}

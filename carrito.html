@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09447E">
 <title>Carrito — AudioPionner</title>
+<meta name="robots" content="noindex">
 <link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -43,9 +46,9 @@ function renderCartPage(){
         <div class="ci-name">${p.name}</div>
         <div class="ci-price">${formatCOP(p.price)} c/u</div>
         <div class="qty-control" style="margin-top:8px; width:fit-content;">
-          <button onclick="setQty(${p.id}, ${item.qty-1})">–</button>
+          <button onclick="setQty(${p.id}, ${item.qty-1})" aria-label="Quitar uno">–</button>
           <span>${item.qty}</span>
-          <button onclick="setQty(${p.id}, ${item.qty+1})">+</button>
+          <button onclick="setQty(${p.id}, ${item.qty+1})" aria-label="Agregar uno">+</button>
         </div>
       </div>
       <div style="text-align:right;">
@@ -56,7 +59,7 @@ function renderCartPage(){
   }).join("");
 
   wrap.innerHTML = `
-    <div style="display:grid; grid-template-columns:1.6fr 1fr; gap:32px; align-items:flex-start;">
+    <div class="cart-page-grid">
       <div>${rows}</div>
       <div class="co-card">
         <h3>Resumen</h3>

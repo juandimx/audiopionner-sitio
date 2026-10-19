@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09447E">
 <title>Checkout — AudioPionner</title>
+<meta name="robots" content="noindex">
 <link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,14 +28,20 @@
 <script src="products.js"></script>
 <script src="main.js"></script>
 <script>
-// Support "buy now" from PDP via ?id=
-const buyNowId = new URLSearchParams(window.location.search).get("id");
-let checkoutItems = getCart();
-if(buyNowId && checkoutItems.length === 0){
-  checkoutItems = [{ id: parseInt(buyNowId), qty: 1 }];
-}
+// "Comprar ahora" desde la ficha de producto (?id=&qty=) paga solo ese producto
+// y deja intacto lo que haya en el carrito.
+const params = new URLSearchParams(window.location.search);
+const buyNowId = parseInt(params.get("id"));
+const buyNowQty = Math.max(1, parseInt(params.get("qty")) || 1);
+const isBuyNow = Number.isInteger(buyNowId) && hasPrice(buyNowId);
+let checkoutItems = isBuyNow ? [{ id: buyNowId, qty: buyNowQty }] : getCart();
+
+// Los datos del cliente se guardan aquí para no perderlos al cambiar de opción
+const form = { name: "", doc: "", phone: "", email: "", address: "" };
+const esc = (v) => String(v).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
 
 let fulfillment = "pickup"; // pickup | delivery
+let selectedStoreIndex = 0;
 let selectedStore = STORE_INFO.stores[0];
 let payMethod = "card";
 
@@ -58,38 +67,39 @@ function renderCheckout(){
       <div>
         <div class="co-card">
           <h3>1. Método de entrega</h3>
-          <div class="radio-opt ${fulfillment==='pickup'?'selected':''}" onclick="setFulfillment('pickup')">
+          <label class="radio-opt ${fulfillment==='pickup'?'selected':''}" onclick="setFulfillment('pickup')">
             <input type="radio" name="ff" ${fulfillment==='pickup'?'checked':''}>
             <div><strong>Recoger en tienda — Gratis</strong><p style="margin:4px 0 0; font-size:.8rem; color:var(--text-muted);">Te avisamos por WhatsApp cuando tu pedido esté listo. Muestra tu código de confirmación al recogerlo.</p></div>
-          </div>
-          <div class="radio-opt ${fulfillment==='delivery'?'selected':''}" onclick="setFulfillment('delivery')">
+          </label>
+          <label class="radio-opt ${fulfillment==='delivery'?'selected':''}" onclick="setFulfillment('delivery')">
             <input type="radio" name="ff" ${fulfillment==='delivery'?'checked':''}>
             <div><strong>Envío a nivel nacional</strong><p style="margin:4px 0 0; font-size:.8rem; color:var(--text-muted);">Costo estimado ${formatCOP(65000)}. El valor final y el tiempo de entrega se confirman según tu ciudad. Instalación no incluida.</p></div>
-          </div>
+          </label>
 
           <div id="pickupStoreSelect" style="${fulfillment==='pickup'?'':'display:none'}; margin-top:12px;">
-            <label style="font-size:.8rem; font-weight:600; display:block; margin-bottom:6px;">Elige la sede</label>
-            <select class="sort-select" style="width:100%;" onchange="selectedStore = STORE_INFO.stores[this.value]">
-              ${STORE_INFO.stores.map((s,i)=>`<option value="${i}">${s.city} — ${s.address}</option>`).join("")}
+            <label for="storeSelect" style="font-size:.8rem; font-weight:600; display:block; margin-bottom:6px;">Elige la sede</label>
+            <select class="sort-select" style="width:100%;" id="storeSelect" onchange="selectedStoreIndex = +this.value; selectedStore = STORE_INFO.stores[this.value]">
+              ${STORE_INFO.stores.map((s,i)=>`<option value="${i}" ${i===selectedStoreIndex?'selected':''}>${s.city} — ${s.address}</option>`).join("")}
             </select>
           </div>
         </div>
 
-        <div class="co-card">
+        <form class="co-card" id="customerForm" novalidate onsubmit="return false" oninput="form[event.target.name] = event.target.value">
           <h3>2. Tus datos</h3>
           <div class="form-grid-2">
-            <div class="form-row"><label>Nombre completo</label><input type="text" placeholder="Nombre y apellido" required></div>
-            <div class="form-row"><label>Cédula</label><input type="text" placeholder="Documento de identidad" required></div>
+            <div class="form-row"><label for="f-name">Nombre completo</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Nombre y apellido" value="${esc(form.name)}" required></div>
+            <div class="form-row"><label for="f-doc">Cédula</label><input id="f-doc" name="doc" type="text" inputmode="numeric" pattern="[0-9]{6,10}" placeholder="Solo números" value="${esc(form.doc)}" required></div>
           </div>
           <div class="form-grid-2">
-            <div class="form-row"><label>Celular</label><input type="tel" placeholder="300 000 0000" required></div>
-            <div class="form-row"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com" required></div>
+            <div class="form-row"><label for="f-phone">Celular</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="3[0-9 ]{9,11}" placeholder="300 000 0000" value="${esc(form.phone)}" required></div>
+            <div class="form-row"><label for="f-email">Correo electrónico</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="correo@ejemplo.com" value="${esc(form.email)}" required></div>
           </div>
           <div class="form-row" id="addressRow" style="${fulfillment==='delivery'?'':'display:none'}">
-            <label>Dirección de envío</label>
-            <input type="text" placeholder="Dirección, ciudad, departamento">
+            <label for="f-address">Dirección de envío</label>
+            <input id="f-address" name="address" type="text" autocomplete="street-address" placeholder="Dirección, ciudad, departamento" value="${esc(form.address)}" ${fulfillment==='delivery'?'required':''}>
           </div>
-        </div>
+          <p class="form-error" id="formError" role="alert" hidden></p>
+        </form>
 
         <div class="co-card">
           <h3>3. Método de pago</h3>
@@ -149,7 +159,24 @@ function setPay(v){
   renderCheckout();
 }
 
+function validateForm(){
+  const f = document.getElementById("customerForm");
+  const err = document.getElementById("formError");
+  const invalid = [...f.querySelectorAll("input")].filter(i => !i.checkValidity());
+  f.querySelectorAll("input").forEach(i => i.setAttribute("aria-invalid", String(!i.checkValidity())));
+  if(invalid.length){
+    const labels = invalid.map(i => f.querySelector(`label[for="${i.id}"]`).textContent.toLowerCase());
+    err.textContent = "Revisa estos datos: " + labels.join(", ") + ".";
+    err.hidden = false;
+    invalid[0].focus();
+    return false;
+  }
+  err.hidden = true;
+  return true;
+}
+
 async function handleConfirm(){
+  if(!validateForm()) return;
   if(payMethod === 'card'){
     await payWithStripe();
   } else {
@@ -164,21 +191,17 @@ async function payWithStripe(){
 
   // Guardamos los datos del pedido para recuperarlos en la página de éxito
   sessionStorage.setItem("ap_pending_order", JSON.stringify({
-    items: checkoutItems, fulfillment, store: selectedStore
+    items: checkoutItems, fulfillment, store: selectedStore, isBuyNow
   }));
 
-  const origin = window.location.origin + window.location.pathname.replace("checkout.html","");
   try{
+    // Solo se envían IDs y cantidades: el precio lo calcula el servidor.
     const res = await fetch("/api/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        items: checkoutItems.map(i=>{
-          const p = PRODUCTS.find(p=>p.id===i.id);
-          return { name: p.name, price: p.price, qty: i.qty, image: window.location.origin + "/" + p.image };
-        }),
-        successUrl: origin + "success.html",
-        cancelUrl: origin + "checkout.html",
+        items: checkoutItems.map(i => ({ id: i.id, qty: i.qty })),
+        fulfillment,
       }),
     });
     const data = await res.json();
@@ -225,7 +248,7 @@ function confirmOrder(){
       <a href="https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent('Hola, mi código de pedido es '+code)}" target="_blank" class="btn btn-outline" style="margin-left:10px;">Escribir por WhatsApp</a>
     </div>
   `;
-  localStorage.setItem("ap_cart", "[]");
+  if(!isBuyNow){ localStorage.setItem("ap_cart", "[]"); }
   updateCartCount();
 }
 
