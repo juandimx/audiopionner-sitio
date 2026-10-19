@@ -163,6 +163,7 @@ footer img{ height:36px; width:auto; }
   footer .wrap{ grid-template-columns:1fr; }
 }
 @media (prefers-reduced-motion: reduce){ *{ transition-duration:.01ms !important; } }
+.info .price{display:none}
 </style>
 </head>
 <body>
@@ -177,7 +178,6 @@ footer img{ height:36px; width:auto; }
     <a class="logo" href="#" aria-label="AudioPionner, inicio"><img src="../landing/logo-white.png" alt="AudioPionner"></a>
     <nav class="r" aria-label="Secundario">
       <a class="show-m" href="muebles.html">catálogo</a>
-      <a class="hide-m" href="muebles.html?promo=1">promociones</a>
       <a class="hide-m" href="https://wa.me/573024919445?text=Hola%20AudioPionner%2C%20quiero%20cotizar%20un%20mueble.">cotizar</a>
       
     </nav>
@@ -191,7 +191,7 @@ footer img{ height:36px; width:auto; }
 
   <div class="info" aria-live="polite">
     <div class="name" id="name">Sala Mónaco</div>
-    <div class="price" id="price">$2.274.000</div>
+    <div class="price" id="price"></div>
     <div class="acts">
       <a class="ulink" id="cta" href="#">Ver producto</a>
       <button class="cam-btn" id="camBtn" type="button" aria-label="Ver este mueble en tu espacio con la cámara">
@@ -225,10 +225,10 @@ footer img{ height:36px; width:auto; }
       <a class="ulink" href="muebles.html">Ver todo</a>
     </div>
     <div class="nc-grid">
-      <a class="item" href="producto.html?id=69"><div class="ph"><img src="../landing/nc-closet.webp" alt="" loading="lazy"></div><h3>Closet Moka</h3><div class="p">Precio por cotizar</div></a>
+      <a class="item" href="producto.html?id=69"><div class="ph"><img src="../landing/nc-closet.webp" alt="" loading="lazy"></div><h3>Closet Moka</h3></a>
       <p class="nc-text">Closets, comedores y piezas nuevas para 2026. Líneas limpias, materiales resistentes y lo justo para que cada espacio se vea ordenado.</p>
-      <a class="item" href="producto.html?id=85"><div class="ph"><img src="../landing/nc-mesa.webp" alt="" loading="lazy"></div><h3>Mesa Blanca y Dorada</h3><div class="p">Precio por cotizar</div></a>
-      <a class="item big" href="producto.html?id=83"><div class="ph"><img src="../landing/nc-cama.webp" alt="" loading="lazy"></div><h3>Cama Perla</h3><div class="p">Precio por cotizar</div></a>
+      <a class="item" href="producto.html?id=85"><div class="ph"><img src="../landing/nc-mesa.webp" alt="" loading="lazy"></div><h3>Mesa Blanca y Dorada</h3></a>
+      <a class="item big" href="producto.html?id=83"><div class="ph"><img src="../landing/nc-cama.webp" alt="" loading="lazy"></div><h3>Cama Perla</h3></a>
     </div>
   </div>
 </section>
@@ -271,13 +271,15 @@ footer img{ height:36px; width:auto; }
 <script>
 // Muebles de la transición, en orden. w = ancho relativo al escenario; maxH = alto máximo relativo.
 const PIECES = [
-  { word:"Salas",     name:"Sala Mónaco",            price:"$2.274.000", img:"../landing/hero-sala-monaco.webp",  href:"producto.html?id=2",  w:1.0, maxH:.62 },
-  { word:"Camas",     name:"Cama Habana",            price:"$1.096.000", img:"../landing/hero-cama-habana.webp",  href:"producto.html?id=24", w:.86, maxH:.8 },
-  { word:"Comedores", name:"Comedor Nova Redondo",   price:"$1.265.000", img:"../landing/hero-comedor-nova-redondo.webp", href:"producto.html?id=65", w:.7, maxH:.9 },
+  { word:"Salas",     name:"Sala Mónaco",            price:null, img:"../landing/hero-sala-monaco.webp",  href:"producto.html?id=2",  w:1.0, maxH:.62 },
+  { word:"Camas",     name:"Cama Habana",            price:null, img:"../landing/hero-cama-habana.webp",  href:"producto.html?id=24", w:.86, maxH:.8 },
+  { word:"Comedores", name:"Comedor Nova Redondo",   price:null, img:"../landing/hero-comedor-nova-redondo.webp", href:"producto.html?id=65", w:.7, maxH:.9 },
+  { word:"Tocadores", name:"Villini con Luces",      price:null,         img:"../landing/hero-villini-luces-rosado.webp", href:"producto.html?id=94&color=1", w:.5, maxH:1.08 },
   { word:"Bifés",     name:"Bifé Solari con Espejo", price:null,         img:"../landing/hero-bife-solari.webp",  href:"producto.html?id=84", w:.6,  maxH:.98 },
   { word:"Closets",   name:"Closet Moka",            price:null,         img:"../landing/hero-closet-moka.webp",  href:"producto.html?id=69", w:.4,  maxH:1.08 },
   { word:"Mesas",     name:"Mesa de Centro Roble",   price:null,         img:"../landing/hero-mesa-roble.webp",   href:"producto.html?id=86", w:.74, maxH:.58 },
 ];
+const SHOW_PRICES = false;
 const HOLD = 4200, ENTER = 1250, EXIT = 650;
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const stage = document.getElementById("stage"), word = document.getElementById("word"), thumbs = document.getElementById("thumbs"), hero = document.getElementById("hero");
@@ -307,7 +309,7 @@ function go(i, user){
   word.classList.add("out");
   setTimeout(() => { word.textContent = PIECES[i].word.toUpperCase() + "."; fitWord(); word.classList.remove("out"); }, 300);
   document.getElementById("name").textContent = PIECES[i].name;
-  document.getElementById("price").textContent = PIECES[i].price || "Precio por cotizar";
+  document.getElementById("price").textContent = SHOW_PRICES ? (PIECES[i].price || "Precio por cotizar") : "";
   document.getElementById("cta").href = PIECES[i].href;
   [...thumbs.children].forEach((t, k) => { t.setAttribute("aria-current", k === i); t.setAttribute("aria-selected", k === i); });
   if (user && thumbs.scrollWidth > thumbs.clientWidth){

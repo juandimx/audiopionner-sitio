@@ -276,10 +276,12 @@ const PIECES = [
   { word:"Salas",     name:"Sala Mónaco",            price:"$2.274.000", img:"landing/hero-sala-monaco.webp",  href:"producto.html?id=2",  w:1.0, maxH:.62 },
   { word:"Camas",     name:"Cama Habana",            price:"$1.096.000", img:"landing/hero-cama-habana.webp",  href:"producto.html?id=24", w:.86, maxH:.8 },
   { word:"Comedores", name:"Comedor Nova Redondo",   price:"$1.265.000", img:"landing/hero-comedor-nova-redondo.webp", href:"producto.html?id=65", w:.7, maxH:.9 },
+  { word:"Tocadores", name:"Villini con Luces",      price:null,         img:"landing/hero-villini-luces-rosado.webp", href:"producto.html?id=94&color=1", w:.5, maxH:1.08 },
   { word:"Bifés",     name:"Bifé Solari con Espejo", price:null,         img:"landing/hero-bife-solari.webp",  href:"producto.html?id=84", w:.6,  maxH:.98 },
   { word:"Closets",   name:"Closet Moka",            price:null,         img:"landing/hero-closet-moka.webp",  href:"producto.html?id=69", w:.4,  maxH:1.08 },
   { word:"Mesas",     name:"Mesa de Centro Roble",   price:null,         img:"landing/hero-mesa-roble.webp",   href:"producto.html?id=86", w:.74, maxH:.58 },
 ];
+const SHOW_PRICES = true;
 const HOLD = 4200, ENTER = 1250, EXIT = 650;
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const stage = document.getElementById("stage"), word = document.getElementById("word"), thumbs = document.getElementById("thumbs"), hero = document.getElementById("hero");
@@ -309,7 +311,7 @@ function go(i, user){
   word.classList.add("out");
   setTimeout(() => { word.textContent = PIECES[i].word.toUpperCase() + "."; fitWord(); word.classList.remove("out"); }, 300);
   document.getElementById("name").textContent = PIECES[i].name;
-  document.getElementById("price").textContent = PIECES[i].price || "Precio por cotizar";
+  document.getElementById("price").textContent = SHOW_PRICES ? (PIECES[i].price || "Precio por cotizar") : "";
   document.getElementById("cta").href = PIECES[i].href;
   [...thumbs.children].forEach((t, k) => { t.setAttribute("aria-current", k === i); t.setAttribute("aria-selected", k === i); });
   if (user && thumbs.scrollWidth > thumbs.clientWidth){

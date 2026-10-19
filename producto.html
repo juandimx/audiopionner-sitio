@@ -55,7 +55,8 @@ if(!product){
   const pct = hasDiscount ? Math.round((1 - product.price/product.compareAtPrice)*100) : 0;
   const installment = product.price != null ? Math.round(product.price / 12) : 0;
   const colors = product.colors || [];
-  let color = colors[0] || null;
+  const startColor = Math.min(Math.max(parseInt(new URLSearchParams(location.search).get("color")) || 0, 0), Math.max(colors.length - 1, 0));
+  let color = colors[startColor] || null;
   const waFor = (c) => {
     const item = product.name + (c ? ' color ' + c.name.toLowerCase() : '');
     return `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent(product.price != null
@@ -66,7 +67,7 @@ if(!product){
 
   document.getElementById("pdpRoot").innerHTML = `
     <div class="pdp-gallery">
-      <div class="main-img" style="--img:url('${product.image}')"><img src="${product.image}" alt="${product.name}" id="mainImg" width="900" height="900"></div>
+      <div class="main-img" style="--img:url('${color ? color.image : product.image}')"><img src="${color ? color.image : product.image}" alt="${product.name}" id="mainImg" width="900" height="900"></div>
     </div>
     <div class="pdp-info">
       <span class="brand">${product.brand}</span>
@@ -75,7 +76,7 @@ if(!product){
       <div class="color-pick">
         <span class="color-label">Color: <b id="colorName">${color.name}</b></span>
         <div class="swatches" role="radiogroup" aria-label="Elegir color">
-          ${colors.map((c,i)=>`<button type="button" class="swatch${i===0?' on':''}" role="radio" aria-checked="${i===0}" aria-label="${c.name}" title="${c.name}" style="--c:${c.hex}" onclick="pickColor(${i})"></button>`).join("")}
+          ${colors.map((c,i)=>`<button type="button" class="swatch${i===startColor?' on':''}" role="radio" aria-checked="${i===startColor}" aria-label="${c.name}" title="${c.name}" style="--c:${c.hex}" onclick="pickColor(${i})"></button>`).join("")}
         </div>
       </div>` : ""}
       ${product.price != null ? `

@@ -33,19 +33,12 @@ function productCard(p) {
   return `
   <a href="${base}producto.html?id=${p.id}" class="product-card">
     <div class="img-wrap" style="--img:url('${base}${p.image}')">
-      ${hasDiscount ? `<span class="badge">-${pct}%</span>` : ""}
       <img src="${base}${p.image}" alt="${p.name}" loading="lazy" width="600" height="600">
     </div>
     <div class="body">
       <span class="cat">${p.subcategoryLabel}</span>
       <span class="name">${p.name}</span>
       ${p.colors && p.colors.length ? `<span class="dots" aria-label="${p.colors.length} colores">${p.colors.map(c=>`<i style="--c:${c.hex}" title="${c.name}"></i>`).join("")}</span>` : ""}
-      <div class="price-row">
-        ${p.price != null
-          ? `<span class="price">${formatCOP(p.price)}</span>`
-          : `<span class="price price-quote">Precio por WhatsApp</span>`}
-        ${hasDiscount ? `<span class="price-old">${formatCOP(p.compareAtPrice)}</span>` : ""}
-      </div>
     </div>
   </a>`;
 }
@@ -225,7 +218,6 @@ function renderHeader() {
     ["muebles.html?sub=comedor", "Comedores"],
     ["muebles.html?sub=camas", "Camas"],
     ["muebles.html?sub=closets", "Closets"],
-    ["muebles.html?promo=1", "Promociones"],
     ["tiendas.html", "Tiendas"],
   ];
   const navLinks = links.map(([href, label]) => `<a href="${base}${href}">${label}</a>`).join("");
@@ -303,6 +295,7 @@ function renderFooter() {
           <span>Alo Credit</span>
           <span>Sistecrédito</span>
           <span>Banco de Bogotá</span>
+          <span style="opacity:.75;font-size:.78rem">Se gestionan al confirmar tu pedido por WhatsApp o en tienda</span>
         </div>
       </div>
       <div class="footer-bottom">© 2026 AudioPionner · Tecnología · Hogar · Electrodomésticos — Catálogo</div>

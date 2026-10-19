@@ -36,8 +36,6 @@
     <div class="tabs" id="subTabs"></div>
     <select class="sort-select" id="sortSelect" aria-label="Ordenar productos">
       <option value="relevance">Ordenar: Relevancia</option>
-      <option value="price-asc">Precio: menor a mayor</option>
-      <option value="price-desc">Precio: mayor a menor</option>
       <option value="name">Nombre A-Z</option>
     </select>
   </div>
@@ -77,7 +75,7 @@ function getParam(name){
 
 let currentSub = getParam("sub") || "all";
 let currentSort = "relevance";
-let promoOnly = getParam("promo") === "1";
+let promoOnly = false;
 
 function renderTabs(){
   document.getElementById("subTabs").innerHTML = SUBCATS.map(s => `

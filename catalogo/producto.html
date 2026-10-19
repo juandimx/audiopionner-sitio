@@ -16,6 +16,11 @@
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
 <link rel="stylesheet" href="../styles.css">
+<style>
+.pay-info{ border:1px solid var(--border); border-radius:14px; padding:14px 16px; margin:16px 0; }
+.pay-info h4{ margin:0 0 8px; font-size:.9rem; }
+.pay-info p{ margin:8px 0 0; font-size:.8rem; color:var(--text-muted); }
+</style>
 </head>
 <body>
 <span data-relpath=""></span>
@@ -47,7 +52,7 @@ if(!product){
   document.getElementById("pdpRoot").innerHTML = `<div class="empty-state"><h3>Producto no encontrado</h3><a href="muebles.html" class="btn btn-primary" style="margin-top:12px;">Volver a muebles</a></div>`;
 } else {
   document.title = product.name + " — AudioPionner";
-  document.querySelector('meta[name="description"]')?.setAttribute("content", `${product.name}${product.price != null ? " por " + formatCOP(product.price) : ""}. ${product.description}`);
+  document.querySelector('meta[name="description"]')?.setAttribute("content", `${product.name}. ${product.description}`);
   document.getElementById("breadcrumbs").innerHTML = `
     <a href="index.html">Inicio</a> / <a href="muebles.html">Muebles</a> /
     <a href="muebles.html?sub=${product.subcategory}">${product.subcategoryLabel}</a> / ${product.name}
@@ -57,19 +62,20 @@ if(!product){
   const pct = hasDiscount ? Math.round((1 - product.price/product.compareAtPrice)*100) : 0;
   const installment = product.price != null ? Math.round(product.price / 12) : 0;
   const colors = product.colors || [];
-  let color = colors[0] || null;
+  const startColor = Math.min(Math.max(parseInt(new URLSearchParams(location.search).get("color")) || 0, 0), Math.max(colors.length - 1, 0));
+  let color = colors[startColor] || null;
+  const slug = (c) => (product.name + (c ? " " + c.name : "")).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  // Mensaje de WhatsApp con el enlace del producto: WhatsApp muestra la foto del mueble en la vista previa
   const waFor = (c) => {
-    const q = window.__qty || 1;
-    const item = (q > 1 ? q + ' x ' : '') + product.name + (c ? ' color ' + c.name.toLowerCase() : '');
-    return `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent(product.price != null
-      ? 'Hola AudioPionner, quiero comprar ' + item + ' (' + formatCOP(product.price) + ' c/u). ¿Me ayudan con el pedido?'
-      : 'Hola AudioPionner, quiero cotizar ' + item + '.')}`;
+    const photo = `https://audiopionnerdemo.netlify.app/catalogo/p/${slug(c)}.html`;
+    const text = `Hola AudioPionner 👋 Quiero comprar este producto: *${product.name}*${c ? " (color " + c.name.toLowerCase() + ")" : ""}.\n${photo}`;
+    return `https://wa.me/${STORE_INFO.whatsapp}?text=${encodeURIComponent(text)}`;
   };
   const waLink = waFor(color);
 
   document.getElementById("pdpRoot").innerHTML = `
     <div class="pdp-gallery">
-      <div class="main-img" style="--img:url('${product.image}')"><img src="${product.image}" alt="${product.name}" id="mainImg" width="900" height="900"></div>
+      <div class="main-img" style="--img:url('${color ? color.image : product.image}')"><img src="${color ? color.image : product.image}" alt="${product.name}" id="mainImg" width="900" height="900"></div>
     </div>
     <div class="pdp-info">
       <span class="brand">${product.brand}</span>
@@ -78,39 +84,14 @@ if(!product){
       <div class="color-pick">
         <span class="color-label">Color: <b id="colorName">${color.name}</b></span>
         <div class="swatches" role="radiogroup" aria-label="Elegir color">
-          ${colors.map((c,i)=>`<button type="button" class="swatch${i===0?' on':''}" role="radio" aria-checked="${i===0}" aria-label="${c.name}" title="${c.name}" style="--c:${c.hex}" onclick="pickColor(${i})"></button>`).join("")}
+          ${colors.map((c,i)=>`<button type="button" class="swatch${i===startColor?' on':''}" role="radio" aria-checked="${i===startColor}" aria-label="${c.name}" title="${c.name}" style="--c:${c.hex}" onclick="pickColor(${i})"></button>`).join("")}
         </div>
       </div>` : ""}
-      ${product.price != null ? `
-      <div class="pdp-price-row">
-        <span class="pdp-price">${formatCOP(product.price)}</span>
-        ${hasDiscount ? `<span class="price-old">${formatCOP(product.compareAtPrice)}</span><span class="discount-pct">-${pct}%</span>` : ""}
-      </div>
-      <p class="pdp-installments">o 12 cuotas de ${formatCOP(installment)} con Addi, Alo Credit, Sistecrédito o Banco de Bogotá</p>
-      <div class="stock-ok">
-        <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Disponible — listo para recoger o enviar
-      </div>
-
-      <div class="qty-row">
-        <span style="font-weight:600; font-size:.85rem;">Cantidad</span>
-        <div class="qty-control">
-          <button onclick="changeQty(-1)" aria-label="Quitar uno">–</button>
-          <span id="qtyVal" aria-live="polite">1</span>
-          <button onclick="changeQty(1)" aria-label="Agregar uno">+</button>
-        </div>
-      </div>
-
+      <p class="pdp-installments">Pídelo por WhatsApp y te confirmamos disponibilidad, medidas y envío.</p>
       <div class="pdp-actions">
-        <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-accent btn-block wa-link">Comprar por WhatsApp</a>
+        <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-accent btn-block wa-link">Comprar ahora por WhatsApp</a>
         <button type="button" class="btn btn-outline btn-block cam-open">📷 Ver en tu espacio</button>
-      </div>` : `
-      <div class="pdp-price-row"><span class="pdp-price price-quote">Precio por cotizar</span></div>
-      <p class="pdp-installments">Escríbenos y te enviamos precio, medidas y colores disponibles. Financiación con Addi, Alo Credit, Sistecrédito o Banco de Bogotá.</p>
-      <div class="pdp-actions">
-        <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-accent btn-block wa-link">Cotizar por WhatsApp</a>
-        <button type="button" class="btn btn-outline btn-block cam-open">📷 Ver en tu espacio</button>
-      </div>`}
+      </div>
 
       <div class="fulfillment-box">
         <div class="opt">
@@ -123,12 +104,17 @@ if(!product){
         </div>
       </div>
 
-      <div class="finance-row">
-        <span class="finance-chip">Addi</span>
-        <span class="finance-chip">Alo Credit</span>
-        <span class="finance-chip">Sistecrédito</span>
-        <span class="finance-chip">Banco de Bogotá</span>
-        <span class="finance-chip">PSE</span>
+      <div class="pay-info">
+        <h4>Medios de pago</h4>
+        <div class="finance-row">
+          <span class="finance-chip">Addi</span>
+          <span class="finance-chip">Sistecrédito</span>
+          <span class="finance-chip">Alo Credit</span>
+          <span class="finance-chip">Banco de Bogotá</span>
+          <span class="finance-chip">PSE</span>
+          <span class="finance-chip">Tarjeta débito/crédito</span>
+        </div>
+        <p>Este catálogo no recibe pagos. Escríbenos por WhatsApp y te ayudamos a pagar con el medio que prefieras.</p>
       </div>
 
       <div class="pdp-tabs">
@@ -142,7 +128,7 @@ if(!product){
           ${Object.entries(product.specs).map(([k,v])=>`<div class="spec-row"><span>${k}</span><strong>${v}</strong></div>`).join("")}
         </div>
         <div class="tab-panel" id="tab-shipping">
-          <p>Envíos a todo el territorio nacional colombiano. La instalación no está incluida en el precio. Todas las piezas AudioPionner cuentan con garantía directa de fábrica de 12 meses por defectos de manufactura.</p>
+          <p>Envíos a todo el territorio nacional colombiano. La instalación no está incluida. Todas las piezas AudioPionner cuentan con garantía directa de fábrica de 12 meses por defectos de manufactura.</p>
         </div>
       </div>
     </div>
@@ -170,9 +156,6 @@ if(!product){
     });
   }));
   window.changeQty = (delta) => {
-    window.__qty = Math.max(1, window.__qty + delta);
-    document.getElementById("qtyVal").textContent = window.__qty;
-    document.querySelectorAll(".wa-link").forEach(a => a.href = waFor(color));
   };
   window.switchTab = (e, key) => {
     document.querySelectorAll(".tab-head button").forEach(b=>b.classList.remove("active"));
