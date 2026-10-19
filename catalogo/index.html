@@ -64,7 +64,12 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--navy); outline-of
 .base{ position:absolute; left:50%; bottom:-30px; width:84%; height:58px; transform:translateX(-50%); border-radius:50%;
   background:radial-gradient(ellipse at 50% 40%, #FFFFFF, #F1EBE1 70%);
   box-shadow: 0 8px 0 #DCD2C2, 0 26px 40px rgba(30,20,8,.32); }
-.piece{ position:absolute; left:50%; bottom:0; transform:translateX(-50%); will-change:transform, opacity; opacity:0; }
+.piece{ position:absolute; left:50%; bottom:0; transform:translateX(-50%); will-change:transform, opacity; opacity:0; cursor:pointer; }
+.stage{ touch-action:pan-y; user-select:none; -webkit-user-select:none; }
+.stage.dragging, .stage.dragging .piece{ cursor:grabbing; }
+.piece img{ -webkit-user-drag:none; pointer-events:none; }
+.hint{ position:absolute; left:50%; bottom:-64px; transform:translateX(-50%); white-space:nowrap; font-size:.74rem; font-weight:500; color:#fff; background:rgba(30,22,14,.38); backdrop-filter:blur(6px); padding:6px 12px; border-radius:999px; transition:opacity .6s; pointer-events:none; z-index:3; }
+.hint.off{ opacity:0; }
 .piece img{ width:100%; height:auto; filter: drop-shadow(0 16px 14px rgba(30,20,8,.28)); }
 
 .info{ position:absolute; z-index:2; left:max(32px, calc((100vw - 1200px)/2 + 32px)); bottom:7%; max-width:300px; font-size:.86rem; line-height:1.55; }
@@ -192,6 +197,7 @@ footer img{ height:36px; width:auto; }
   .stage{ width:88vw; height:330px; top:180px; bottom:auto; }
   .info{ left:20px; right:20px; top:566px; bottom:auto; max-width:none; text-align:center; }
   .info .acts{ justify-content:center; }
+  .hint{ bottom:-46px; font-size:.7rem; }
   .panel{ position:relative; right:auto; bottom:auto; width:auto; margin:0; padding:18px 20px 22px; border-bottom:1px solid var(--line); }
   .panel .grid{ grid-template-columns:repeat(6, 92px); overflow-x:auto; scrollbar-width:none; }
   .banner{ min-height:520px; align-items:flex-end; padding-bottom:40px; }
@@ -236,7 +242,7 @@ footer img{ height:36px; width:auto; }
   </div>
 </header>
 
-<section class="hero" id="hero" aria-roledescription="carrusel" aria-label="Muebles destacados">
+<section class="hero" id="hero" tabindex="-1" aria-roledescription="carrusel" aria-label="Muebles destacados. Desliza el mueble para cambiarlo o tócalo para abrir el producto">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="word" id="word" aria-hidden="true">SALAS.</div>
   <div class="stage" id="stage"><div class="base" aria-hidden="true"></div></div>
@@ -401,7 +407,7 @@ const PIECES = [
   { word:"Mesas",     name:"Mesa de Centro Roble",   price:null,         img:"../landing/hero-mesa-roble.webp",   href:"producto.html?id=86", w:.74, maxH:.58 },
 ];
 const SHOW_PRICES = false;
-const HOLD = 4200, ENTER = 1250, EXIT = 650;
+const HOLD = 5200, ENTER = 1250, EXIT = 650;
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const stage = document.getElementById("stage"), word = document.getElementById("word"), thumbs = document.getElementById("thumbs"), hero = document.getElementById("hero");
 document.getElementById("count").textContent = `(${PIECES.length})`;
@@ -424,8 +430,10 @@ function fitWord(){
   word.style.fontSize = Math.min(innerWidth <= 900 ? 120 : 210, (Math.min(innerWidth, 1240) * .9) / (len * .74)) + "px";
 }
 let cur = -1, timer = null, busy = false, pending = null, paused = false;
-function go(i, user){
-  if (i === cur) return; if (busy){ pending = i; return; }
+const BASE = "translateX(-50%) rotate(0)";
+// dir = 1: el mueble entra por la derecha (siguiente); dir = -1: entra por la izquierda (anterior)
+function go(i, user, dir = 1){
+  if (i === cur) return; if (busy){ pending = { i, dir }; return; }
   clearTimeout(timer); const prev = cur; cur = i; busy = true; const W = stage.clientWidth; size(i);
   word.classList.add("out");
   setTimeout(() => { word.textContent = PIECES[i].word.toUpperCase() + "."; fitWord(); word.classList.remove("out"); }, 300);
@@ -438,22 +446,61 @@ function go(i, user){
     thumbs.scrollTo({ left: t.offsetLeft - thumbs.offsetLeft - (thumbs.clientWidth - t.clientWidth) / 2, behavior: reduce ? "auto" : "smooth" });
   }
   if (prev >= 0){
-    const out = els[prev];
+    const out = els[prev], from = getComputedStyle(out).transform;
+    out.getAnimations().forEach(a => a.cancel());
     if (reduce) out.animate([{opacity:1},{opacity:0}], {duration:250, fill:"forwards"});
-    else out.animate([{ transform:"translateX(-50%) rotate(0)", opacity:1 }, { transform:`translateX(calc(-50% - ${W*.95}px)) rotate(-3deg)`, opacity:0 }],
+    else out.animate([{ transform: from === "none" ? BASE : from, opacity:1 }, { transform:`translateX(calc(-50% - ${dir*W*.95}px)) rotate(${-dir*3}deg)`, opacity:0 }],
       { duration:EXIT, easing:"cubic-bezier(.55,0,.75,.2)", fill:"forwards" });
   }
-  const inEl = els[i], delay = prev >= 0 ? EXIT * .55 : 150;
+  const inEl = els[i], delay = prev >= 0 ? EXIT * .45 : 150;
+  inEl.getAnimations().forEach(a => a.cancel()); inEl.style.transform = ""; inEl.style.opacity = "";
   const anim = reduce ? inEl.animate([{opacity:0},{opacity:1}], {duration:300, delay, fill:"forwards"})
     : inEl.animate([
-        { transform:`translateX(calc(-50% + ${W*.95}px)) rotate(4deg)`, opacity:0, offset:0 },
-        { transform:`translateX(calc(-50% + ${W*.55}px)) translateY(-6px) rotate(2deg)`, opacity:1, offset:.3 },
-        { transform:"translateX(calc(-50% - 14px)) translateY(-3px) rotate(-1.4deg)", opacity:1, offset:.78 },
-        { transform:"translateX(calc(-50% + 4px)) translateY(0) rotate(.4deg)", opacity:1, offset:.9 },
-        { transform:"translateX(-50%) rotate(0)", opacity:1, offset:1 }
+        { transform:`translateX(calc(-50% + ${dir*W*.95}px)) rotate(${dir*4}deg)`, opacity:0, offset:0 },
+        { transform:`translateX(calc(-50% + ${dir*W*.55}px)) translateY(-6px) rotate(${dir*2}deg)`, opacity:1, offset:.3 },
+        { transform:`translateX(calc(-50% - ${dir*14}px)) translateY(-3px) rotate(${-dir*1.4}deg)`, opacity:1, offset:.78 },
+        { transform:`translateX(calc(-50% + ${dir*4}px)) translateY(0) rotate(${dir*.4}deg)`, opacity:1, offset:.9 },
+        { transform:BASE, opacity:1, offset:1 }
       ], { duration:ENTER, delay, easing:"cubic-bezier(.22,1,.36,1)", fill:"forwards" });
-  anim.finished.then(() => { busy = false; if (pending !== null){ const n = pending; pending = null; go(n, true); } else schedule(); });
+  anim.finished.then(() => {
+    // deja el mueble quieto con estilo propio para poder arrastrarlo con la mano
+    anim.cancel(); inEl.style.transform = BASE; inEl.style.opacity = 1;
+    busy = false;
+    if (pending){ const n = pending; pending = null; go(n.i, true, n.dir); } else schedule();
+  }).catch(() => {});
 }
+const next = (d = 1) => go((cur + d + PIECES.length) % PIECES.length, true, d);
+
+// ---------- Rodar con la mano y tocar para abrir el producto ----------
+let drag = null;
+stage.addEventListener("pointerdown", e => {
+  if (e.button > 0) return;
+  drag = { x: e.clientX, y: e.clientY, t: Date.now(), dx: 0, onPiece: !!e.target.closest(".piece"), moved: false };
+  clearTimeout(timer);
+});
+stage.addEventListener("pointermove", e => {
+  if (!drag) return;
+  drag.dx = e.clientX - drag.x; const dy = e.clientY - drag.y;
+  if (!drag.moved && Math.abs(drag.dx) > 8 && Math.abs(drag.dx) > Math.abs(dy)){ drag.moved = true; stage.setPointerCapture(e.pointerId); stage.classList.add("dragging"); hint.classList.add("off"); }
+  if (drag.moved && !busy && cur >= 0){
+    els[cur].style.transform = `translateX(calc(-50% + ${drag.dx}px)) rotate(${drag.dx * .02}deg)`;
+  }
+});
+function endDrag(e){
+  if (!drag) return; const d = drag; drag = null; stage.classList.remove("dragging");
+  if (d.moved){
+    if (Math.abs(d.dx) > 50) next(d.dx < 0 ? 1 : -1);           // deslizar a la izquierda = siguiente
+    else { if (cur >= 0 && !busy) els[cur].animate([{ transform: els[cur].style.transform }, { transform: BASE }], { duration:300, easing:"cubic-bezier(.22,1,.36,1)" }); els[cur].style.transform = BASE; schedule(); }
+  } else if (d.onPiece && Date.now() - d.t < 500 && e.type === "pointerup"){
+    location.href = PIECES[cur].href;                            // tocar el mueble abre su ficha
+  } else schedule();
+}
+stage.addEventListener("pointerup", endDrag);
+stage.addEventListener("pointercancel", endDrag);
+hero.addEventListener("keydown", e => { if (e.key === "ArrowRight") next(1); if (e.key === "ArrowLeft") next(-1); });
+const hint = document.createElement("div"); hint.className = "hint"; hint.setAttribute("aria-hidden", "true");
+hint.innerHTML = "‹ Desliza el mueble o tócalo para verlo ›"; stage.appendChild(hint);
+setTimeout(() => hint.classList.add("off"), 7000);
 function schedule(){ clearTimeout(timer); if (!paused) timer = setTimeout(() => go((cur + 1) % PIECES.length), HOLD); }
 function setPaused(v){ paused = v; if (!v && !busy) schedule(); else clearTimeout(timer); }
 thumbs.addEventListener("mouseenter", () => setPaused(true));
