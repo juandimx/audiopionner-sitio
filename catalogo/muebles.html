@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09447E">
+<title>Muebles — AudioPionner</title>
+<meta name="description" content="Juegos de sala, comedores, camas y consolas AudioPionner. Compra online con envío a toda Colombia o recoge gratis en tienda.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AudioPionner">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Muebles — AudioPionner">
+<meta property="og:description" content="Juegos de sala, comedores, camas y consolas AudioPionner. Compra online con envío a toda Colombia o recoge gratis en tienda.">
+<meta property="og:image" content="https://audiopionnerdemo.netlify.app/sala-tailyn.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://audiopionnerdemo.netlify.app/catalogo/muebles.html">
+<link rel="icon" href="../logo.png">
+<link rel="apple-touch-icon" href="../logo.png">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<span data-relpath=""></span>
+<div id="siteHeader"></div>
+
+<div class="container">
+  <div class="breadcrumbs"><a href="index.html">Inicio</a> / <span id="bcLabel">Muebles</span></div>
+
+  <div class="section-head" style="margin-bottom:10px;">
+    <div>
+      <h1 id="pageTitle" style="font-size:clamp(1.8rem,3vw,2.6rem);">Muebles</h1>
+      <p id="pageSubtitle" style="color:var(--text-muted); margin-top:6px;">Salas, comedores, camas, closets, tocadores y piezas complementarias.</p>
+    </div>
+  </div>
+
+  <div class="filters-bar">
+    <div class="tabs" id="subTabs"></div>
+    <select class="sort-select" id="sortSelect" aria-label="Ordenar productos">
+      <option value="relevance">Ordenar: Relevancia</option>
+      <option value="price-asc">Precio: menor a mayor</option>
+      <option value="price-desc">Precio: mayor a menor</option>
+      <option value="name">Nombre A-Z</option>
+    </select>
+  </div>
+
+  <p id="resultCount" style="font-size:.82rem; color:var(--text-muted); margin:-10px 0 18px;"></p>
+
+  <div class="product-grid" id="productGrid"></div>
+  <div id="emptyState" class="empty-cat" style="display:none;">
+    <h3>Próximamente</h3>
+    <p>Todavía no tenemos productos cargados en esta subcategoría. Escríbenos por WhatsApp y te ayudamos a encontrar lo que buscas.</p>
+    <a href="https://wa.me/573024919445" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:14px;">Escribir por WhatsApp</a>
+  </div>
+</div>
+
+<div style="height:60px;"></div>
+<div id="siteFooter"></div>
+
+<script src="../products.js"></script>
+<script src="data.js"></script>
+<script src="main.js"></script>
+<script>
+const SUBCATS = [
+  { key: "all", label: "Todos" },
+  { key: "sala", label: "Juegos de Sala" },
+  { key: "comedor", label: "Juegos de Comedor" },
+  { key: "camas", label: "Camas" },
+  { key: "closets", label: "Closets" },
+  { key: "tocadores", label: "Tocadores" },
+  { key: "organizadores", label: "Organizadores y Gaveteros" },
+  { key: "consolas", label: "Consolas" },
+  { key: "centro-mesa", label: "Centro de Mesa" },
+];
+
+function getParam(name){
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+let currentSub = getParam("sub") || "all";
+let currentSort = "relevance";
+let promoOnly = getParam("promo") === "1";
+
+function renderTabs(){
+  document.getElementById("subTabs").innerHTML = SUBCATS.map(s => `
+    <button class="tab ${s.key===currentSub?'active':''}" aria-pressed="${s.key===currentSub}" onclick="setSub('${s.key}')">${s.label}</button>
+  `).join("");
+}
+function setSub(key){
+  currentSub = key;
+  promoOnly = false;
+  const url = new URL(window.location);
+  if(key === 'all') url.searchParams.delete('sub'); else url.searchParams.set('sub', key);
+  url.searchParams.delete('promo');
+  window.history.replaceState({}, '', url);
+  renderTabs();
+  renderGrid();
+}
+
+function renderGrid(){
+  let list = PRODUCTS.filter(p => currentSub === "all" || p.subcategory === currentSub);
+  if(promoOnly) list = list.filter(p => p.compareAtPrice);
+
+  // Los productos sin precio (por cotizar) siempre quedan al final al ordenar por precio
+  const pr = (p, dir) => p.price == null ? (dir > 0 ? Infinity : -Infinity) : p.price;
+  if(currentSort === "price-asc") list.sort((a,b)=>pr(a,1)-pr(b,1));
+  else if(currentSort === "price-desc") list.sort((a,b)=>pr(b,-1)-pr(a,-1));
+  else if(currentSort === "name") list.sort((a,b)=>a.name.localeCompare(b.name));
+
+  const grid = document.getElementById("productGrid");
+  const empty = document.getElementById("emptyState");
+  document.getElementById("resultCount").textContent = `${list.length} producto${list.length!==1?'s':''}`;
+
+  if(list.length === 0){
+    grid.style.display = "none";
+    empty.style.display = "block";
+  } else {
+    grid.style.display = "grid";
+    empty.style.display = "none";
+    grid.innerHTML = list.map(productCard).join("");
+  }
+
+  const sub = SUBCATS.find(s=>s.key===currentSub);
+  document.getElementById("pageTitle").textContent = promoOnly ? "Promociones" : (sub ? sub.label : "Muebles");
+  document.getElementById("bcLabel").textContent = sub ? sub.label : "Muebles";
+  document.title = (promoOnly ? "Promociones" : (sub && sub.key !== "all" ? sub.label : "Muebles")) + " — AudioPionner";
+}
+
+document.getElementById("sortSelect").addEventListener("change", (e)=>{
+  currentSort = e.target.value;
+  renderGrid();
+});
+
+renderTabs();
+renderGrid();
+</script>
+</body>
+</html>

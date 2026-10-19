@@ -19,7 +19,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-maritza.webp"
   },
   {
     "id": 2,
@@ -39,7 +40,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-monaco.webp"
   },
   {
     "id": 3,
@@ -59,7 +61,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sofa-cama-1.webp"
   },
   {
     "id": 4,
@@ -79,7 +82,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-eris-cuerina.webp"
   },
   {
     "id": 5,
@@ -99,7 +103,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-eris-tela.webp"
   },
   {
     "id": 6,
@@ -119,7 +124,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-2butacas.webp"
   },
   {
     "id": 7,
@@ -139,7 +145,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sofa-3almohadas.webp"
   },
   {
     "id": 8,
@@ -159,7 +166,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-tailyn.webp"
   },
   {
     "id": 9,
@@ -179,7 +187,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-luna.webp"
   },
   {
     "id": 10,
@@ -199,7 +208,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-imperial.webp"
   },
   {
     "id": 11,
@@ -219,7 +229,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sofa-puf-sillon-1.webp"
   },
   {
     "id": 12,
@@ -239,7 +250,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sofa-puf-sillon-2.webp"
   },
   {
     "id": 13,
@@ -259,7 +271,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sofa-cama-2.webp"
   },
   {
     "id": 14,
@@ -279,7 +292,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sofa-puf-sillon-3.webp"
   },
   {
     "id": 15,
@@ -299,7 +313,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/rinconera-alison.webp"
   },
   {
     "id": 16,
@@ -319,7 +334,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/mueble-poltronas.webp"
   },
   {
     "id": 17,
@@ -339,7 +355,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-pitufos.webp"
   },
   {
     "id": 18,
@@ -359,7 +376,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-isabella.webp"
   },
   {
     "id": 19,
@@ -379,7 +397,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/rinconera.webp"
   },
   {
     "id": 20,
@@ -399,7 +418,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-eco.webp"
   },
   {
     "id": 21,
@@ -419,7 +439,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-mashel.webp"
   },
   {
     "id": 22,
@@ -439,7 +460,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/sala-nube.webp"
   },
   {
     "id": 23,
@@ -459,7 +481,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-sandra.webp"
   },
   {
     "id": 24,
@@ -479,7 +502,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-habana.webp"
   },
   {
     "id": 25,
@@ -499,7 +523,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-luciana.webp"
   },
   {
     "id": 26,
@@ -519,7 +544,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-nocheros-1.webp"
   },
   {
     "id": 27,
@@ -539,7 +565,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-litania.webp"
   },
   {
     "id": 28,
@@ -559,7 +586,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-nocheros-2.webp"
   },
   {
     "id": 29,
@@ -579,7 +607,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-imperial.webp"
   },
   {
     "id": 30,
@@ -599,7 +628,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-marbella.webp"
   },
   {
     "id": 31,
@@ -619,7 +649,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-bilbao.webp"
   },
   {
     "id": 32,
@@ -639,7 +670,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-nocheros-3.webp"
   },
   {
     "id": 33,
@@ -659,7 +691,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-violeta.webp"
   },
   {
     "id": 34,
@@ -679,7 +712,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-isabella.webp"
   },
   {
     "id": 35,
@@ -699,7 +733,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-nube.webp"
   },
   {
     "id": 36,
@@ -719,7 +754,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-emely.webp"
   },
   {
     "id": 37,
@@ -739,7 +775,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 8
+    "stock": 8,
+    "cutout": "cutouts/cama-sharlote.webp"
   },
   {
     "id": 38,
@@ -759,7 +796,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-reina-6p.webp"
   },
   {
     "id": 39,
@@ -779,7 +817,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-reiber-4p-a.webp"
   },
   {
     "id": 40,
@@ -799,7 +838,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-reiber-4p-b.webp"
   },
   {
     "id": 41,
@@ -819,7 +859,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-maderplus-a.webp"
   },
   {
     "id": 42,
@@ -839,7 +880,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-maderplus-b.webp"
   },
   {
     "id": 43,
@@ -859,7 +901,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-lisboa-a.webp"
   },
   {
     "id": 44,
@@ -879,7 +922,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-lisboa-b.webp"
   },
   {
     "id": 45,
@@ -899,7 +943,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-lisboa-c.webp"
   },
   {
     "id": 46,
@@ -919,7 +964,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-panal.webp"
   },
   {
     "id": 47,
@@ -939,7 +985,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-lisboa-redonda.webp"
   },
   {
     "id": 48,
@@ -959,7 +1006,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-capi.webp"
   },
   {
     "id": 49,
@@ -979,7 +1027,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-isabella.webp"
   },
   {
     "id": 50,
@@ -999,7 +1048,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-elena.webp"
   },
   {
     "id": 51,
@@ -1019,7 +1069,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-aragon-6p.webp"
   },
   {
     "id": 52,
@@ -1039,7 +1090,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-danna-6p.webp"
   },
   {
     "id": 53,
@@ -1059,7 +1111,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-bruno-6p.webp"
   },
   {
     "id": 54,
@@ -1079,7 +1132,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-danna-4p.webp"
   },
   {
     "id": 55,
@@ -1099,7 +1153,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-reina-4p.webp"
   },
   {
     "id": 56,
@@ -1119,7 +1174,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-tainer.webp"
   },
   {
     "id": 57,
@@ -1139,7 +1195,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-bruno-4p.webp"
   },
   {
     "id": 58,
@@ -1159,7 +1216,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-alvis.webp"
   },
   {
     "id": 59,
@@ -1179,7 +1237,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-reina-isabella.webp"
   },
   {
     "id": 60,
@@ -1199,7 +1258,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-camila.webp"
   },
   {
     "id": 61,
@@ -1219,7 +1279,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-evo-vidrio.webp"
   },
   {
     "id": 62,
@@ -1239,7 +1300,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-redonda-clasico.webp"
   },
   {
     "id": 63,
@@ -1259,7 +1321,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-rectangular-nova.webp"
   },
   {
     "id": 64,
@@ -1279,7 +1342,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-ovalada-nova.webp"
   },
   {
     "id": 65,
@@ -1299,7 +1363,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 5
+    "stock": 5,
+    "cutout": "cutouts/comedor-redonda-nova.webp"
   },
   {
     "id": 66,
@@ -1318,7 +1383,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 4
+    "stock": 4,
+    "cutout": "cutouts/consola-montreal.webp"
   },
   {
     "id": 67,
@@ -1337,7 +1403,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 4
+    "stock": 4,
+    "cutout": "cutouts/bife-gabana.webp"
   },
   {
     "id": 68,
@@ -1356,7 +1423,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": 6
+    "stock": 6,
+    "cutout": "cutouts/mesa-centro-duo.webp"
   },
   {
     "id": 69,
@@ -1377,7 +1445,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-moka-2p3g.webp"
   },
   {
     "id": 70,
@@ -1398,7 +1467,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-blanco-negro-2p2g.webp"
   },
   {
     "id": 71,
@@ -1419,7 +1489,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-crema-2p3g.webp"
   },
   {
     "id": 72,
@@ -1440,7 +1511,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-roble-2p3g.webp"
   },
   {
     "id": 73,
@@ -1461,7 +1533,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-roble-3p.webp"
   },
   {
     "id": 74,
@@ -1482,7 +1555,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-negro-6p3g.webp"
   },
   {
     "id": 75,
@@ -1503,7 +1577,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-negro-4p4g.webp"
   },
   {
     "id": 76,
@@ -1524,7 +1599,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-roble-4p4g.webp"
   },
   {
     "id": 77,
@@ -1545,7 +1621,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-grafito-5p6g.webp"
   },
   {
     "id": 78,
@@ -1566,7 +1643,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/closet-roble-negro-5p6g.webp"
   },
   {
     "id": 79,
@@ -1587,7 +1665,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/organizador-nogal-4p.webp"
   },
   {
     "id": 80,
@@ -1608,7 +1687,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/organizador-plata-4p.webp"
   },
   {
     "id": 81,
@@ -1629,7 +1709,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/gavetero-azul-6g.webp"
   },
   {
     "id": 82,
@@ -1650,7 +1731,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/gavetero-nogal-4g2p.webp"
   },
   {
     "id": 83,
@@ -1669,7 +1751,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/cama-perla.webp"
   },
   {
     "id": 84,
@@ -1688,7 +1771,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/bife-solari.webp"
   },
   {
     "id": 85,
@@ -1707,7 +1791,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/mesa-centro-blanca-dorada.webp"
   },
   {
     "id": 86,
@@ -1726,7 +1811,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/mesa-centro-roble-blanco.webp"
   },
   {
     "id": 87,
@@ -1747,7 +1833,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/comedor-gabanna-6p.webp"
   },
   {
     "id": 88,
@@ -1768,7 +1855,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/comedor-tiffany.webp"
   },
   {
     "id": 89,
@@ -1789,7 +1877,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/comedor-luciana.webp"
   },
   {
     "id": 90,
@@ -1810,7 +1899,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/comedor-brawn.webp"
   },
   {
     "id": 91,
@@ -1831,7 +1921,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/comedor-eco-natural.webp"
   },
   {
     "id": 92,
@@ -1852,7 +1943,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/comedor-natural.webp"
   },
   {
     "id": 93,
@@ -1873,7 +1965,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/comedor-estrella.webp"
   },
   {
     "id": 94,
@@ -1887,22 +1980,26 @@ const PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#F7F5F0",
-        "image": "tocador-villini-luces-blanco.jpg"
+        "image": "tocador-villini-luces-blanco.jpg",
+        "cutout": "cutouts/tocador-villini-luces-blanco.webp"
       },
       {
         "name": "Rosado",
         "hex": "#F2BFC6",
-        "image": "tocador-villini-luces-rosado.jpg"
+        "image": "tocador-villini-luces-rosado.jpg",
+        "cutout": "cutouts/tocador-villini-luces-rosado.webp"
       },
       {
         "name": "Champaña",
         "hex": "#D9C08F",
-        "image": "tocador-villini-luces-champana.jpg"
+        "image": "tocador-villini-luces-champana.jpg",
+        "cutout": "cutouts/tocador-villini-luces-champana.webp"
       },
       {
         "name": "Gris",
         "hex": "#A9ABAE",
-        "image": "tocador-villini-luces-gris.jpg"
+        "image": "tocador-villini-luces-gris.jpg",
+        "cutout": "cutouts/tocador-villini-luces-gris.webp"
       }
     ],
     "price": null,
@@ -1916,7 +2013,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/tocador-villini-luces-blanco.webp"
   },
   {
     "id": 95,
@@ -1930,22 +2028,26 @@ const PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#F7F5F0",
-        "image": "tocador-villini-corrediza-blanco.jpg"
+        "image": "tocador-villini-corrediza-blanco.jpg",
+        "cutout": "cutouts/tocador-villini-corrediza-blanco.webp"
       },
       {
         "name": "Rosado",
         "hex": "#F2BFC6",
-        "image": "tocador-villini-corrediza-rosado.jpg"
+        "image": "tocador-villini-corrediza-rosado.jpg",
+        "cutout": "cutouts/tocador-villini-corrediza-rosado.webp"
       },
       {
         "name": "Champaña",
         "hex": "#D9C08F",
-        "image": "tocador-villini-corrediza-champana.jpg"
+        "image": "tocador-villini-corrediza-champana.jpg",
+        "cutout": "cutouts/tocador-villini-corrediza-champana.webp"
       },
       {
         "name": "Gris",
         "hex": "#A9ABAE",
-        "image": "tocador-villini-corrediza-gris.jpg"
+        "image": "tocador-villini-corrediza-gris.jpg",
+        "cutout": "cutouts/tocador-villini-corrediza-gris.webp"
       }
     ],
     "price": null,
@@ -1959,7 +2061,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/tocador-villini-corrediza-blanco.webp"
   },
   {
     "id": 96,
@@ -1973,22 +2076,26 @@ const PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#F7F5F0",
-        "image": "tocador-villini-sencillo-blanco.jpg"
+        "image": "tocador-villini-sencillo-blanco.jpg",
+        "cutout": "cutouts/tocador-villini-sencillo-blanco.webp"
       },
       {
         "name": "Rosado",
         "hex": "#F2BFC6",
-        "image": "tocador-villini-sencillo-rosado.jpg"
+        "image": "tocador-villini-sencillo-rosado.jpg",
+        "cutout": "cutouts/tocador-villini-sencillo-rosado.webp"
       },
       {
         "name": "Arena",
         "hex": "#B8A994",
-        "image": "tocador-villini-sencillo-arena.jpg"
+        "image": "tocador-villini-sencillo-arena.jpg",
+        "cutout": "cutouts/tocador-villini-sencillo-arena.webp"
       },
       {
         "name": "Gris",
         "hex": "#A9ABAE",
-        "image": "tocador-villini-sencillo-gris.jpg"
+        "image": "tocador-villini-sencillo-gris.jpg",
+        "cutout": "cutouts/tocador-villini-sencillo-gris.webp"
       }
     ],
     "price": null,
@@ -2002,7 +2109,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/tocador-villini-sencillo-blanco.webp"
   },
   {
     "id": 97,
@@ -2016,17 +2124,20 @@ const PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#F7F5F0",
-        "image": "tocador-tocador-hollywood-blanco.jpg"
+        "image": "tocador-tocador-hollywood-blanco.jpg",
+        "cutout": "cutouts/tocador-tocador-hollywood-blanco.webp"
       },
       {
         "name": "Rosado",
         "hex": "#F2BFC6",
-        "image": "tocador-tocador-hollywood-rosado.jpg"
+        "image": "tocador-tocador-hollywood-rosado.jpg",
+        "cutout": "cutouts/tocador-tocador-hollywood-rosado.webp"
       },
       {
         "name": "Champaña",
         "hex": "#D9C08F",
-        "image": "tocador-tocador-hollywood-champana.jpg"
+        "image": "tocador-tocador-hollywood-champana.jpg",
+        "cutout": "cutouts/tocador-tocador-hollywood-champana.webp"
       }
     ],
     "price": null,
@@ -2040,7 +2151,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/tocador-tocador-hollywood-blanco.webp"
   },
   {
     "id": 98,
@@ -2054,12 +2166,14 @@ const PRODUCTS = [
       {
         "name": "Arena",
         "hex": "#B8A994",
-        "image": "tocador-hollywood-9-arena.jpg"
+        "image": "tocador-hollywood-9-arena.jpg",
+        "cutout": "cutouts/tocador-hollywood-9-arena.webp"
       },
       {
         "name": "Gris",
         "hex": "#A9ABAE",
-        "image": "tocador-hollywood-9-gris.jpg"
+        "image": "tocador-hollywood-9-gris.jpg",
+        "cutout": "cutouts/tocador-hollywood-9-gris.webp"
       }
     ],
     "price": null,
@@ -2073,7 +2187,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/tocador-hollywood-9-arena.webp"
   },
   {
     "id": 99,
@@ -2087,17 +2202,20 @@ const PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#F7F5F0",
-        "image": "tocador-hollywood-5-blanco.jpg"
+        "image": "tocador-hollywood-5-blanco.jpg",
+        "cutout": "cutouts/tocador-hollywood-5-blanco.webp"
       },
       {
         "name": "Arena",
         "hex": "#B8A994",
-        "image": "tocador-hollywood-5-arena.jpg"
+        "image": "tocador-hollywood-5-arena.jpg",
+        "cutout": "cutouts/tocador-hollywood-5-arena.webp"
       },
       {
         "name": "Gris",
         "hex": "#A9ABAE",
-        "image": "tocador-hollywood-5-gris.jpg"
+        "image": "tocador-hollywood-5-gris.jpg",
+        "cutout": "cutouts/tocador-hollywood-5-gris.webp"
       }
     ],
     "price": null,
@@ -2111,7 +2229,8 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "pickup": true,
-    "stock": null
+    "stock": null,
+    "cutout": "cutouts/tocador-hollywood-5-blanco.webp"
   }
 ];
 

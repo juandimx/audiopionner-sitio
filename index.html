@@ -134,24 +134,6 @@ footer img{ height:36px; width:auto; }
 .cam-btn{ display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.75); background:rgba(255,255,255,.14); color:#fff;
   backdrop-filter:blur(6px); padding:9px 14px; border-radius:999px; font-size:.8rem; font-weight:600; }
 .cam-btn:hover{ background:rgba(255,255,255,.26); }
-.viewer{ position:fixed; inset:0; z-index:100; background:#0E0C0A; color:#fff; display:none; }
-.viewer.open{ display:block; }
-.viewer video, .viewer model-viewer{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.viewer model-viewer{ background:#F3EEE6; --poster-color:#F3EEE6; }
-.viewer .ghost{ position:absolute; left:50%; top:55%; width:62vw; max-width:520px; transform:translate(-50%,-50%); touch-action:none; cursor:grab;
-  filter:drop-shadow(0 18px 18px rgba(0,0,0,.35)); user-select:none; -webkit-user-drag:none; }
-.viewer .bar{ position:absolute; left:0; right:0; top:0; padding:calc(14px + env(safe-area-inset-top, 0px)) 18px 14px; display:flex; justify-content:space-between; align-items:center;
-  background:linear-gradient(180deg, rgba(0,0,0,.55), transparent); font-size:.86rem; }
-.viewer .bar b{ font-weight:700; text-transform:uppercase; letter-spacing:.03em; }
-.viewer .x{ width:40px; height:40px; border-radius:50%; border:0; background:rgba(255,255,255,.18); color:#fff; font-size:1.2rem; }
-.viewer .tools{ position:absolute; left:0; right:0; bottom:0; padding:16px 18px calc(18px + env(safe-area-inset-bottom, 0px)); display:flex; flex-direction:column; gap:12px; align-items:center;
-  background:linear-gradient(0deg, rgba(0,0,0,.6), transparent); }
-.viewer .tools p{ margin:0; font-size:.78rem; opacity:.85; text-align:center; }
-.viewer .tools input{ width:min(320px, 80vw); accent-color:#fff; }
-.viewer .shot{ border:0; background:#fff; color:#2A2118; font-weight:700; font-size:.82rem; padding:12px 22px; border-radius:999px; }
-.viewer .msg{ position:absolute; inset:0; display:grid; place-items:center; padding:30px; text-align:center; font-size:.92rem; line-height:1.6; }
-.viewer .msg[hidden]{ display:none; }
-
 /* ---------- Responsive ---------- */
 @media (max-width: 900px){
   .wrap{ padding:0 20px; }
@@ -283,23 +265,11 @@ footer img{ height:36px; width:auto; }
 </footer>
 
 
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Ver mueble en tu espacio">
-  <video id="camVideo" playsinline muted autoplay></video>
-  <div id="m3d"></div>
-  <img class="ghost" id="ghost" alt="">
-  <div class="msg" id="camMsg" hidden></div>
-  <div class="bar"><div><b id="vName"></b><br><span id="vMode">Cámara en vivo</span></div><button class="x" id="vClose" aria-label="Cerrar">✕</button></div>
-  <div class="tools" id="camTools">
-    <p>Arrastra el mueble para ubicarlo y ajusta su tamaño.</p>
-    <input type="range" id="vSize" min="25" max="160" value="70" aria-label="Tamaño del mueble">
-    <button class="shot" id="vShot" type="button">Tomar foto</button>
-  </div>
-</div>
-
-<a class="wa" href="https://wa.me/573163845802?text=Hola%20AudioPionner%2C%20quiero%20cotizar%20un%20mueble." aria-label="Escribir a AudioPionner por WhatsApp">
+<a class="wa" href="https://wa.me/573163845802?text=Hola%20AudioPionner%2C%20quiero%20cotizar%20un%20mueble." target="_blank" rel="noopener" aria-label="Escribir a AudioPionner por WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 14.07c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.87.27.14.45.2.51.32.07.11.07.65-.17 1.33z"/></svg>
 </a>
 
+<script src="espacio.js"></script>
 <script>
 // Muebles de la transición, en orden. w = ancho relativo al escenario; maxH = alto máximo relativo.
 const PIECES = [
@@ -370,76 +340,11 @@ thumbs.addEventListener("mouseleave", () => setPaused(false));
 document.addEventListener("visibilitychange", () => setPaused(document.hidden));
 addEventListener("resize", () => { if (cur >= 0) size(cur); fitWord(); });
 
-// ---------- Ver en tu espacio ----------
-// Si un mueble tiene modelo 3D (glb / usdz), se abre en 3D con realidad aumentada nativa.
-// Si no, se abre la cámara del celular con la foto recortada del mueble encima, para moverla y escalarla.
-const viewer = document.getElementById("viewer"), video = document.getElementById("camVideo"), ghost = document.getElementById("ghost");
-const camMsg = document.getElementById("camMsg"), m3d = document.getElementById("m3d"), tools = document.getElementById("camTools");
-let stream = null, pos = { x:.5, y:.55 }, scale = 70;
-function placeGhost(){ ghost.style.left = (pos.x*100) + "%"; ghost.style.top = (pos.y*100) + "%"; ghost.style.width = scale + "vw"; }
-async function openViewer(p){
-  setPaused(true);
-  document.getElementById("vName").textContent = p.name;
-  viewer.classList.add("open"); document.body.style.overflow = "hidden";
-  camMsg.hidden = true; m3d.innerHTML = "";
-  if (p.glb){
-    document.getElementById("vMode").textContent = "Vista 3D · toca el ícono de realidad aumentada";
-    ghost.hidden = true; tools.hidden = true; video.hidden = true;
-    if (!customElements.get("model-viewer")){
-      const sc = document.createElement("script"); sc.type = "module";
-      sc.src = "https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"; document.head.appendChild(sc);
-    }
-    m3d.innerHTML = `<model-viewer src="${p.glb}" ${p.usdz ? `ios-src="${p.usdz}"` : ""} alt="${p.name}" ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" camera-controls auto-rotate shadow-intensity="1"></model-viewer>`;
-    return;
-  }
-  document.getElementById("vMode").textContent = "Cámara en vivo";
-  ghost.src = p.img; ghost.alt = p.name; ghost.hidden = false; tools.hidden = false; video.hidden = false;
-  pos = { x:.5, y:.58 }; scale = innerWidth > 900 ? 40 : 70; document.getElementById("vSize").value = scale; placeGhost();
-  try{
-    stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode:{ ideal:"environment" } }, audio:false });
-    video.srcObject = stream;
-  }catch(e){
-    camMsg.hidden = false;
-    camMsg.textContent = "No pudimos abrir la cámara. Revisa que el navegador tenga permiso de cámara para este sitio e inténtalo de nuevo.";
-  }
-}
-function closeViewer(){
-  viewer.classList.remove("open"); document.body.style.overflow = "";
-  if (stream){ stream.getTracks().forEach(t => t.stop()); stream = null; }
-  video.srcObject = null; m3d.innerHTML = ""; setPaused(false);
-  document.getElementById("camBtn").focus();
-}
-document.getElementById("camBtn").addEventListener("click", () => openViewer(PIECES[cur < 0 ? 0 : cur]));
-document.getElementById("vClose").addEventListener("click", closeViewer);
-addEventListener("keydown", e => { if (e.key === "Escape" && viewer.classList.contains("open")) closeViewer(); });
-document.getElementById("vSize").addEventListener("input", e => { scale = +e.target.value; placeGhost(); });
-// Arrastrar con el dedo o el mouse; pellizcar con dos dedos para cambiar el tamaño
-const pts = new Map(); let startDist = 0, startScale = scale, dragOff = null;
-ghost.addEventListener("pointerdown", e => { ghost.setPointerCapture(e.pointerId); pts.set(e.pointerId, e);
-  if (pts.size === 2){ const [a,b] = [...pts.values()]; startDist = Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY); startScale = scale; }
-  else dragOff = { x: e.clientX/innerWidth - pos.x, y: e.clientY/innerHeight - pos.y };
+// ---------- Ver en tu espacio (cámara) ----------
+document.getElementById("camBtn").addEventListener("click", () => {
+  const p = PIECES[cur < 0 ? 0 : cur];
+  VerEnTuEspacio.open({ name: p.name, img: p.img, logo: "landing/logo.png", onOpen: () => setPaused(true), onClose: () => setPaused(false) });
 });
-ghost.addEventListener("pointermove", e => { if (!pts.has(e.pointerId)) return; pts.set(e.pointerId, e);
-  if (pts.size === 2){ const [a,b] = [...pts.values()]; const d = Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY);
-    scale = Math.max(25, Math.min(160, startScale * d / startDist)); document.getElementById("vSize").value = scale; }
-  else if (dragOff){ pos = { x: e.clientX/innerWidth - dragOff.x, y: e.clientY/innerHeight - dragOff.y }; }
-  placeGhost();
-});
-const endPt = e => { pts.delete(e.pointerId); if (pts.size < 2) dragOff = null; };
-ghost.addEventListener("pointerup", endPt); ghost.addEventListener("pointercancel", endPt);
-// Foto: combina la cámara y el mueble en una imagen
-document.getElementById("vShot").addEventListener("click", () => {
-  if (!video.videoWidth) return;
-  const c = document.createElement("canvas"); c.width = innerWidth * devicePixelRatio; c.height = innerHeight * devicePixelRatio;
-  const g = c.getContext("2d"); const vr = video.videoWidth/video.videoHeight, cr = c.width/c.height;
-  let sw = video.videoWidth, sh = video.videoHeight, sx = 0, sy = 0;
-  if (vr > cr){ sw = sh*cr; sx = (video.videoWidth-sw)/2; } else { sh = sw/cr; sy = (video.videoHeight-sh)/2; }
-  g.drawImage(video, sx, sy, sw, sh, 0, 0, c.width, c.height);
-  const r = ghost.getBoundingClientRect(), k = devicePixelRatio;
-  g.drawImage(ghost, r.left*k, r.top*k, r.width*k, r.height*k);
-  const a = document.createElement("a"); a.download = "audiopionner-en-mi-espacio.jpg"; a.href = c.toDataURL("image/jpeg", .9); a.click();
-});
-
 fitWord();
 Promise.all(els.map(e => e.firstChild.decode ? e.firstChild.decode().catch(()=>{}) : 0)).then(() => go(0));
 </script>
