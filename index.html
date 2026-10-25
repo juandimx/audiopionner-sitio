@@ -109,6 +109,9 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--navy); outline-of
 .item .p{ color:var(--muted); font-size:.95rem; }
 .nc-text{ font-size:.84rem; line-height:1.6; color:var(--text); max-width:240px; margin:0; }
 .item.big .ph img{ aspect-ratio:1/1; }
+.nc-grid.nc2{ grid-template-columns:1.6fr 1fr; gap:24px; }
+.nc2 .item.big .ph img{ aspect-ratio:3/2; }
+.nc2 .item .ph img{ aspect-ratio:1/1; }
 
 /* ---------- Categorías ---------- */
 .cats-sec{ padding:20px 0 110px; }
@@ -236,6 +239,7 @@ footer img{ height:36px; width:auto; }
   .nc-grid{ grid-template-columns:1fr 1fr; }
   .nc-text{ grid-column:1 / -1; order:-1; max-width:none; }
   .item.big{ grid-column:1 / -1; }
+  .nc-grid.nc2{ grid-template-columns:1fr; }
   .cats{ grid-template-columns:1fr 1fr; gap:14px; }
   .cats-sec{ padding-bottom:70px; }
   .perks .wrap{ grid-template-columns:1fr 1fr; }
@@ -375,14 +379,15 @@ footer img{ height:36px; width:auto; }
 <section class="nc">
   <div class="wrap">
     <div class="head">
-      <h2 class="h-sec">Nueva colección<sup>(25)</sup></h2>
-      <a class="ulink" href="muebles.html">Ver todo</a>
+      <h2 class="h-sec">Nueva colección<sup>(2)</sup></h2>
+      <a class="ulink" href="muebles.html?sub=comedor">Ver comedores</a>
     </div>
-    <div class="nc-grid">
-      <a class="item" href="producto.html?id=69"><div class="ph"><img src="landing/nc-closet.webp" alt="" loading="lazy"></div><h3>Closet Moka</h3><div class="p">Precio por cotizar</div></a>
-      <p class="nc-text">Closets, comedores y piezas nuevas para 2026. Líneas limpias, materiales resistentes y lo justo para que cada espacio se vea ordenado.</p>
-      <a class="item" href="producto.html?id=85"><div class="ph"><img src="landing/nc-mesa.webp" alt="" loading="lazy"></div><h3>Mesa Blanca y Dorada</h3><div class="p">Precio por cotizar</div></a>
-      <a class="item big" href="producto.html?id=83"><div class="ph"><img src="landing/nc-cama.webp" alt="" loading="lazy"></div><h3>Cama Perla</h3><div class="p">Precio por cotizar</div></a>
+    <div class="nc-grid nc2">
+      <a class="item big" href="producto.html?id=110"><div class="ph"><img src="landing/nc-comedor-6.webp" alt="Comedor 6 puestos, nueva colección" loading="lazy"></div><h3>Comedor 6 puestos</h3><div class="p">Precio por cotizar</div></a>
+      <div>
+        <a class="item" href="producto.html?id=109"><div class="ph"><img src="landing/nc-comedor-4.webp" alt="Comedor 4 puestos, nueva colección" loading="lazy"></div><h3>Comedor 4 puestos</h3><div class="p">Precio por cotizar</div></a>
+        <p class="nc-text" style="margin-top:18px">Recién llegados: comedores con mesa blanca, bases en madera y dorado, y sillas tapizadas. Pregunta por disponibilidad y colores.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -392,8 +397,8 @@ footer img{ height:36px; width:auto; }
     <h2 class="h-sec">Categorías</h2>
     <div class="cats">
       <a class="cat" href="muebles.html?sub=sala"><div class="ph"><img src="landing/cat-sala.webp" alt="" loading="lazy"></div><div class="meta"><b>Salas</b><span>22 diseños</span></div></a>
-      <a class="cat" href="muebles.html?sub=comedor"><div class="ph"><img src="landing/cat-comedor.webp" alt="" loading="lazy"></div><div class="meta"><b>Comedores</b><span>35 diseños</span></div></a>
-      <a class="cat" href="muebles.html?sub=camas"><div class="ph"><img src="landing/cat-cama.webp" alt="" loading="lazy"></div><div class="meta"><b>Camas</b><span>16 diseños</span></div></a>
+      <a class="cat" href="muebles.html?sub=comedor"><div class="ph"><img src="landing/cat-comedor.webp" alt="" loading="lazy"></div><div class="meta"><b>Comedores</b><span>38 diseños</span></div></a>
+      <a class="cat" href="muebles.html?sub=camas"><div class="ph"><img src="landing/cat-cama.webp" alt="" loading="lazy"></div><div class="meta"><b>Camas</b><span>18 diseños</span></div></a>
       <a class="cat" href="muebles.html?sub=closets"><div class="ph"><img src="landing/cat-closet.webp" alt="" loading="lazy"></div><div class="meta"><b>Closets</b><span>10 diseños</span></div></a>
     </div>
   </div>
@@ -429,7 +434,7 @@ footer img{ height:36px; width:auto; }
 const PIECES = [
   { word:"Salas",     name:"Sala Mónaco",            price:"$2.274.000", img:"landing/hero-sala-monaco.webp",  href:"producto.html?id=2",  w:1.0, maxH:.62 },
   { word:"Camas",     name:"Cama Habana",            price:"$1.096.000", img:"landing/hero-cama-habana.webp",  href:"producto.html?id=24", w:.86, maxH:.8 },
-  { word:"Comedores", name:"Comedor Nova Redondo",   price:"$1.265.000", img:"landing/hero-comedor-nova-redondo.webp", href:"producto.html?id=65", w:.7, maxH:.9 },
+  { word:"Comedores", name:"Comedor Luciana",        price:"$1.265.000", img:"landing/hero-comedor-nova-redondo.webp", href:"producto.html?id=65", w:.7, maxH:.9 },
   { word:"Tocadores", name:"Villini con Luces",      price:null,         img:"landing/hero-villini-luces-rosado.webp", href:"producto.html?id=94&color=1", w:.5, maxH:1.08 },
   { word:"Bifés",     name:"Bifé Solari con Espejo", price:null,         img:"landing/hero-bife-solari.webp",  href:"producto.html?id=84", w:.6,  maxH:.98 },
   { word:"Closets",   name:"Closet Moka",            price:null,         img:"landing/hero-closet-moka.webp",  href:"producto.html?id=69", w:.4,  maxH:1.08 },

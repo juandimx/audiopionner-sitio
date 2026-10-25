@@ -1163,7 +1163,7 @@ const PRODUCTS = [
     "category": "muebles",
     "subcategory": "comedor",
     "subcategoryLabel": "Juegos de Comedor",
-    "image": "comedor-tainer.jpg",
+    "image": "comedor-tainer-negro.jpg",
     "price": 1486000,
     "compareAtPrice": null,
     "brand": "AudioPionner",
@@ -1175,7 +1175,21 @@ const PRODUCTS = [
     },
     "pickup": true,
     "stock": 5,
-    "cutout": "cutouts/comedor-tainer.webp"
+    "cutout": "cutouts/comedor-tainer-negro.webp",
+    "colors": [
+      {
+        "name": "Negro",
+        "hex": "#1E1E1E",
+        "image": "comedor-tainer-negro.jpg",
+        "cutout": "cutouts/comedor-tainer-negro.webp"
+      },
+      {
+        "name": "Beige",
+        "hex": "#CDBBA2",
+        "image": "comedor-tainer.jpg",
+        "cutout": "cutouts/comedor-tainer.webp"
+      }
+    ]
   },
   {
     "id": 57,
@@ -1347,8 +1361,8 @@ const PRODUCTS = [
   },
   {
     "id": 65,
-    "slug": "comedor-nova-redondo",
-    "name": "Comedor Nova Redondo",
+    "slug": "comedor-luciana",
+    "name": "Comedor Luciana",
     "category": "muebles",
     "subcategory": "comedor",
     "subcategoryLabel": "Juegos de Comedor",
@@ -1364,7 +1378,26 @@ const PRODUCTS = [
     },
     "pickup": true,
     "stock": 5,
-    "cutout": "cutouts/comedor-redonda-nova.webp"
+    "cutout": "cutouts/comedor-redonda-nova.webp",
+    "colors": [
+      {
+        "name": "Madera",
+        "hex": "#8A5A34",
+        "image": "comedor-redonda-nova.jpg",
+        "cutout": "cutouts/comedor-redonda-nova.webp"
+      },
+      {
+        "name": "Champaña",
+        "hex": "#D9C08F",
+        "image": "comedor-luciana-champana.jpg",
+        "cutout": "cutouts/comedor-luciana-champana.webp"
+      }
+    ],
+    "gallery": [
+      "comedor-redonda-nova.jpg",
+      "comedor-luciana.jpg",
+      "comedor-luciana-champana.jpg"
+    ]
   },
   {
     "id": 66,
@@ -1859,28 +1892,6 @@ const PRODUCTS = [
     "cutout": "cutouts/comedor-tiffany.webp"
   },
   {
-    "id": 89,
-    "slug": "comedor-luciana-mesa-redonda",
-    "name": "Comedor Luciana Mesa Redonda",
-    "category": "muebles",
-    "subcategory": "comedor",
-    "subcategoryLabel": "Juegos de Comedor",
-    "image": "comedor-luciana.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa redonda.",
-    "specs": {
-      "Puestos": "4",
-      "Mesa": "redonda",
-      "Medidas": "Consultar en tienda",
-      "Garantía": "12 meses"
-    },
-    "pickup": true,
-    "stock": null,
-    "cutout": "cutouts/comedor-luciana.webp"
-  },
-  {
     "id": 90,
     "slug": "comedor-brawn",
     "name": "Comedor Brawn",
@@ -1926,16 +1937,16 @@ const PRODUCTS = [
   },
   {
     "id": 92,
-    "slug": "comedor-natural-mesa-ovalada",
-    "name": "Comedor Natural Mesa Ovalada",
+    "slug": "comedor-nube",
+    "name": "Comedor Nube",
     "category": "muebles",
     "subcategory": "comedor",
     "subcategoryLabel": "Juegos de Comedor",
-    "image": "comedor-natural.jpg",
+    "image": "comedor-nube.jpg",
     "price": null,
     "compareAtPrice": null,
     "brand": "AudioPionner",
-    "description": "Juego de comedor de 4 puestos, elegante y pensado para espacios pequeños. Mesa ovalada.",
+    "description": "Comedor de mesa blanca con base de listones de madera y sillas tapizadas de líneas suaves. Elegante y cálido para tu espacio.",
     "specs": {
       "Puestos": "4",
       "Mesa": "ovalada",
@@ -1944,7 +1955,11 @@ const PRODUCTS = [
     },
     "pickup": true,
     "stock": null,
-    "cutout": "cutouts/comedor-natural.webp"
+    "cutout": "cutouts/comedor-nube.webp",
+    "gallery": [
+      "comedor-nube.jpg",
+      "comedor-natural.jpg"
+    ]
   },
   {
     "id": 93,
@@ -2317,6 +2332,136 @@ const PRODUCTS = [
       "Garantía": "12 meses"
     },
     "cutout": "cutouts/base-cama-blanco.webp"
+  },
+  {
+    "id": 105,
+    "slug": "camarote-rot",
+    "name": "Camarote Rot",
+    "category": "muebles",
+    "subcategory": "camas",
+    "subcategoryLabel": "Camas",
+    "image": "camarote-rot.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Camarote en madera maciza con cabeceros tapizados, baranda de seguridad y escalera. Ideal para habitaciones de niños y jóvenes.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses",
+      "Tipo": "Camarote (cama doble altura)"
+    },
+    "pickup": true,
+    "stock": null,
+    "cutout": "cutouts/camarote-rot.webp"
+  },
+  {
+    "id": 106,
+    "slug": "cama-alondra",
+    "name": "Cama Alondra",
+    "category": "muebles",
+    "subcategory": "camas",
+    "subcategoryLabel": "Camas",
+    "image": "cama-alondra.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Cama con cabecero tapizado de paneles verticales y mesas de noche integradas. Un diseño amplio y elegante para tu alcoba.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses",
+      "Tipo": "Cama tapizada con mesas de noche integradas"
+    },
+    "pickup": true,
+    "stock": null,
+    "cutout": "cutouts/cama-alondra.webp"
+  },
+  {
+    "id": 107,
+    "slug": "comedor-elena-marmol",
+    "name": "Comedor Elena Mármol",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-elena-marmol.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Comedor de mesa cuadrada con cubierta tipo mármol, base de listones y 4 sillas tapizadas envolventes.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses",
+      "Puestos": "4",
+      "Mesa": "Cuadrada tipo mármol"
+    },
+    "pickup": true,
+    "stock": null,
+    "cutout": "cutouts/comedor-elena-marmol.webp"
+  },
+  {
+    "id": 108,
+    "slug": "comedor-toronto",
+    "name": "Comedor Toronto",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-toronto.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Comedor de mesa rectangular con cubierta tipo mármol, base acanalada dorada y 6 sillas tapizadas.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses",
+      "Puestos": "6",
+      "Mesa": "Rectangular tipo mármol"
+    },
+    "pickup": true,
+    "stock": null,
+    "cutout": "cutouts/comedor-toronto.webp"
+  },
+  {
+    "id": 109,
+    "slug": "comedor-4-puestos",
+    "name": "Comedor 4 Puestos",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-4-puestos-nueva.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Nueva colección. Mesa cuadrada blanca con base dorada y 4 sillas tapizadas envolventes.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses",
+      "Puestos": "4"
+    },
+    "pickup": true,
+    "stock": null,
+    "nueva": true,
+    "cutout": "cutouts/comedor-4-puestos-nueva.webp"
+  },
+  {
+    "id": 110,
+    "slug": "comedor-6-puestos",
+    "name": "Comedor 6 Puestos",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-6-puestos-nueva.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Nueva colección. Mesa rectangular blanca con base de madera y 6 sillas tapizadas con estructura de madera.",
+    "specs": {
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses",
+      "Puestos": "6"
+    },
+    "pickup": true,
+    "stock": null,
+    "nueva": true,
+    "cutout": "cutouts/comedor-6-puestos-nueva.webp"
   }
 ];
 
