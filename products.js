@@ -2421,8 +2421,8 @@ const PRODUCTS = [
   },
   {
     "id": 109,
-    "slug": "comedor-4-puestos",
-    "name": "Comedor 4 Puestos",
+    "slug": "comedor-gabanna-4-puestos",
+    "name": "Comedor Gabanna 4 Puestos",
     "category": "muebles",
     "subcategory": "comedor",
     "subcategoryLabel": "Juegos de Comedor",
@@ -2443,8 +2443,8 @@ const PRODUCTS = [
   },
   {
     "id": 110,
-    "slug": "comedor-6-puestos",
-    "name": "Comedor 6 Puestos",
+    "slug": "comedor-tayrona",
+    "name": "Comedor Tayrona",
     "category": "muebles",
     "subcategory": "comedor",
     "subcategoryLabel": "Juegos de Comedor",
