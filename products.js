@@ -2462,6 +2462,31 @@ const PRODUCTS = [
     "stock": null,
     "nueva": true,
     "cutout": "cutouts/comedor-6-puestos-nueva.webp"
+  },
+  {
+    "id": 111,
+    "slug": "comedor-eclis",
+    "name": "Comedor Eclis",
+    "category": "muebles",
+    "subcategory": "comedor",
+    "subcategoryLabel": "Juegos de Comedor",
+    "image": "comedor-eclis.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Nueva colección. Comedor de mesa cuadrada con cubierta blanca brillante, base de listones en madera y 4 sillas tapizadas envolventes con patas de madera. Cálido, moderno y fácil de combinar.",
+    "specs": {
+      "Puestos": "4",
+      "Mesa": "Cuadrada, cubierta blanca brillante",
+      "Base": "Listones de madera",
+      "Sillas": "Tapizadas envolventes con respaldo acanalado y patas de madera",
+      "Medidas": "Consultar en tienda",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null,
+    "nueva": true,
+    "cutout": "cutouts/comedor-eclis.webp"
   }
 ];
 

@@ -110,9 +110,8 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--navy); outline-of
 .nc-text{ font-size:.84rem; line-height:1.6; color:var(--text); max-width:240px; margin:0; }
 .item.big .ph img{ aspect-ratio:1/1; }
 .nc-grid.nc2{ grid-template-columns:1.6fr 1fr; gap:24px; }
-.nc-grid.nc3{ grid-template-columns:1.5fr 1fr 1fr; gap:20px; align-items:start; }
-.nc3 .item.big .ph img{ aspect-ratio:4/3; }
-.nc3 .item .ph img{ aspect-ratio:3/4; }
+.nc-grid.nc3{ grid-template-columns:repeat(4,1fr); gap:18px; align-items:start; }
+.nc3 .item .ph img, .nc3 .item.big .ph img{ aspect-ratio:3/4; }
 #nuevos{ padding:70px 0 70px; }
 #nuevos .kick{ color:var(--red); }
 .nc2 .item.big .ph img{ aspect-ratio:3/2; }
@@ -246,8 +245,8 @@ footer img{ height:36px; width:auto; }
   .item.big{ grid-column:1 / -1; }
   .nc-grid.nc2{ grid-template-columns:1fr; }
   .nc-grid.nc3{ grid-template-columns:1fr 1fr; gap:14px; }
-  .nc3 .item.big{ grid-column:1 / -1; }
-  .nc3 .item .ph img{ aspect-ratio:1/1; }
+  .nc3 .item.big{ grid-column:auto; }
+  .nc3 .item .ph img, .nc3 .item.big .ph img{ aspect-ratio:1/1; }
   #nuevos{ padding:50px 0; }
   .cats{ grid-template-columns:1fr 1fr; gap:14px; }
   .cats-sec{ padding-bottom:70px; }
@@ -320,13 +319,14 @@ footer img{ height:36px; width:auto; }
     <div class="head">
       <div>
         <div class="kick">Recién llegados</div>
-        <h2 class="h-sec" style="margin-top:8px">Nueva colección<sup>(3)</sup></h2>
+        <h2 class="h-sec" style="margin-top:8px">Nueva colección<sup>(4)</sup></h2>
       </div>
       <a class="ulink" href="muebles.html">Ver todo el catálogo</a>
     </div>
     <div class="nc-grid nc3">
       <a class="item big" href="producto.html?id=110"><div class="ph"><img src="landing/nc-comedor-6.webp" alt="Comedor Tayrona, nueva colección" loading="lazy"></div><h3>Comedor Tayrona</h3><div class="p">Precio por cotizar</div></a>
       <a class="item" href="producto.html?id=109"><div class="ph"><img src="landing/nc-comedor-4.webp" alt="Comedor Gabanna 4 puestos, nueva colección" loading="lazy"></div><h3>Comedor Gabanna</h3><div class="p">Precio por cotizar</div></a>
+      <a class="item" href="producto.html?id=111"><div class="ph"><img src="landing/nc-comedor-eclis.webp" alt="Comedor Eclis, nueva colección" loading="lazy"></div><h3>Comedor Eclis</h3><div class="p">Precio por cotizar</div></a>
       <a class="item" href="producto.html?id=106"><div class="ph"><img src="landing/nc-cama-alondra.webp" alt="Cama Alondra, nueva colección" loading="lazy"></div><h3>Cama Alondra</h3><div class="p">Precio por cotizar</div></a>
     </div>
   </div>
@@ -409,7 +409,7 @@ footer img{ height:36px; width:auto; }
     <h2 class="h-sec">Categorías</h2>
     <div class="cats">
       <a class="cat" href="muebles.html?sub=sala"><div class="ph"><img src="landing/cat-sala.webp" alt="" loading="lazy"></div><div class="meta"><b>Salas</b><span>22 diseños</span></div></a>
-      <a class="cat" href="muebles.html?sub=comedor"><div class="ph"><img src="landing/cat-comedor.webp" alt="" loading="lazy"></div><div class="meta"><b>Comedores</b><span>38 diseños</span></div></a>
+      <a class="cat" href="muebles.html?sub=comedor"><div class="ph"><img src="landing/cat-comedor.webp" alt="" loading="lazy"></div><div class="meta"><b>Comedores</b><span>39 diseños</span></div></a>
       <a class="cat" href="muebles.html?sub=camas"><div class="ph"><img src="landing/cat-cama.webp" alt="" loading="lazy"></div><div class="meta"><b>Camas</b><span>18 diseños</span></div></a>
       <a class="cat" href="muebles.html?sub=closets"><div class="ph"><img src="landing/cat-closet.webp" alt="" loading="lazy"></div><div class="meta"><b>Closets</b><span>10 diseños</span></div></a>
     </div>
