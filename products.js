@@ -2487,6 +2487,29 @@ const PRODUCTS = [
     "stock": null,
     "nueva": true,
     "cutout": "cutouts/comedor-eclis.webp"
+  },
+  {
+    "id": 112,
+    "slug": "cama-isabella-1-60",
+    "name": "Cama Isabella 1,60 m",
+    "category": "muebles",
+    "subcategory": "camas",
+    "subcategoryLabel": "Camas",
+    "image": "cama-isabella-160.jpg",
+    "cutout": "cutouts/cama-isabella-160.webp",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "AudioPionner",
+    "description": "Nueva colección. Cama tapizada de 1,60 m con cabecero de paneles verticales y marco en tono champaña, y base tapizada. Elegante y cómoda para tu alcoba.",
+    "specs": {
+      "Medida": "1,60 m",
+      "Cabecero": "Tapizado de paneles verticales con marco",
+      "Base": "Tapizada",
+      "Garantía": "12 meses"
+    },
+    "pickup": true,
+    "stock": null,
+    "nueva": true
   }
 ];
 
