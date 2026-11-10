@@ -96,7 +96,7 @@ function setSub(key){
 }
 
 function renderGrid(){
-  let list = PRODUCTS.filter(p => currentSub === "all" || p.subcategory === currentSub);
+  let list = PRODUCTS.filter(p => p.category === "muebles" && (currentSub === "all" || p.subcategory === currentSub));
   if(promoOnly) list = list.filter(p => p.compareAtPrice);
 
   // Los productos sin precio (por cotizar) siempre quedan al final al ordenar por precio
