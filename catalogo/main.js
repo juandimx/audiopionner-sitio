@@ -220,6 +220,7 @@ function renderHeader() {
     ["muebles.html?sub=closets", "Closets"],
     ["muebles.html?sub=colchones", "Colchones"],
     ["neveras.html", "Neveras"],
+    ["aires.html", "Aires"],
     ["tiendas.html", "Tiendas"],
   ];
   const navLinks = links.map(([href, label]) => `<a href="${base}${href}">${label}</a>`).join("");
@@ -293,6 +294,7 @@ function renderFooter() {
           <a href="${base}muebles.html?sub=organizadores">Organizadores y gaveteros</a>
           <a href="${base}muebles.html?sub=consolas">Consolas</a>
           <a href="${base}neveras.html">Neveras</a>
+          <a href="${base}aires.html">Aires acondicionados</a>
         </div>
         <div>
           <h5>Financiación</h5>

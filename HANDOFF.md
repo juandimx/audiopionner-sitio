@@ -45,7 +45,7 @@ Responsable: **Juan Diego Palacio**. Comunicación: instrucciones cortas y direc
 }
 ```
 Subcategorías de muebles (`category: "muebles"`): `sala`, `comedor`, `camas`, `colchones`, `bases`, `closets`, `organizadores`, `tocadores`, `consolas` (bifés/espejos), `centro-mesa`.
-**Neveras** (solo catálogo, página `catalogo/neveras.html`): usar `category: "electrodomesticos"`, `subcategory: "neveras"`, `subcategoryLabel: "Neveras"`. Mientras no haya ninguna, la página muestra "Muy pronto" con botón de WhatsApp. "Todos" en `catalogo/muebles.html` solo muestra `category: "muebles"`.
+**Neveras** (solo catálogo, página `catalogo/neveras.html`): usar `category: "electrodomesticos"`, `subcategory: "neveras"`, `subcategoryLabel: "Neveras"`. Mientras no haya ninguna, la página muestra "Muy pronto" con botón de WhatsApp. **Aires acondicionados** (`catalogo/aires.html`): igual, con `subcategory: "aires"`, `subcategoryLabel: "Aires acondicionados"`. "Todos" en `catalogo/muebles.html` solo muestra `category: "muebles"`.
 Al editar con Node: leer `require("./products.js")`, modificar y volver a escribir conservando la cabecera del archivo y el bloque final `module.exports`.
 
 ## 4. Cómo agregar un producto (checklist)
