@@ -54,8 +54,8 @@ if(!product){
   document.title = product.name + " — AudioPionner";
   document.querySelector('meta[name="description"]')?.setAttribute("content", `${product.name}. ${product.description}`);
   document.getElementById("breadcrumbs").innerHTML = `
-    <a href="index.html">Inicio</a> / <a href="muebles.html">Muebles</a> /
-    <a href="muebles.html?sub=${product.subcategory}">${product.subcategoryLabel}</a> / ${product.name}
+    <a href="index.html">Inicio</a> /
+    ${product.category === "muebles" ? `<a href="muebles.html">Muebles</a> / <a href="muebles.html?sub=${product.subcategory}">${product.subcategoryLabel}</a>` : `<a href="${product.subcategory}.html">${product.subcategoryLabel}</a>`} / ${product.name}
   `;
 
   const hasDiscount = product.compareAtPrice && product.compareAtPrice > product.price;
@@ -138,7 +138,7 @@ if(!product){
           ${Object.entries(product.specs).map(([k,v])=>`<div class="spec-row"><span>${k}</span><strong>${v}</strong></div>`).join("")}
         </div>
         <div class="tab-panel" id="tab-shipping">
-          <p>Envíos a todo el territorio nacional colombiano. La instalación no está incluida. Todas las piezas AudioPionner cuentan con garantía directa de fábrica de 12 meses por defectos de manufactura.</p>
+          <p>Envíos a todo el territorio nacional colombiano. La instalación no está incluida. ${product.category === "muebles" ? "Todas las piezas AudioPionner cuentan con garantía directa de fábrica de 12 meses por defectos de manufactura." : `Garantía del fabricante (${product.brand}). Te confirmamos el tiempo y las condiciones por WhatsApp.`}</p>
         </div>
       </div>
     </div>
@@ -188,6 +188,7 @@ if(!product){
   // Related products: same subcategory, excluding current
   const related = PRODUCTS.filter(p => p.subcategory === product.subcategory && p.id !== product.id).slice(0,4);
   document.getElementById("relatedGrid").innerHTML = related.map(productCard).join("");
+  if (!related.length) document.getElementById("relatedGrid").closest("section, .container").style.display = "none";
 }
 </script>
 </body>

@@ -2510,6 +2510,36 @@ const PRODUCTS = [
     "pickup": true,
     "stock": null,
     "nueva": true
+  },
+  {
+    "id": 113,
+    "slug": "nevera-mabe-415-litros",
+    "name": "Nevera Mabe No Frost 415 L con dispensador",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-mabe-415.jpg",
+    "cutout": "cutouts/nevera-mabe-415.webp",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Nevera Mabe de dos puertas con congelador superior y tecnología No Frost: no se escarcha y no tienes que descongelarla. Trae dispensador de agua en la puerta para tener agua fría sin abrirla, panel in.genious y acabado negro. Espacio de sobra para la familia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMP415YCC",
+      "Capacidad": "415 L brutos (394 L netos)",
+      "Congelador": "Superior, 100 L",
+      "Refrigerador": "294 L",
+      "Tecnología": "No Frost",
+      "Dispensador": "De agua, en la puerta",
+      "Bandejas": "Vidrio templado",
+      "Color": "Negro",
+      "Medidas": "173 × 67 × 68 cm (alto × ancho × fondo)",
+      "Peso": "62 kg",
+      "Voltaje": "115 V"
+    },
+    "pickup": true,
+    "stock": null
   }
 ];
 
