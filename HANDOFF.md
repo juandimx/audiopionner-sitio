@@ -60,7 +60,7 @@ Al editar con Node: leer `require("./products.js")`, modificar y volver a escrib
 > Importante: la plantilla con la que se generaron las páginas de inicio ya no existe; **`index.html` y `catalogo/index.html` son ahora la fuente** y cualquier cambio de la landing debe hacerse en los dos.
 
 ## 5. Reglas de negocio vigentes
-- **WhatsApp:** tienda → 573163845802; **catálogo → 573024919445** (302 491 9445). En el catálogo el botón dice **"Comprar ahora por WhatsApp"** y envía: "Hola AudioPionner 👋 Quiero comprar este producto: *Nombre* (color, medida) + enlace de `catalogo/p/` con foto".
+- **WhatsApp:** **tienda y catálogo → 573024919445** (302 491 9445), unificado el 14 nov 2026. En el catálogo el botón dice **"Comprar ahora por WhatsApp"** y envía: "Hola AudioPionner 👋 Quiero comprar este producto: *Nombre* (color, medida) + enlace de `catalogo/p/` con foto".
 - **Catálogo sin precios ni pagos.** Medios de pago solo informativos: Addi, Sistecrédito, Alo Credit, Banco de Bogotá, PSE, tarjeta.
 - Botón flotante de WhatsApp **arriba a la derecha** con burbuja "¿Tienes una pregunta? Escríbenos" (abajo tapaba la marca de Netlify).
 - **Colchones:** un solo producto "Colchones en todas las medidas" (varios tipos; el asesor explica por WhatsApp). Bases cama en blanco, negro y gris.

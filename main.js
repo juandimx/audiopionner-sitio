@@ -4,7 +4,7 @@
    ============================================ */
 
 const STORE_INFO = {
-  whatsapp: "573163845802",
+  whatsapp: "573024919445",
   phone: "316 384 5802",
   manager: "Sr. Carlos Rodríguez",
   stores: [
