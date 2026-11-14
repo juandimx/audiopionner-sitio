@@ -81,7 +81,7 @@ if(!product){
       ${(product.gallery || []).length > 1 ? `<div class="pdp-thumbs">${product.gallery.map((g,i)=>`<button type="button" class="pdp-thumb${i===0?' on':''}" onclick="showImg(${i})" aria-label="Foto ${i+1}"><img src="${g}" alt=""></button>`).join("")}</div>` : ""}
     </div>
     <div class="pdp-info">
-      <span class="brand">${product.brand}</span>
+      ${product.brand ? `<span class="brand">${product.brand}</span>` : ""}
       <h1>${product.name}</h1>
       ${colors.length ? `
       <div class="color-pick">
@@ -138,7 +138,7 @@ if(!product){
           ${Object.entries(product.specs).map(([k,v])=>`<div class="spec-row"><span>${k}</span><strong>${v}</strong></div>`).join("")}
         </div>
         <div class="tab-panel" id="tab-shipping">
-          <p>Envíos a todo el territorio nacional colombiano. La instalación no está incluida. ${product.category === "muebles" ? "Todas las piezas AudioPionner cuentan con garantía directa de fábrica de 12 meses por defectos de manufactura." : `Garantía del fabricante (${product.brand}). Te confirmamos el tiempo y las condiciones por WhatsApp.`}</p>
+          <p>Envíos a todo el territorio nacional colombiano. La instalación no está incluida. ${product.category === "muebles" ? "Todas las piezas AudioPionner cuentan con garantía directa de fábrica de 12 meses por defectos de manufactura." : `Garantía del fabricante${product.brand ? ` (${product.brand})` : ""}. Te confirmamos el tiempo y las condiciones por WhatsApp.`}</p>
         </div>
       </div>
     </div>

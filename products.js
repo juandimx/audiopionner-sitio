@@ -2512,19 +2512,521 @@ const PRODUCTS = [
     "nueva": true
   },
   {
-    "id": 113,
-    "slug": "nevera-bcd-205",
-    "name": "Nevera BCD-205",
+    "id": 137,
+    "slug": "nevera-msl631lklng0",
+    "name": "Nevecón Mabe 631 L MSL631LKLNG0",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-bcd-205.jpg",
+    "image": "nevera-msl631lklng0.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "AudioPionner",
+    "brand": "Mabe",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Referencia": "BCD-205"
+      "Marca": "Mabe",
+      "Referencia": "MSL631LKLNG0",
+      "Capacidad": "631 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 136,
+    "slug": "nevera-msl521qmlss0",
+    "name": "Nevecón Mabe 565 L MSL521QMLSS0",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-msl521qmlss0.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "MSL521QMLSS0",
+      "Capacidad": "565 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 144,
+    "slug": "nevera-rmb520iwbqp1",
+    "name": "Nevecón Mabe 520 L Bottom Freezer",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmb520iwbqp1.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMB520IWBQP1",
+      "Capacidad": "520 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 135,
+    "slug": "nevera-msl480lplss0",
+    "name": "Nevecón Mabe 480 L MSL480LPLSS0",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-msl480lplss0.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "MSL480LPLSS0",
+      "Capacidad": "480 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 148,
+    "slug": "nevera-rmp470ycg",
+    "name": "Nevera Mabe 470 L RMP470YCG",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmp470ycg.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMP470YCG",
+      "Capacidad": "470 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 149,
+    "slug": "nevera-rmp470ycu",
+    "name": "Nevera Mabe 470 L RMP470YCU",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmp470ycu.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMP470YCU",
+      "Capacidad": "470 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 153,
+    "slug": "nevera-rmp470gct",
+    "name": "Nevera Mabe 470 L Platinum",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmp470gct.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMP470GCT",
+      "Capacidad": "470 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 147,
+    "slug": "nevera-rmp415ycc",
+    "name": "Nevera Mabe No Frost 415 L con dispensador",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmp415ycc.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Nevera de dos puertas con congelador superior y tecnología No Frost, dispensador de agua en la puerta y acabado negro.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMP415YCC",
+      "Capacidad": "415 L brutos (394 L netos)",
+      "Congelador": "Superior, 100 L",
+      "Refrigerador": "294 L",
+      "Tecnología": "No Frost",
+      "Dispensador": "De agua, en la puerta",
+      "Color": "Negro",
+      "Medidas": "173 × 67 × 68 cm (alto × ancho × fondo)",
+      "Voltaje": "115 V"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 152,
+    "slug": "nevera-rmp415gcg",
+    "name": "Nevera Mabe 415 L Grafito",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmp415gcg.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMP415GCG",
+      "Capacidad": "415 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 159,
+    "slug": "nevera-rmp415gct",
+    "name": "Nevera Mabe 415 L Platinum",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmp415gct.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMP415GCT",
+      "Capacidad": "415 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 151,
+    "slug": "nevera-rmb400ibbrp0",
+    "name": "Nevera Mabe 400 L Bottom Freezer",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmb400ibbrp0.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMB400IBBRP0",
+      "Capacidad": "400 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 161,
+    "slug": "nevera-frost-390-litros-grafito-mabe",
+    "name": "Nevera Mabe Frost 390 L Grafito",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-frost-390-litros-grafito-mabe.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Capacidad": "390 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 162,
+    "slug": "nevera-frost-mabe-320lt-2-puertas-grafito",
+    "name": "Nevera Mabe Frost 320 L 2 puertas Grafito",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-frost-mabe-320lt-2-puertas-grafito.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Capacidad": "320 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 142,
+    "slug": "nevera-rma313fbcg",
+    "name": "Nevera Mabe 313 L Grafito",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rma313fbcg.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMA313FBCG",
+      "Capacidad": "313 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 143,
+    "slug": "nevera-rma313fxct",
+    "name": "Nevera Mabe 313 L Platinum",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rma313fxct.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMA313FXCT",
+      "Capacidad": "313 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 141,
+    "slug": "nevera-rma267fxct",
+    "name": "Nevera Mabe 267 L Platinum",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rma267fxct.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMA267FXCT",
+      "Capacidad": "267 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 140,
+    "slug": "nevera-rma247fjcg",
+    "name": "Nevera Mabe 247 L Grafito",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rma247fjcg.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMA247FJCG",
+      "Capacidad": "247 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 150,
+    "slug": "nevera-rmu210nacg1",
+    "name": "Nevera Mabe 210 L 1 puerta Grafito",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmu210nacg1.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMU210NACG1",
+      "Capacidad": "210 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 145,
+    "slug": "nevera-rmf04brx0",
+    "name": "Minibar Mabe 93 L Inox",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmf04brx0.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMF04BRX0",
+      "Capacidad": "93 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 146,
+    "slug": "nevera-rmf04cv1",
+    "name": "Minibar Mabe 93 L Negro brillante",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-rmf04cv1.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Mabe",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Mabe",
+      "Referencia": "RMF04CV1",
+      "Capacidad": "93 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 131,
+    "slug": "nevera-mdrd268fgm50cow",
+    "name": "Nevera Midea MDRD268FGM50COW",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-mdrd268fgm50cow.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Midea",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Midea",
+      "Referencia": "MDRD268FGM50COW"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 132,
+    "slug": "nevera-mdrs619fgm28co",
+    "name": "Nevecón Midea side by side MDRS619FGM28CO",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-mdrs619fgm28co.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Midea",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Midea",
+      "Referencia": "MDRS619FGM28CO"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 133,
+    "slug": "nevera-mdrt385mtm28cod",
+    "name": "Nevera Midea MDRT385MTM28COD",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-mdrt385mtm28cod.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Midea",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Midea",
+      "Referencia": "MDRT385MTM28COD"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 134,
+    "slug": "nevera-mdrt489mtm28cod",
+    "name": "Nevera Midea MDRT489MTM28COD",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-mdrt489mtm28cod.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Midea",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Midea",
+      "Referencia": "MDRT489MTM28COD"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 154,
+    "slug": "nevera-sbs-430",
+    "name": "Nevecón Challenger side by side 430 L",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-sbs-430.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Challenger",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Challenger",
+      "Referencia": "SBS 430",
+      "Capacidad": "430 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 163,
+    "slug": "nevera-no-frost-bottom-freezer-325-lts-challenger",
+    "name": "Nevera Challenger No Frost Bottom Freezer 325 L",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-no-frost-bottom-freezer-325-lts-challenger.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Challenger",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Challenger",
+      "Capacidad": "325 L"
     },
     "pickup": true,
     "stock": null
@@ -2570,24 +3072,6 @@ const PRODUCTS = [
     "stock": null
   },
   {
-    "id": 116,
-    "slug": "nevera-3700810",
-    "name": "Nevera ref. 3700810",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-3700810.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Referencia": "3700810"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
     "id": 117,
     "slug": "nevera-cra-420",
     "name": "Nevera Challenger CRA 420",
@@ -2607,91 +3091,20 @@ const PRODUCTS = [
     "stock": null
   },
   {
-    "id": 118,
-    "slug": "nevera-ean-7704353462333",
-    "name": "Nevera ref. 7704353462333",
+    "id": 160,
+    "slug": "nevera-minibar-frost-negro-49-litros-brutos-challenger",
+    "name": "Minibar Challenger Frost Negro 49 L",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-ean-7704353462333.jpg",
+    "image": "nevera-minibar-frost-negro-49-litros-brutos-challenger.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "AudioPionner",
+    "brand": "Challenger",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Referencia": "EAN 7704353462333"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 119,
-    "slug": "nevera-ean-7704353472202",
-    "name": "Nevera ref. 7704353472202",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-ean-7704353472202.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Referencia": "EAN 7704353472202"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 120,
-    "slug": "nevera-ean-7704353474749",
-    "name": "Nevecón side by side ref. 7704353474749",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-ean-7704353474749.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Referencia": "EAN 7704353474749"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 121,
-    "slug": "nevera-ean-7704353474985",
-    "name": "Nevera ref. 7704353474985",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-ean-7704353474985.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Referencia": "EAN 7704353474985"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 122,
-    "slug": "nevera-ean-7704353475005",
-    "name": "Nevera ref. 7704353475005",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-ean-7704353475005.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "AudioPionner",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Referencia": "EAN 7704353475005"
+      "Marca": "Challenger",
+      "Capacidad": "49 L brutos"
     },
     "pickup": true,
     "stock": null
@@ -2730,6 +3143,102 @@ const PRODUCTS = [
     "specs": {
       "Marca": "Electrolux",
       "Referencia": "ERS44F3C5BI"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 138,
+    "slug": "nevera-n448sepdner2",
+    "name": "Nevera Haceb 448 L Negra",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-n448sepdner2.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Haceb",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Haceb",
+      "Referencia": "N448SEPDNER2",
+      "Capacidad": "448 L"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 139,
+    "slug": "nevera-nev-207-ce-mi-in-r2",
+    "name": "Nevera Haceb 207",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-nev-207-ce-mi-in-r2.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Haceb",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Haceb",
+      "Referencia": "NEV 207 CE MI IN R2"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 157,
+    "slug": "nevera-wrw25cktww",
+    "name": "Nevera Whirlpool WRW25CKTWW",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-wrw25cktww.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Whirlpool",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Whirlpool",
+      "Referencia": "WRW25CKTWW"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 158,
+    "slug": "nevera-wrw45aktwb",
+    "name": "Nevera Whirlpool WRW45AKTWB",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-wrw45aktwb.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Whirlpool",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Whirlpool",
+      "Referencia": "WRW45AKTWB"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
+    "id": 156,
+    "slug": "nevera-vt38kpm",
+    "name": "Nevera LG VT38KPM",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-vt38kpm.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "LG",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "LG",
+      "Referencia": "VT38KPM"
     },
     "pickup": true,
     "stock": null
@@ -2812,6 +3321,25 @@ const PRODUCTS = [
     "stock": null
   },
   {
+    "id": 130,
+    "slug": "nevera-k-n291bm",
+    "name": "Nevera Kalley tipo europeo K-N291BM",
+    "category": "electrodomesticos",
+    "subcategory": "neveras",
+    "subcategoryLabel": "Neveras",
+    "image": "nevera-k-n291bm.jpg",
+    "price": null,
+    "compareAtPrice": null,
+    "brand": "Kalley",
+    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
+    "specs": {
+      "Marca": "Kalley",
+      "Referencia": "K-N291BM"
+    },
+    "pickup": true,
+    "stock": null
+  },
+  {
     "id": 129,
     "slug": "nevera-k-mb44n",
     "name": "Minibar Kalley K-MB44N",
@@ -2832,502 +3360,127 @@ const PRODUCTS = [
     "stock": null
   },
   {
-    "id": 130,
-    "slug": "nevera-k-n291bm",
-    "name": "Nevera Kalley tipo europeo K-N291BM",
+    "id": 113,
+    "slug": "nevera-bcd-205",
+    "name": "Nevera BCD-205",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-k-n291bm.jpg",
+    "image": "nevera-bcd-205.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "Kalley",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Marca": "Kalley",
-      "Referencia": "K-N291BM"
+      "Referencia": "BCD-205"
     },
     "pickup": true,
     "stock": null
   },
   {
-    "id": 131,
-    "slug": "nevera-mdrd268fgm50cow",
-    "name": "Nevera Midea MDRD268FGM50COW",
+    "id": 116,
+    "slug": "nevera-3700810",
+    "name": "Nevera ref. 3700810",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-mdrd268fgm50cow.jpg",
+    "image": "nevera-3700810.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "Midea",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Marca": "Midea",
-      "Referencia": "MDRD268FGM50COW"
+      "Referencia": "3700810"
     },
     "pickup": true,
     "stock": null
   },
   {
-    "id": 132,
-    "slug": "nevera-mdrs619fgm28co",
-    "name": "Nevecón Midea side by side MDRS619FGM28CO",
+    "id": 118,
+    "slug": "nevera-ean-7704353462333",
+    "name": "Nevera ref. 7704353462333",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-mdrs619fgm28co.jpg",
+    "image": "nevera-ean-7704353462333.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "Midea",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Marca": "Midea",
-      "Referencia": "MDRS619FGM28CO"
+      "Referencia": "EAN 7704353462333"
     },
     "pickup": true,
     "stock": null
   },
   {
-    "id": 133,
-    "slug": "nevera-mdrt385mtm28cod",
-    "name": "Nevera Midea MDRT385MTM28COD",
+    "id": 119,
+    "slug": "nevera-ean-7704353472202",
+    "name": "Nevera ref. 7704353472202",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-mdrt385mtm28cod.jpg",
+    "image": "nevera-ean-7704353472202.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "Midea",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Marca": "Midea",
-      "Referencia": "MDRT385MTM28COD"
+      "Referencia": "EAN 7704353472202"
     },
     "pickup": true,
     "stock": null
   },
   {
-    "id": 134,
-    "slug": "nevera-mdrt489mtm28cod",
-    "name": "Nevera Midea MDRT489MTM28COD",
+    "id": 120,
+    "slug": "nevera-ean-7704353474749",
+    "name": "Nevecón side by side ref. 7704353474749",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-mdrt489mtm28cod.jpg",
+    "image": "nevera-ean-7704353474749.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "Midea",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Marca": "Midea",
-      "Referencia": "MDRT489MTM28COD"
+      "Referencia": "EAN 7704353474749"
     },
     "pickup": true,
     "stock": null
   },
   {
-    "id": 135,
-    "slug": "nevera-msl480lplss0",
-    "name": "Nevecón Mabe 480 L MSL480LPLSS0",
+    "id": 121,
+    "slug": "nevera-ean-7704353474985",
+    "name": "Nevera ref. 7704353474985",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-msl480lplss0.jpg",
+    "image": "nevera-ean-7704353474985.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "Mabe",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Marca": "Mabe",
-      "Referencia": "MSL480LPLSS0",
-      "Capacidad": "480 L"
+      "Referencia": "EAN 7704353474985"
     },
     "pickup": true,
     "stock": null
   },
   {
-    "id": 136,
-    "slug": "nevera-msl521qmlss0",
-    "name": "Nevecón Mabe 565 L MSL521QMLSS0",
+    "id": 122,
+    "slug": "nevera-ean-7704353475005",
+    "name": "Nevera ref. 7704353475005",
     "category": "electrodomesticos",
     "subcategory": "neveras",
     "subcategoryLabel": "Neveras",
-    "image": "nevera-msl521qmlss0.jpg",
+    "image": "nevera-ean-7704353475005.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "Mabe",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
-      "Marca": "Mabe",
-      "Referencia": "MSL521QMLSS0",
-      "Capacidad": "565 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 137,
-    "slug": "nevera-msl631lklng0",
-    "name": "Nevecón Mabe 631 L MSL631LKLNG0",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-msl631lklng0.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "MSL631LKLNG0",
-      "Capacidad": "631 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 138,
-    "slug": "nevera-n448sepdner2",
-    "name": "Nevera Haceb 448 L Negra",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-n448sepdner2.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Haceb",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Haceb",
-      "Referencia": "N448SEPDNER2",
-      "Capacidad": "448 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 139,
-    "slug": "nevera-nev-207-ce-mi-in-r2",
-    "name": "Nevera Haceb 207",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-nev-207-ce-mi-in-r2.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Haceb",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Haceb",
-      "Referencia": "NEV 207 CE MI IN R2"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 140,
-    "slug": "nevera-rma247fjcg",
-    "name": "Nevera Mabe 247 L Grafito",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rma247fjcg.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMA247FJCG",
-      "Capacidad": "247 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 141,
-    "slug": "nevera-rma267fxct",
-    "name": "Nevera Mabe 267 L Platinum",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rma267fxct.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMA267FXCT",
-      "Capacidad": "267 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 142,
-    "slug": "nevera-rma313fbcg",
-    "name": "Nevera Mabe 313 L Grafito",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rma313fbcg.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMA313FBCG",
-      "Capacidad": "313 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 143,
-    "slug": "nevera-rma313fxct",
-    "name": "Nevera Mabe 313 L Platinum",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rma313fxct.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMA313FXCT",
-      "Capacidad": "313 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 144,
-    "slug": "nevera-rmb520iwbqp1",
-    "name": "Nevecón Mabe 520 L Bottom Freezer",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmb520iwbqp1.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMB520IWBQP1",
-      "Capacidad": "520 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 145,
-    "slug": "nevera-rmf04brx0",
-    "name": "Minibar Mabe 93 L Inox",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmf04brx0.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMF04BRX0",
-      "Capacidad": "93 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 146,
-    "slug": "nevera-rmf04cv1",
-    "name": "Minibar Mabe 93 L Negro brillante",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmf04cv1.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMF04CV1",
-      "Capacidad": "93 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 147,
-    "slug": "nevera-rmp415ycc",
-    "name": "Nevera Mabe No Frost 415 L con dispensador",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmp415ycc.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Nevera de dos puertas con congelador superior y tecnología No Frost, dispensador de agua en la puerta y acabado negro.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMP415YCC",
-      "Capacidad": "415 L brutos (394 L netos)",
-      "Congelador": "Superior, 100 L",
-      "Refrigerador": "294 L",
-      "Tecnología": "No Frost",
-      "Dispensador": "De agua, en la puerta",
-      "Color": "Negro",
-      "Medidas": "173 × 67 × 68 cm (alto × ancho × fondo)",
-      "Voltaje": "115 V"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 148,
-    "slug": "nevera-rmp470ycg",
-    "name": "Nevera Mabe 470 L RMP470YCG",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmp470ycg.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMP470YCG",
-      "Capacidad": "470 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 149,
-    "slug": "nevera-rmp470ycu",
-    "name": "Nevera Mabe 470 L RMP470YCU",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmp470ycu.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMP470YCU",
-      "Capacidad": "470 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 150,
-    "slug": "nevera-rmu210nacg1",
-    "name": "Nevera Mabe 210 L 1 puerta Grafito",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmu210nacg1.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMU210NACG1",
-      "Capacidad": "210 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 151,
-    "slug": "nevera-rmb400ibbrp0",
-    "name": "Nevera Mabe 400 L Bottom Freezer",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmb400ibbrp0.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMB400IBBRP0",
-      "Capacidad": "400 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 152,
-    "slug": "nevera-rmp415gcg",
-    "name": "Nevera Mabe 415 L Grafito",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmp415gcg.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMP415GCG",
-      "Capacidad": "415 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 153,
-    "slug": "nevera-rmp470gct",
-    "name": "Nevera Mabe 470 L Platinum",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmp470gct.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMP470GCT",
-      "Capacidad": "470 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 154,
-    "slug": "nevera-sbs-430",
-    "name": "Nevecón Challenger side by side 430 L",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-sbs-430.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Challenger",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Challenger",
-      "Referencia": "SBS 430",
-      "Capacidad": "430 L"
+      "Referencia": "EAN 7704353475005"
     },
     "pickup": true,
     "stock": null
@@ -3342,163 +3495,10 @@ const PRODUCTS = [
     "image": "nevera-sku-2343187.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "AudioPionner",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {
       "Referencia": "SKU 2343187"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 156,
-    "slug": "nevera-vt38kpm",
-    "name": "Nevera LG VT38KPM",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-vt38kpm.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "LG",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "LG",
-      "Referencia": "VT38KPM"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 157,
-    "slug": "nevera-wrw25cktww",
-    "name": "Nevera Whirlpool WRW25CKTWW",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-wrw25cktww.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Whirlpool",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Whirlpool",
-      "Referencia": "WRW25CKTWW"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 158,
-    "slug": "nevera-wrw45aktwb",
-    "name": "Nevera Whirlpool WRW45AKTWB",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-wrw45aktwb.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Whirlpool",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Whirlpool",
-      "Referencia": "WRW45AKTWB"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 159,
-    "slug": "nevera-rmp415gct",
-    "name": "Nevera Mabe 415 L Platinum",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-rmp415gct.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Referencia": "RMP415GCT",
-      "Capacidad": "415 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 160,
-    "slug": "nevera-minibar-frost-negro-49-litros-brutos-challenger",
-    "name": "Minibar Challenger Frost Negro 49 L",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-minibar-frost-negro-49-litros-brutos-challenger.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Challenger",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Challenger",
-      "Capacidad": "49 L brutos"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 161,
-    "slug": "nevera-frost-390-litros-grafito-mabe",
-    "name": "Nevera Mabe Frost 390 L Grafito",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-frost-390-litros-grafito-mabe.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Capacidad": "390 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 162,
-    "slug": "nevera-frost-mabe-320lt-2-puertas-grafito",
-    "name": "Nevera Mabe Frost 320 L 2 puertas Grafito",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-frost-mabe-320lt-2-puertas-grafito.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Mabe",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Mabe",
-      "Capacidad": "320 L"
-    },
-    "pickup": true,
-    "stock": null
-  },
-  {
-    "id": 163,
-    "slug": "nevera-no-frost-bottom-freezer-325-lts-challenger",
-    "name": "Nevera Challenger No Frost Bottom Freezer 325 L",
-    "category": "electrodomesticos",
-    "subcategory": "neveras",
-    "subcategoryLabel": "Neveras",
-    "image": "nevera-no-frost-bottom-freezer-325-lts-challenger.jpg",
-    "price": null,
-    "compareAtPrice": null,
-    "brand": "Challenger",
-    "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
-    "specs": {
-      "Marca": "Challenger",
-      "Capacidad": "325 L"
     },
     "pickup": true,
     "stock": null
@@ -3513,7 +3513,7 @@ const PRODUCTS = [
     "image": "nevera-referencia-por-confirmar.jpg",
     "price": null,
     "compareAtPrice": null,
-    "brand": "AudioPionner",
+    "brand": "",
     "description": "Pregunta por WhatsApp disponibilidad, medidas, colores y opciones de financiación de esta referencia.",
     "specs": {},
     "pickup": true,
