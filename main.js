@@ -5,7 +5,7 @@
 
 const STORE_INFO = {
   whatsapp: "573024919445",
-  phone: "302 491 9445",
+  phone: "316 384 5802",
   manager: "Sr. Carlos Rodríguez",
   stores: [
     { city: "Santa Marta", address: "Cra 5ta con Calle 13" },
