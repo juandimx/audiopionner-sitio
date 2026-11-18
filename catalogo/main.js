@@ -4,8 +4,8 @@
    ============================================ */
 
 const STORE_INFO = {
-  whatsapp: "573024919445",
-  phone: "302 491 9445",
+  whatsapp: "573117600365",
+  phone: "311 760 0365",
   manager: "Sr. Carlos Rodríguez",
   stores: [
     { city: "Santa Marta", address: "Cra 5ta con Calle 13" },
